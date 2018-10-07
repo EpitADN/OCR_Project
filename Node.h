@@ -18,7 +18,7 @@ typedef struct S_Node {
 T_Node* InitializeNode();
 
 /// Free the memory occupied by a node.
-/// \param node Node to delete.
+/// \param node Pointer to the node to delete.
 void FreeNode(T_Node* node);
 
 #endif //OCR_NODE_H

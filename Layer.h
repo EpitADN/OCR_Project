@@ -8,7 +8,7 @@
 #define OCR_LAYER_H
 
 typedef struct S_Layer {
-    int nbNodes;
+    int* nbNodes;
     T_Node** nodes;
 } T_Layer;
 
@@ -16,11 +16,11 @@ typedef struct S_Layer {
 /// Create a new layer with n nodes
 /// \param nbNodes number of nodes of the layer
 /// \return New layer
-T_Layer* InitializeLayer(int nbNodes);
+T_Layer* InitializeLayer(int* nbNodes);
 
 
 /// Free the memory occupied by a layer.
-/// \param layer Layer to delete.
+/// \param layer Pointer to the layer to delete.
 void FreeLayer(T_Layer* layer);
 
 #endif //OCR_LAYER_H

@@ -9,8 +9,8 @@
 
 
 typedef struct S_Network {
-    int nbLayers;
-    int* sizeLayers;
+    int* nbLayers;
+    int** sizeLayers;
     T_Layer** Layers;
 } T_Network;
 
@@ -19,8 +19,14 @@ typedef struct S_Network {
 /// \return Network following the user criteria
 T_Network* CreateNetwork_Manual();
 
+
+/// Print all the network related variables, including all of its layers and nodes.
+/// \param network Pointer to the network to print.
+void PrintAllNetworkInfos(T_Network* network);
+
+
 /// Free the memory occupied by a network.
-/// \param network Network to delete.
+/// \param network Pointer to the network to delete.
 void FreeNetwork(T_Network* network);
 
 

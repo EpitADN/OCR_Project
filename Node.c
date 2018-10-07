@@ -9,8 +9,11 @@
 /// \return New node
 T_Node* InitializeNode(){
 
+    // Initialize pointer
+    T_Node* node = NULL;
+
     // Allocating memory for the node
-    T_Node* node = malloc(sizeof(T_Node));
+    node = malloc(sizeof(T_Node));
 
     // Exiting if allocation failed
     if (node == NULL)
@@ -26,7 +29,7 @@ T_Node* InitializeNode(){
 
 
 /// Free the memory occupied by a node.
-/// \param node Node to delete.
+/// \param node Pointer to the node to delete.
 void FreeNode(T_Node* node){
     free(node);
 }

@@ -8,21 +8,24 @@
 /// Create a new layer with n nodes
 /// \param nbNodes number of nodes of the layer
 /// \return New layer
-T_Layer* InitializeLayer(int nbNodes){
+T_Layer* InitializeLayer(int* nbNodes){
 
     // Exiting if bad parameters
-    if (nbNodes < 1)
+    if (*nbNodes < 1)
         return NULL;
 
+    // Initialize pointer
+    T_Node** nodes = NULL;
+
     // Allocating memory for the nodes array
-    T_Node** nodes = malloc(nbNodes * sizeof(T_Node*));
+    nodes = malloc(*nbNodes * sizeof(T_Node*));
 
     // Exiting if allocation failed
     if (nodes == NULL)
         exit(1);
 
     // Creating nodes and put them into array
-    for (int i = 0; i < nbNodes; ++i) {
+    for (int i = 0; i < *nbNodes; ++i) {
         nodes[i] = InitializeNode();
     }
 
@@ -42,10 +45,10 @@ T_Layer* InitializeLayer(int nbNodes){
 
 
 /// Free the memory occupied by a layer.
-/// \param layer Layer to delete.
+/// \param layer Pointer to the layer to delete.
 void FreeLayer(T_Layer* layer){
     T_Node** nodes = layer->nodes;
-    for (int i = 0; i < layer->nbNodes; ++i)
+    for (int i = 0; i < *layer->nbNodes; ++i)
         FreeNode(nodes[i]);
     free(layer);
 }
