@@ -6,34 +6,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-    double matrix[4][3] = { { 1.2 , 2.2 , 3.2 } , { 4.2 , 5.2 , 6.2} , { 1.2 , 2.2 , 3.2 } , { 4.2 , 5.2 , 6.2} };
-    Save(4, 3, matrix);
-    Load(4, 3);
-    return 0;
-}
-
 /// This function will save a double array on a binary file.
 /// \param Heigth
 /// \param Weigth
-/// \param Data
-void Save(int Heigth, int Weigth, double Data[])
+/// \param Data , double[]data
+void Save(int nbLayers, int sizeLayers)
 {
     FILE *fp;
 
-    if ((fp = fopen("C:\\program.bin","wb")) == NULL){
+    if ((fp = fopen("C:\\SaveConnections  .bin","wb")) == NULL)
         printf("Error! opening file");
 
-        // Program exits if the file pointer returns NULL.
-        exit(1);
-    }
+    //int LenMatrix = Weigth*Heigth;
 
-    int LenMatrix = Weigth*Heigth;
+    fwrite(&nbLayers, sizeof(int), 1, fp);
+    fwrite(&sizeLayers, sizeof(int), 1, fp);
 
-    fwrite(&Heigth, sizeof(int), 1, fp);
-    fwrite(&Weigth, sizeof(int), 1, fp);
-
-    fwrite(&Data, sizeof(double), LenMatrix, fp);
+    //fwrite(&Data, sizeof(double), LenMatrix, fp);
 
     fclose(fp);
 }

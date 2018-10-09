@@ -5,7 +5,7 @@
 #ifndef OCR_PROJECT_SAVEANDLOAD_H
 #define OCR_PROJECT_SAVEANDLOAD_H
 
-void Save(int Heigth, int Weigth, double Data[]);
+void Save(int nbLayers, int sizeLayers);
 
 int Load(int Heigth, int Weigth);
 
