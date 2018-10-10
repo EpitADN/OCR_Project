@@ -7,7 +7,7 @@
 
 /// Create a new node with all it's value defaulted to 0.
 /// \return New node
-T_Node* InitializeNode(){
+T_Node* InitializeNode(T_Nature nature){
 
     // Initialize pointer
     T_Node* node = NULL;
@@ -19,10 +19,18 @@ T_Node* InitializeNode(){
     if (node == NULL)
         exit(1);
 
-    // Setting variables to default value
-    node->net = 0;
-    node->val = 0;
-    node->error = 0;
+    // Setting attributes according to nature
+    node->nature = nature;
+
+    if (nature != BIAS){
+        node->net = 0;
+        node->val = 0;
+        node->error = 0;
+    } else {
+        node->net = 0;
+        node->val = 1;
+        node->error = 0;
+    }
 
     return node;
 }

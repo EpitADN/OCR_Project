@@ -65,8 +65,17 @@ T_Network* CreateNetwork_Manual(){
     layers = malloc(*nbLayers * sizeof(T_Layer*));
 
     // Creating layers and put them into array
+    T_Position layerPosition;
     for (int j = 0; j < *nbLayers; ++j) {
-        layers[j] = InitializeLayer(sizeLayers[j]);
+
+        if (j == 0)
+            layerPosition = FIRST;
+        else if (j == *nbLayers - 1)
+            layerPosition = LAST;
+        else
+            layerPosition = MIDDLE;
+
+        layers[j] = InitializeLayer(layerPosition, sizeLayers[j]);
     }
 
     // Initializing pointer

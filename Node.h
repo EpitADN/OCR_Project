@@ -6,7 +6,15 @@
 #define OCR_NODE_H
 
 
+typedef enum E_Nature{
+    INPUT,
+    OUTPUT,
+    HIDDEN,
+    BIAS
+} T_Nature;
+
 typedef struct S_Node {
+    T_Nature nature;
     double net; // Net(k)
     double val; // o(k)
     double error; // d(k)
@@ -15,7 +23,7 @@ typedef struct S_Node {
 
 /// Create a new node with all it's value defaulted to 0.
 /// \return New node
-T_Node* InitializeNode();
+T_Node* InitializeNode(T_Nature nature);
 
 /// Free the memory occupied by a node.
 /// \param node Pointer to the node to delete.
