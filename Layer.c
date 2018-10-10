@@ -47,8 +47,9 @@ T_Layer* InitializeLayer(int* nbNodes){
 /// Free the memory occupied by a layer.
 /// \param layer Pointer to the layer to delete.
 void FreeLayer(T_Layer* layer){
-    T_Node** nodes = layer->nodes;
     for (int i = 0; i < *layer->nbNodes; ++i)
-        FreeNode(nodes[i]);
+        FreeNode(layer->nodes[i]);
+    free(layer->nodes);
+    free(layer->nbNodes);
     free(layer);
 }

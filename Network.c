@@ -115,9 +115,10 @@ void PrintAllNetworkInfos(T_Network* network){
 /// Free the memory occupied by a network.
 /// \param network Pointer to the network to delete.
 void FreeNetwork(T_Network* network){
-    T_Layer** layers = network->Layers;
     for (int i = 0; i < *network->nbLayers; ++i)
-        FreeLayer(layers[i]);
+        FreeLayer(network->Layers[i]);
+    free(network->Layers);
     free(network->sizeLayers);
+    free(network->nbLayers);
     free(network);
 }
