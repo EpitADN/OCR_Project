@@ -41,4 +41,9 @@ void RandomizeWeights(T_Transition* transition);
 double rdmWeight(double a, double b);
 
 
+/// Free the memory occupied by a transition.
+/// \param network Pointer to the transition to delete.
+void FreeTransition(T_Transition* network);
+
+
 #endif //OCR_TRANSITION_H

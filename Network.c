@@ -58,25 +58,13 @@ T_Network* CreateNetwork_Manual(){
         }
     }
 
-    // Initializing pointer
-    T_Layer** layers = NULL;
+    return CreateNetwork_Auto(nbLayers, sizeLayers);
+}
 
-    // Allocating memory for the layers array
-    layers = malloc(*nbLayers * sizeof(T_Layer*));
 
-    // Creating layers and put them into array
-    T_Position layerPosition;
-    for (int j = 0; j < *nbLayers; ++j) {
-
-        if (j == 0)
-            layerPosition = FIRST;
-        else if (j == *nbLayers - 1)
-            layerPosition = LAST;
-        else
-            layerPosition = MIDDLE;
-
-        layers[j] = InitializeLayer(layerPosition, sizeLayers[j]);
-    }
+/// Automatic creation of a neural network
+/// \return Network following the specified arguments
+T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers){
 
     // Initializing pointer
     T_Network* network = NULL;
@@ -91,9 +79,73 @@ T_Network* CreateNetwork_Manual(){
     // Setting variables to specified value
     network->nbLayers = nbLayers;
     network->sizeLayers = sizeLayers;
-    network->Layers = layers;
+
+    // Initialize layers and transitions
+    InitializeNetworkLayers(network);
+    InitializeNetworkTransitions(network);
 
     return network;
+}
+
+
+/// Initialize all the network layers following already established variables.
+/// \param network Pointer to the network to work on
+void InitializeNetworkLayers(T_Network* network){
+
+    // Retrieving network info
+    int nbLayers = *network->nbLayers;
+    int** sizeLayers = network->sizeLayers;
+
+    // Initializing pointer
+    T_Layer** layers = NULL;
+
+    // Allocating memory for the layers array
+    layers = malloc(nbLayers * sizeof(T_Layer*));
+
+    // Creating layers and put them into array
+    T_Position layerPosition;
+    for (int j = 0; j < nbLayers; ++j) {
+
+        if (j == 0)
+            layerPosition = FIRST;
+        else if (j == nbLayers - 1)
+            layerPosition = LAST;
+        else
+            layerPosition = MIDDLE;
+
+        layers[j] = InitializeLayer(layerPosition, sizeLayers[j]);
+    }
+
+    // Adding new layers to the network
+    network->Layers = layers;
+}
+
+
+/// Initialize all the network transitions following already established layers.
+/// \param network Pointer to the network to work on
+void InitializeNetworkTransitions(T_Network* network){
+
+    // Retrieving network info
+    int nbLayers = *network->nbLayers;
+    T_Layer** layers = network->Layers;
+
+    // Creating pointer
+    T_Transition** transitions = NULL;
+
+    // Allocating memory for the transition array
+    transitions = malloc( (nbLayers-1) * sizeof(T_Transition*));
+
+    // Exiting if allocation failed
+    if (transitions == NULL)
+        exit(1);
+
+    // Initializing all transitions and put them into array
+    for (int i = 0; i < nbLayers - 1; ++i) {
+        transitions[i] = InitializeTransition(layers[i], layers[i+1]);
+    }
+
+    // Adding new transitions to the network
+    network->Transitions = transitions;
 }
 
 
@@ -124,10 +176,60 @@ void PrintAllNetworkInfos(T_Network* network){
 /// Free the memory occupied by a network.
 /// \param network Pointer to the network to delete.
 void FreeNetwork(T_Network* network){
+
     for (int i = 0; i < *network->nbLayers; ++i)
         FreeLayer(network->Layers[i]);
     free(network->Layers);
+
+    for (int j = 0; j < *network->nbLayers - 1; ++j)
+        FreeTransition(network->Transitions[j]);
+    free(network->Transitions);
+
     free(network->sizeLayers);
     free(network->nbLayers);
     free(network);
+}
+
+
+/// Set the network inputs according to the user criteria
+/// \param network Pointer to the network to set
+void SetNetworkInputs_Manual(T_Network* network){
+
+    // Retrieving network info
+    int nbInputs = *network->Layers[0]->nbNodes - 1;
+    T_Node** firstNodes = network->Layers[0]->nodes;
+
+    printf("Assigning input node values for %d nodes : \n", nbInputs);
+
+    for (int i = 0; i < nbInputs; ++i) {
+        printf("Value of input node 1-%d ? ", i + 1);
+        scanf("%lf", &firstNodes[i]->val);
+    }
+}
+
+
+/// Set the network inputs according to the given array.
+/// \param inputs Double array setting the value of the input layer.
+void SetNetworkInputs_Auto(T_Network* network, double* inputs){
+
+    // Retrieving network info
+    int nbInputs = *network->Layers[0]->nbNodes - 1;
+    T_Node** firstNodes = network->Layers[0]->nodes;
+
+    // Iterating on each input node
+    for (int i = 0; i < nbInputs; ++i)
+        firstNodes[i]->val = inputs[i];
+}
+
+
+/// Do a full propagation cycle, inputs needs to be set.
+/// \param network Pointer to the network to run
+void RunNetwork(T_Network* network){
+
+    // Retrieving network info
+    int nbTransitions = *network->nbLayers - 1;
+
+    // Activating each transitions
+    for (int i = 0; i < nbTransitions; ++i)
+        ActivateTransition(network->Transitions[i]);
 }

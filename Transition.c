@@ -100,3 +100,14 @@ void RandomizeWeights(T_Transition* transition){
 double rdmWeight(double a, double b){
     return ( rand()/(double)RAND_MAX ) * (b-a) + a;
 }
+
+
+
+/// Free the memory occupied by a transition.
+/// \param network Pointer to the transition to delete.
+void FreeTransition(T_Transition* transition){
+    for (int i = 0; i < transition->height; ++i)
+        free(transition->Matrix[i]);
+    free(transition->Matrix);
+    free(transition);
+}
