@@ -25,6 +25,12 @@ typedef struct S_Node {
 /// \return New node
 T_Node* InitializeNode(T_Nature nature);
 
+
+/// Update the real value of a node based on it's net value.
+/// \param node Pointer to the node to update
+void UpdateVal(T_Node* node);
+
+
 /// Free the memory occupied by a node.
 /// \param node Pointer to the node to delete.
 void FreeNode(T_Node* node);

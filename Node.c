@@ -3,6 +3,7 @@
 //
 
 #include <stdlib.h>
+#include <math.h>
 #include "Node.h"
 
 /// Create a new node with all it's value defaulted to 0.
@@ -33,6 +34,14 @@ T_Node* InitializeNode(T_Nature nature){
     }
 
     return node;
+}
+
+
+/// Update the real value of a node based on it's net value.
+/// \param node Pointer to the node to update
+void UpdateVal(T_Node* node){
+    if (node->nature != BIAS)
+        node->val = 1 / (1 + exp(-node->net));
 }
 
 

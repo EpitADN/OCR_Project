@@ -30,10 +30,11 @@ T_Layer* InitializeLayer(T_Position position, int* nbNodes){
         exit(1);
 
     // Creating nodes and put them into array
+    int iLastNode = *nbNodes -1;
     T_Nature nodeNature;
-    for (int i = 0; i < *nbNodes; ++i) {
+    for (int i = 0; i <= iLastNode; ++i) {
 
-        if (i == 0 && position != LAST)
+        if (i == iLastNode && position != LAST)
             nodeNature = BIAS;
         else if (position == FIRST)
             nodeNature = INPUT;
