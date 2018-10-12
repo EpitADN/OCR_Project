@@ -14,9 +14,12 @@ void Save(int nbLayers, int sizeLayers)
 {
     FILE *fp;
 
-    if ((fp = fopen("C:\\SaveConnections  .bin","wb")) == NULL)
+    if ((fp = fopen("../SaveConnections.bin","wb")) == NULL)
+    {
         printf("Error! opening file");
-
+        // Program exits if the file pointer returns NULL.
+        exit(1);
+    }
     //int LenMatrix = Weigth*Heigth;
 
     fwrite(&nbLayers, sizeof(int), 1, fp);
@@ -36,7 +39,8 @@ int Load(int Heigth, int Weigth)
 
     int buff;
 
-    if ((fp = fopen("C:\\program.bin","rb")) == NULL){
+    if ((fp = fopen("../SaveConnections.bin","rb")) == NULL)
+    {
         printf("Error! opening file");
 
         // Program exits if the file pointer returns NULL.
