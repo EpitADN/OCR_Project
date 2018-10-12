@@ -54,3 +54,4 @@ dkms.conf
 #Manual ignore
 cmake-build-debug/
 .idea/
+CMakeLists.txt
