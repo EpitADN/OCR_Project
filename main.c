@@ -1,15 +1,29 @@
-//
-// Created by Gireg Roussel on 06/10/2018.
-//
-
-#include "SaveAndLoad.c"
-#include "SaveAndLoad.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "Network.h"
 
 int main() {
-    //double matrix[4][3] = { { 1.2 , 2.2 , 3.2 } , { 4.2 , 5.2 , 6.2} , { 1.2 , 2.2 , 3.2 } , { 4.2 , 5.2 , 6.2} };
-    Save(10, 3);
-    Load(10, 3);
+
+    // User prompting
+    printf("\n");
+    printf("Hello, World!\n");
+    T_Network* network = CreateNetwork_Manual();
+    printf("\n");
+
+    // Inputs assignation
+    SetNetworkInputs_Manual(network);
+    printf("\n");
+
+    // Pre-run printing
+    PrintAllNetworkInfos(network);
+
+    // Post-run printing
+    RunNetwork(network);
+    printf("Network runned !\n\n");
+    PrintAllNetworkInfos(network);
+
+    // Freeing memory
+    FreeNetwork(network);
+
     return 0;
 }
