@@ -40,7 +40,7 @@ void ReinforceWeights_LAST(double nu, double* targets, T_Layer* prevLayer, T_Lay
 
         // Recuperating node and updating it's error value
         iONode = outputNodes[i];
-        iONode->error = (iONode->val - targets[i]) * D_F(iONode->val);
+        iONode->error = (targets[i] - iONode->val) * D_F(iONode->val);
 
         // Updating weights values
         for (int j = 0; j < nbPrev; ++j)

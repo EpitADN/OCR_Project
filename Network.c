@@ -57,6 +57,7 @@ T_Network* CreateNetwork_Manual(){
             scanf("%d", sizeLayers[i]);
         }
     }
+    printf("\n");
 
     return CreateNetwork_Auto(nbLayers, sizeLayers);
 }
@@ -237,6 +238,7 @@ void SetNetworkInputs_Manual(T_Network* network){
         printf("Value of input node 1-%d ? ", i + 1);
         scanf("%lf", &firstNodes[i]->val);
     }
+    printf("\n");
 }
 
 
