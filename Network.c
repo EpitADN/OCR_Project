@@ -163,14 +163,46 @@ void PrintAllNetworkInfos(T_Network* network){
     printf("\n");
 
     // Print Nodes info for each layer
+    T_Node* jnode;
     for (int j = 0; j < *network->nbLayers; ++j) {
         printf("Value of nodes in layer %d : \n", j+1);
         for (int k = 0; k < *network->Layers[j]->nbNodes; ++k) {
-            printf("Value of node %d-%d : %f \n", j+1, k+1 , network->Layers[j]->nodes[k]->val);
+            jnode = network->Layers[j]->nodes[k];
+            printf("Value of node %d-%d : %f|%f|%f \n", j+1, k+1, jnode->val, jnode->net, jnode->error);
         }
         printf("\n");
     }
     printf("\n");
+}
+
+/// Print all the transitions matrix in order
+/// \param network Pointer to the network to print from.
+void PrintNetworkTransitions(T_Network* network){
+
+    int nbTransitions = *network->nbLayers - 1;
+    T_Transition** transitions = network->Transitions;
+
+    printf("Printing all %d network's transitions :\n\n", nbTransitions);
+
+    T_Transition* transition = NULL;
+    double weightjk;
+    for (int i = 0; i < nbTransitions; ++i) {
+        transition = transitions[i];
+
+        printf("Values of weights in transition %d : \n", i+1);
+
+        for (int j = 0; j < transition->height; ++j) {
+            for (int k = 0; k < transition->width; ++k) {
+                weightjk = transition->Matrix[j][k];
+                if (weightjk > 0)
+                    printf("|+%f", transition->Matrix[j][k]);
+                else
+                    printf("|%f", transition->Matrix[j][k]);
+            }
+            printf("|\n");
+        }
+        printf("\n");
+    }
 }
 
 /// Free the memory occupied by a network.
