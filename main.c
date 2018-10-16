@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Network.h"
+#include "SaveAndLoad.h"
 
 int main() {
 
@@ -10,20 +11,24 @@ int main() {
     T_Network* network = CreateNetwork_Manual();
     printf("\n");
 
-    // Inputs assignation
-    SetNetworkInputs_Manual(network);
-    printf("\n");
-
-    // Pre-run printing
+    // Pre-save printing
     PrintAllNetworkInfos(network);
 
-    // Post-run printing
-    RunNetwork(network);
-    printf("Network runned !\n\n");
-    PrintAllNetworkInfos(network);
+    // Saving network
+    //SaveNetwork(network, "../", "SaveConnections.bin");
+    SaveNetwork(network);
 
     // Freeing memory
     FreeNetwork(network);
+
+    //T_Network* network2 = LoadNetwork("../", "SaveConnections.bin");
+    T_Network* network2 = LoadNetwork();
+
+    //Post load printing
+    PrintAllNetworkInfos(network2);
+
+    // Freeing memory
+    FreeNetwork(network2);
 
     return 0;
 }

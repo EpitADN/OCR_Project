@@ -2,11 +2,28 @@
 // Created by Gireg Roussel on 06/10/2018.
 //
 
-#ifndef OCR_PROJECT_SAVEANDLOAD_H
-#define OCR_PROJECT_SAVEANDLOAD_H
+#ifndef OCR_SAVEANDLOAD_H
+#define OCR_SAVEANDLOAD_H
 
-void Save(int nbLayers, int sizeLayers);
+#include <stdlib.h>
+#include "Network.h"
+#include <stdio.h>
 
-int Load(int Heigth, int Weigth);
+void SaveNetwork(T_Network* network);
 
-#endif //OCR_PROJECT_SAVEANDLOAD_H
+void SaveNetworkInfo(int* nbLayers, int** sizeLayers, FILE* fp);
+
+void SaveTransitions(int* nbLayers, T_Transition** transitions, FILE* fp);
+
+void SaveTransition(T_Transition* transition, FILE* fp);
+
+
+T_Network* LoadNetwork();
+
+T_Network* LoadNetworkInfo(FILE* fp);
+
+void LoadNetworkTransitions(T_Network* network, FILE* fp);
+
+void LoadNetworkTransition(T_Transition* transition, FILE* fp);
+
+#endif //OCR_SAVEANDLOAD_H
