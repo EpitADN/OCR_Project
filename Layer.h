@@ -23,7 +23,7 @@ typedef struct S_Layer {
 /// Create a new layer with n nodes
 /// \param nbNodes number of nodes of the layer
 /// \return New layer
-T_Layer* InitializeLayer(T_Position position, int* nbNodes);
+T_Layer* InitializeLayer(T_Position position, int* nbNodes, int addBias);
 
 
 /// Free the memory occupied by a layer.

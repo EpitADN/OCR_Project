@@ -9,14 +9,14 @@
 /// \param position Position of the layer in the network
 /// \param nbNodes Pointer to the number of nodes of the layer
 /// \return Pointer to the new layer
-T_Layer* InitializeLayer(T_Position position, int* nbNodes){
+T_Layer* InitializeLayer(T_Position position, int* nbNodes, int addBias){
 
     // Exiting if bad parameters
     if (*nbNodes < 1)
         return NULL;
 
     // Add place for a bias node if needed
-    if (position != LAST)
+    if (position != LAST && addBias == 1)
         *nbNodes += 1;
 
     // Initialize pointer

@@ -33,8 +33,6 @@ void SaveNetwork(T_Network* network)
         exit(1);
     }
 
-    printf("Gireg");
-
     SaveNetworkInfo(network->nbLayers, network->sizeLayers, fp);
     //SaveTransitions(network->nbLayers, network->Transitions, fp);
 
@@ -105,12 +103,17 @@ T_Network* LoadNetworkInfo(FILE* fp)
 {
     int* nbLayers = malloc(sizeof(int));
     fread(nbLayers, sizeof(int), 1, fp);
+    printf("detected %d layers\n", *nbLayers);
 
-    int** sizeLayers = malloc(*nbLayers * sizeof(int));
+    int** sizeLayers = malloc(*nbLayers * sizeof(int*));
     for (int i = 0; i < *nbLayers; ++i)
+    {
+        sizeLayers[i] = malloc(sizeof(int));
         fread(sizeLayers[i], sizeof(int), 1, fp);
+        printf("layer number %d has a size of %d\n",i+1, *sizeLayers[i]);
+    }
 
-    return CreateNetwork_Auto(nbLayers, sizeLayers);
+    return CreateNetwork_Auto(nbLayers, sizeLayers, 0);
 }
 
 void LoadNetworkTransitions(T_Network* network, FILE* fp)

@@ -58,13 +58,13 @@ T_Network* CreateNetwork_Manual(){
         }
     }
 
-    return CreateNetwork_Auto(nbLayers, sizeLayers);
+    return CreateNetwork_Auto(nbLayers, sizeLayers, 1);
 }
 
 
 /// Automatic creation of a neural network
 /// \return Network following the specified arguments
-T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers){
+T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers, int addBias){
 
     // Initializing pointer
     T_Network* network = NULL;
@@ -81,7 +81,7 @@ T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers){
     network->sizeLayers = sizeLayers;
 
     // Initialize layers and transitions
-    InitializeNetworkLayers(network);
+    InitializeNetworkLayers(network, addBias);
     InitializeNetworkTransitions(network);
 
     return network;
@@ -90,7 +90,7 @@ T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers){
 
 /// Initialize all the network layers following already established variables.
 /// \param network Pointer to the network to work on
-void InitializeNetworkLayers(T_Network* network){
+void InitializeNetworkLayers(T_Network* network, int addBias){
 
     // Retrieving network info
     int nbLayers = *network->nbLayers;
@@ -113,7 +113,7 @@ void InitializeNetworkLayers(T_Network* network){
         else
             layerPosition = MIDDLE;
 
-        layers[j] = InitializeLayer(layerPosition, sizeLayers[j]);
+        layers[j] = InitializeLayer(layerPosition, sizeLayers[j], addBias);
     }
 
     // Adding new layers to the network

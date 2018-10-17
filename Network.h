@@ -24,12 +24,12 @@ T_Network* CreateNetwork_Manual();
 
 /// Automatic creation of a neural network
 /// \return Network following the specified arguments
-T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers);
+T_Network* CreateNetwork_Auto(int* nbLayers, int** sizeLayers, int addBias);
 
 
 /// Initialize all the network layers following already established variables.
 /// \param network Pointer to the network to work on
-void InitializeNetworkLayers(T_Network* network);
+void InitializeNetworkLayers(T_Network* network, int addBias);
 
 
 /// Initialize all the network transitions following already established layers.
