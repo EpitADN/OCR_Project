@@ -21,18 +21,18 @@ double D_F(double x){
 /// \param prevLayer Pointer to the second to last layer
 /// \param outputLayer Pointer to the last Layer
 /// \param lastTransition Pointer to the last Transition
-void ReinforceWeights_LAST(double nu, double* targets, T_Layer* prevLayer, T_Layer* outputLayer, T_Transition* lastTransition){
+void ReinforceWeights_LAST(double nu, double* targets, T_Transition* lastTransition){
 
     // Checking if layer is actually the last one
-    if (outputLayer->position != LAST)
+    if (lastTransition->targetLayer->position != LAST)
         return;
 
     // Retrieving necessary variables
     double** lastMatrix = lastTransition->Matrix;
-    T_Node** prevNodes = prevLayer->nodes;
-    T_Node** outputNodes = outputLayer->nodes;
-    int nbPrev = *prevLayer->nbNodes;
-    int nbOutput = *outputLayer->nbNodes;
+    T_Node** prevNodes = lastTransition->sourceLayer->nodes;
+    T_Node** outputNodes = lastTransition->targetLayer->nodes;
+    int nbPrev = lastTransition->width;
+    int nbOutput = lastTransition->height;
 
     // For each output node
     T_Node* iONode;
@@ -57,20 +57,20 @@ void ReinforceWeights_LAST(double nu, double* targets, T_Layer* prevLayer, T_Lay
 /// \param nextLayer Pointer to the next layer following the last two
 /// \param actualTransition Pointer to the transition to update
 /// \param nextTransition Pointer to the next transition following the actual one
-void ReinforceWeights_HIDDEN(double nu, T_Layer* prevLayer, T_Layer* actualLayer, T_Layer* nextLayer, T_Transition* actualTransition, T_Transition* nextTransition){
+void ReinforceWeights_HIDDEN(double nu, T_Transition* actualTransition, T_Transition* nextTransition){
 
     // Checking if layer is actually hidden
-    if (actualLayer->position != MIDDLE){
-        printf("Layer is not hidden (%d), skipping...", actualLayer->position);
+    if (actualTransition->targetLayer->position != MIDDLE){
+        printf("Layer is not hidden, skipping...");
         return;
     }
 
     // Retrieving necessary variables
     double** actualMatrix = actualTransition->Matrix;
     double** nextMatrix = nextTransition->Matrix;
-    T_Node** prevNodes = prevLayer->nodes;
-    T_Node** actualNodes = actualLayer->nodes;
-    T_Node** nextNodes = nextLayer->nodes;
+    T_Node** prevNodes = actualTransition->sourceLayer->nodes;
+    T_Node** actualNodes = actualTransition->targetLayer->nodes;
+    T_Node** nextNodes = nextTransition->targetLayer->nodes;
     int nbPrev = actualTransition->width;
     int nbActual = actualTransition->height;
     int nbNext = nextTransition->height;
@@ -109,19 +109,17 @@ void BackPropagate_AUTO(T_Network* network, double nu, double* targets){
     //printf("Starting reinforcement of network...\n");
 
     // Retrieving network info
-    T_Layer** layers = network->Layers;
     T_Transition** transitions = network->Transitions;
-    int lastL = *network->nbLayers - 1;
-    int lastT = lastL - 1;
+    int lastT = *network->nbLayers - 2;
 
     // Reinforce the last transition
-    ReinforceWeights_LAST(nu, targets, layers[lastL-1], layers[lastL], transitions[lastT]);
+    ReinforceWeights_LAST(nu, targets, transitions[lastT]);
     //printf("Reinforced transition %d (last).\n", lastT);
 
     // Reinforce the other transitions according to the last one
     for (int i = lastT - 1; i >= 0 ; --i) {
         //printf("Reinforced transition %d.\n", i);
-        ReinforceWeights_HIDDEN(nu, layers[i], layers[i+1], layers[i+2], transitions[i], transitions[i+1]);
+        ReinforceWeights_HIDDEN(nu, transitions[i], transitions[i+1]);
     }
 }
 
