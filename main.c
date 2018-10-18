@@ -1,34 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Network.h"
-#include "SaveAndLoad.h"
+#include "Trainer.h"
 
 int main() {
+
+    // Main constant
+    int iteration = 20000;
+    double nu = 2;
 
     // User prompting
     printf("\n");
     printf("Hello, World!\n");
     T_Network* network = CreateNetwork_Manual();
+    T_Trainer* trainer = CreateTrainer_Manual(network);
+
+    // Separator
+    printf("================================\n");
+    printf("================================\n");
+    printf("================================\n\n\n");
+
+    // Pre-Training print
+    PrintAllNetworkInfos(network);
+    PrintNetworkTransitions(network);
+
+    // Separator
+    printf("================================\n\n");
+
+    // Training network
+    Train(trainer, nu, iteration);
     printf("\n");
 
-    // Pre-save printing
-    PrintAllNetworkInfos(network);
+    // Separator
+    printf("================================\n\n");
 
-    // Saving network
-    //SaveNetwork(network, "../", "SaveConnections.bin");
-    SaveNetwork(network);
+    // Post-Training print
+    //PrintAllNetworkInfos(network);
+    PrintNetworkTransitions(network);
+    ShowResults(trainer);
 
-    // Freeing memory
-    FreeNetwork(network);
-
-    //T_Network* network2 = LoadNetwork("../", "SaveConnections.bin");
-    T_Network* network2 = LoadNetwork();
-
-    //Post load printing
-    PrintAllNetworkInfos(network2);
-
-    // Freeing memory
-    FreeNetwork(network2);
+    // Freeing Memory
+    FreeTrainer(trainer);
 
     return 0;
 }

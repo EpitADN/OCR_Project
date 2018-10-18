@@ -2,11 +2,11 @@
 // Created by root on 05/10/18.
 //
 
-#include "Layer.h"
-#include "Transition.h"
-
 #ifndef OCR_NETWORK_H
 #define OCR_NETWORK_H
+
+#include "Layer.h"
+#include "Transition.h"
 
 
 typedef struct S_Network {
@@ -38,8 +38,13 @@ void InitializeNetworkTransitions(T_Network* network);
 
 
 /// Print all the network related variables, including all of its layers and nodes.
-/// \param network Pointer to the network to print.
+/// \param network Pointer to the network to print from.
 void PrintAllNetworkInfos(T_Network* network);
+
+
+/// Print all the transitions matrix in order
+/// \param network Pointer to the network to print from.
+void PrintNetworkTransitions(T_Network* network);
 
 
 /// Free the memory occupied by a network.
@@ -54,12 +59,13 @@ void SetNetworkInputs_Manual(T_Network* network);
 
 /// Set the network inputs according to the given array.
 /// \param network Pointer to the network to set
-/// \param inputs Double array setting the value of the input layer
+/// \param inputs Pointer to double array setting the value of the input layer
 void SetNetworkInputs_Auto(T_Network* network, double* inputs);
 
 
 /// Do a full propagation cycle, inputs needs to be set.
 /// \param network Pointer to the network to run
 void RunNetwork(T_Network* network);
+
 
 #endif //OCR_NETWORK_H
