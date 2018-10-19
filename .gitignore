@@ -55,4 +55,4 @@ dkms.conf
 cmake-build-debug/
 .idea/
 CMakeLists.txt
-*.bin
+SaveTransitions/

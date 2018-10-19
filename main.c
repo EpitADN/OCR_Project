@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Trainer.h"
+#include "SaveAndLoad.h"
 
 int main() {
 
@@ -20,8 +21,8 @@ int main() {
     printf("================================\n\n\n");
 
     // Pre-Training print
-    PrintAllNetworkInfos(network);
-    PrintNetworkTransitions(network);
+    //PrintAllNetworkInfos(network);
+    //PrintNetworkTransitions(network);
 
     // Separator
     printf("================================\n\n");
@@ -38,8 +39,24 @@ int main() {
     PrintNetworkTransitions(network);
     ShowResults(trainer);
 
+    //Post-Training save
+    Save(trainer, "Save", ".bin");
+
     // Freeing Memory
     FreeTrainer(trainer);
+
+    //Post-Training load
+    T_Network* network2 = LoadNetwork("Save.bin");
+
+    T_Trainer* trainer2 = Load("Save.bin");
+
+    //Post-Load print
+    PrintNetworkTransitions(network2);
+
+    ShowResults(trainer2);
+
+    // Freeing Network
+    FreeNetwork(network2);
 
     return 0;
 }

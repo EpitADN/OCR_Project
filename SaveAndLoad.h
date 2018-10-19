@@ -8,8 +8,11 @@
 #include <stdlib.h>
 #include "Network.h"
 #include <stdio.h>
+#include "Trainer.h"
 
-void SaveNetwork(T_Network* network);
+void Save(T_Trainer* trainer, char* name, char* extension);
+
+void SaveNetwork(T_Network* network, FILE *fp);
 
 void SaveNetworkInfo(int* nbLayers, int** sizeLayers, FILE* fp);
 
@@ -17,13 +20,24 @@ void SaveTransitions(int* nbLayers, T_Transition** transitions, FILE* fp);
 
 void SaveTransition(T_Transition* transition, FILE* fp);
 
+void SaveTrainer(T_Trainer* trainer, FILE* fp);
 
-T_Network* LoadNetwork();
+void SaveTrainerInfo (int nbSets, FILE* fp);
+
+void SaveTrainerSetsOfInputs (double** SetsOfInputs, T_Network* network, int nbSets, FILE* fp);
+
+void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int nbSets, FILE* fp);
+
+T_Trainer* Load(char* name_extension);
+
+T_Network* LoadNetwork(FILE* fp);
 
 T_Network* LoadNetworkInfo(FILE* fp);
 
 void LoadNetworkTransitions(T_Network* network, FILE* fp);
 
 void LoadNetworkTransition(T_Transition* transition, FILE* fp);
+
+T_Trainer* LoadTrainer(T_Network* network, FILE* fp);
 
 #endif //OCR_SAVEANDLOAD_H
