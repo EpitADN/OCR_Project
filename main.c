@@ -46,9 +46,10 @@ int main() {
     FreeTrainer(trainer);
 
     //Post-Training load
-    T_Network* network2 = LoadNetwork("Save.bin");
+    //T_Network* network2 = LoadNetwork("Save.bin");
 
     T_Trainer* trainer2 = Load("Save.bin");
+    T_Network* network2 = trainer2->Network;
 
     //Post-Load print
     PrintNetworkTransitions(network2);
@@ -56,7 +57,8 @@ int main() {
     ShowResults(trainer2);
 
     // Freeing Network
-    FreeNetwork(network2);
+
+    FreeTrainer(trainer2);
 
     return 0;
 }

@@ -44,45 +44,6 @@ void Save(T_Trainer* trainer, char* name, char* extension)
     fclose(fp);
 }
 
-void SaveTrainer(T_Trainer* trainer, FILE* fp)
-{
-    T_Network* network = trainer->Network;
-    double** SetsOfInputs = trainer->SetsOfInputs;
-    int nbSets = trainer->nbSets;
-    double** SetsOfTargets = trainer->SetsOfTargets;
-    SaveTrainerInfo(nbSets, fp);
-    SaveTrainerSetsOfInputs(SetsOfInputs, network, nbSets, fp);
-    SaveTrainerSetsOfTargets(SetsOfTargets, network, nbSets, fp);
-}
-
-void SaveTrainerInfo (int nbSets, FILE* fp)
-{
-    fwrite(&nbSets, sizeof(int), 1, fp);
-}
-
-void SaveTrainerSetsOfInputs (double** SetsOfInputs, T_Network* network, int nbSets, FILE* fp)
-{
-    for (int i = 0; i < nbSets; ++i)
-    {
-        for (int j = 0; j < *network->sizeLayers[0]; ++j)
-        {
-            fwrite(&SetsOfInputs[i][j], sizeof(double), 1, fp);
-        }
-    }
-}
-
-void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int nbSets, FILE* fp)
-{
-    int lastLayer = *network->nbLayers - 1;
-    int Outputs = *network->sizeLayers[lastLayer];
-    for (int i = 0; i < nbSets; ++i)
-    {
-        for (int j = 0; j < Outputs; ++j)
-        {
-            fwrite(&SetsOfTargets[i][j], sizeof(double), 1, fp);
-        }
-    }
-}
 
 /// This function will save a double array on a binary file.
 /// \param Heigth
@@ -123,6 +84,49 @@ void SaveTransition(T_Transition* transition, FILE* fp)
     }
 }
 
+
+void SaveTrainer(T_Trainer* trainer, FILE* fp)
+{
+    T_Network* network = trainer->Network;
+    double** SetsOfInputs = trainer->SetsOfInputs;
+    int nbSets = trainer->nbSets;
+    double** SetsOfTargets = trainer->SetsOfTargets;
+
+    SaveTrainerInfo(nbSets, fp);
+    SaveTrainerSetsOfInputs(SetsOfInputs, network, nbSets, fp);
+    SaveTrainerSetsOfTargets(SetsOfTargets, network, nbSets, fp);
+}
+
+void SaveTrainerInfo (int nbSets, FILE* fp)
+{
+    printf("JJJJDBHDHJSJ %d", nbSets);
+    fwrite(&nbSets, sizeof(int), 1, fp);
+}
+
+void SaveTrainerSetsOfInputs (double** SetsOfInputs, T_Network* network, int nbSets, FILE* fp)
+{
+    for (int i = 0; i < nbSets; ++i)
+    {
+        for (int j = 0; j < *network->sizeLayers[0]; ++j)
+        {
+            fwrite(&SetsOfInputs[i][j], sizeof(double), 1, fp);
+        }
+    }
+}
+
+void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int nbSets, FILE* fp)
+{
+    int lastLayer = *network->nbLayers - 1;
+    int Outputs = *network->sizeLayers[lastLayer];
+    for (int i = 0; i < nbSets; ++i)
+    {
+        for (int j = 0; j < Outputs; ++j)
+        {
+            fwrite(&SetsOfTargets[i][j], sizeof(double), 1, fp);
+        }
+    }
+}
+
 /// This function will load a binary file
 /// \return An array of double.
 T_Trainer* Load(char* name_extension)
@@ -149,7 +153,7 @@ T_Trainer* Load(char* name_extension)
         // Program exits if the file pointer returns NULL.
         exit(1);
     }
-    T_Network* network = LoadNetworkInfo(fp);
+    T_Network* network = LoadNetwork(fp);
     LoadNetworkTransitions(network, fp);
 
     T_Trainer* trainer = LoadTrainer(network, fp);
@@ -189,7 +193,6 @@ void LoadNetworkTransitions(T_Network* network, FILE* fp)
     for (int i = 0; i < *network->nbLayers-1; ++i)
     {
         LoadNetworkTransition(network->Transitions[i], fp);
-
     }
 }
 
@@ -208,17 +211,17 @@ void LoadNetworkTransition(T_Transition* transition, FILE* fp)
 
 T_Trainer* LoadTrainer(T_Network* network, FILE* fp)
 {
-    int nbSets;
+    int nbSets = 0;
     fread(&nbSets, sizeof(int), 1, fp);
+    printf("Nb of sets : %d", nbSets);
 
-    double** SetsOfInputs = malloc(nbSets * sizeof(double *));
+    double** SetsOfInputs = malloc(nbSets * sizeof(double*));
     int Inputs = *network->sizeLayers[0];
     for (int i = 0; i < nbSets; ++i)
     {
         SetsOfInputs[i] = malloc(Inputs * sizeof(double));
         for (int j = 0; j < *network->sizeLayers[0]; ++j)
         {
-
             fread(&SetsOfInputs[i][j], sizeof(double), 1, fp);
         }
     }
