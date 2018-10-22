@@ -46,7 +46,6 @@ int main() {
     FreeTrainer(trainer);
 
     //Post-Training load
-    //T_Network* network2 = LoadNetwork("Save.bin");
 
     T_Trainer* trainer2 = Load("Save.bin");
     T_Network* network2 = trainer2->Network;

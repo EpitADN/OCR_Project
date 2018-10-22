@@ -5,6 +5,7 @@
 #include "SaveAndLoad.h"
 
 #include <string.h>
+#include <errno.h>
 
 void Save(T_Trainer* trainer, char* name, char* extension)
 {
@@ -32,7 +33,7 @@ void Save(T_Trainer* trainer, char* name, char* extension)
 
     if ((fp = fopen(path,"wb")) == NULL)
     {
-        printf("Error! opening file");
+        printf("Error! opening for save file");
         // Program exits if the file pointer returns NULL.
         exit(1);
     }
@@ -58,9 +59,12 @@ void SaveNetwork(T_Network* network, FILE *fp)
 
 void SaveNetworkInfo(int* nbLayers, int** sizeLayers, FILE* fp)
 {
+    printf("nbLayers %i\n", *nbLayers);
     fwrite(nbLayers, sizeof(int), 1, fp);
     for (int i = 0; i < *nbLayers; ++i)
+    {
         fwrite(sizeLayers[i], sizeof(int), 1, fp);
+    }
 }
 
 void SaveTransitions(int* nbLayers, T_Transition** transitions, FILE* fp)
@@ -99,7 +103,6 @@ void SaveTrainer(T_Trainer* trainer, FILE* fp)
 
 void SaveTrainerInfo (int nbSets, FILE* fp)
 {
-    printf("JJJJDBHDHJSJ %d", nbSets);
     fwrite(&nbSets, sizeof(int), 1, fp);
 }
 
@@ -107,7 +110,7 @@ void SaveTrainerSetsOfInputs (double** SetsOfInputs, T_Network* network, int nbS
 {
     for (int i = 0; i < nbSets; ++i)
     {
-        for (int j = 0; j < *network->sizeLayers[0]; ++j)
+        for (int j = 0; j < *network->sizeLayers[0]-1; ++j)
         {
             fwrite(&SetsOfInputs[i][j], sizeof(double), 1, fp);
         }
@@ -133,9 +136,9 @@ T_Trainer* Load(char* name_extension)
 {
     FILE *fp;
 
-    char* directory = "../SaveTransitions/";
+    char directory[] = "../SaveTransitions/";
 
-    char *path = malloc(strlen(directory)+strlen(name_extension)+1);
+    char *path = calloc((strlen(directory)+strlen(name_extension)+1), sizeof(char));
 
     if (path == NULL)
     {
@@ -148,13 +151,14 @@ T_Trainer* Load(char* name_extension)
 
     if ((fp = fopen(path,"rb")) == NULL)
     {
-        printf("Error! opening file");
+
+        printf("Error! opening for load file, %s", strerror(errno));
 
         // Program exits if the file pointer returns NULL.
         exit(1);
     }
+
     T_Network* network = LoadNetwork(fp);
-    LoadNetworkTransitions(network, fp);
 
     T_Trainer* trainer = LoadTrainer(network, fp);
 
@@ -173,18 +177,15 @@ T_Network* LoadNetwork(FILE* fp)
 
 T_Network* LoadNetworkInfo(FILE* fp)
 {
-    int* nbLayers = malloc(sizeof(int));
+    int *nbLayers = malloc(sizeof(int));
     fread(nbLayers, sizeof(int), 1, fp);
-    printf("Detected %d layers\n", *nbLayers);
 
     int** sizeLayers = malloc(*nbLayers * sizeof(int*));
     for (int i = 0; i < *nbLayers; ++i)
     {
         sizeLayers[i] = malloc(sizeof(int));
         fread(sizeLayers[i], sizeof(int), 1, fp);
-        printf("Layer number %d has a size of %d\n",i+1, *sizeLayers[i]);
     }
-
     return CreateNetwork_Auto(nbLayers, sizeLayers, 0);
 }
 
@@ -211,16 +212,15 @@ void LoadNetworkTransition(T_Transition* transition, FILE* fp)
 
 T_Trainer* LoadTrainer(T_Network* network, FILE* fp)
 {
-    int nbSets = 0;
+    int nbSets;
     fread(&nbSets, sizeof(int), 1, fp);
-    printf("Nb of sets : %d", nbSets);
 
     double** SetsOfInputs = malloc(nbSets * sizeof(double*));
-    int Inputs = *network->sizeLayers[0];
+    int Inputs = *network->sizeLayers[0]-1;
     for (int i = 0; i < nbSets; ++i)
     {
         SetsOfInputs[i] = malloc(Inputs * sizeof(double));
-        for (int j = 0; j < *network->sizeLayers[0]; ++j)
+        for (int j = 0; j < Inputs; ++j)
         {
             fread(&SetsOfInputs[i][j], sizeof(double), 1, fp);
         }
@@ -229,12 +229,13 @@ T_Trainer* LoadTrainer(T_Network* network, FILE* fp)
     double** SetsOfTargets = malloc(nbSets * sizeof(double *));
     int lastLayer = *network->nbLayers - 1;
     int Outputs = *network->sizeLayers[lastLayer];
-
+    printf("%d\n", Outputs);
     for (int i = 0; i < nbSets; ++i)
     {
         SetsOfTargets[i] = malloc(Outputs * sizeof(double));
         for (int j = 0; j < Outputs; ++j)
         {
+
             fread(&SetsOfTargets[i][j], sizeof(double), 1, fp);
         }
     }
