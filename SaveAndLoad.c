@@ -61,10 +61,13 @@ void SaveNetworkInfo(int* nbLayers, int** sizeLayers, FILE* fp)
 {
     printf("nbLayers %i\n", *nbLayers);
     fwrite(nbLayers, sizeof(int), 1, fp);
-    for (int i = 0; i < *nbLayers; ++i)
+    int isize;
+    for (int i = 0; i < *nbLayers - 1; ++i)
     {
-        fwrite(sizeLayers[i], sizeof(int), 1, fp);
+        isize = *sizeLayers[i] - 1;
+        fwrite(&isize, sizeof(int), 1, fp);
     }
+    fwrite(sizeLayers[*nbLayers - 1], sizeof(int), 1, fp);
 }
 
 void SaveTransitions(int* nbLayers, T_Transition** transitions, FILE* fp)
@@ -186,7 +189,7 @@ T_Network* LoadNetworkInfo(FILE* fp)
         sizeLayers[i] = malloc(sizeof(int));
         fread(sizeLayers[i], sizeof(int), 1, fp);
     }
-    return CreateNetwork_Auto(nbLayers, sizeLayers, 0);
+    return CreateNetwork_Auto(nbLayers, sizeLayers);
 }
 
 void LoadNetworkTransitions(T_Network* network, FILE* fp)

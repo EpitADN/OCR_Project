@@ -51,6 +51,7 @@ int main() {
     T_Network* network2 = trainer2->Network;
 
     //Post-Load print
+    PrintAllNetworkInfos(network2);
     PrintNetworkTransitions(network2);
 
     ShowResults(trainer2);

@@ -24,8 +24,7 @@ typedef struct S_Layer {
 /// Create a new layer with n nodes.
 /// \param nbNodes number of nodes of the layer
 /// \return New layer
-T_Layer* InitializeLayer(T_Position position, int* nbNodes, int addBias);
-
+T_Layer* InitializeLayer(T_Position position, int* nbNodes);
 
 /// Free the memory occupied by a layer.
 /// \param layer Pointer to the layer to delete.
