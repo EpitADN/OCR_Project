@@ -14,5 +14,9 @@ link_directories(${GTK3_LIBRARY_DIRS})
 
 
 add_executable(OCR_Project main.c)
+#add_executable(OCR_Project test.c)
+#add_executable(OCR_Project test2.c)
+#add_executable(OCR_Project Main2.c)
+
 
 target_link_libraries(OCR_Project ${GTK3_LIBRARIES})
