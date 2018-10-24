@@ -29,7 +29,6 @@ int main (int argc, char **argv)
     GtkWidget *button;
     GtkWidget *resultat;
     GtkWidget *NbCouches;
-
     GtkWidget *Nbnoeuds;
 
 
