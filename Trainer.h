@@ -5,10 +5,10 @@
 #ifndef OCR_TRAINER_H
 #define OCR_TRAINER_H
 
-#import <stdio.h>
-#import <stdlib.h>
-#import <math.h>
-#import "Backprop.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "Backprop.h"
 
 
 typedef struct S_Trainer {
@@ -45,8 +45,14 @@ void Train(T_Trainer* trainer, double nu, int iteration);
 /// \param trainer Pointer to the trainer
 void ShowResults(T_Trainer* trainer);
 
+
 /// Free the memory occupied by a trainer.
 /// \param trainer Pointer to the trainer to delete
 void FreeTrainer(T_Trainer* trainer);
+
+
+/// Create a trainer for a XOR network.
+/// \return Pointer to the trainer
+T_Trainer* CreateTrainerXOR();
 
 #endif //OCR_TRAINER_H

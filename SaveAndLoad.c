@@ -2,22 +2,13 @@
 // Created by Gireg Roussel on 06/10/2018.
 //
 
-#include "SaveAndLoad.h"
-
 #include <string.h>
 #include <errno.h>
+#include "SaveAndLoad.h"
 
-void Save(T_Trainer* trainer, char* name, char* extension)
+void Save(T_Trainer* trainer, char* name, char* extension, char directory[])
 {
     FILE *fp;
-
-    if (strcmp(extension, ".bin") != 0)
-    {
-        printf("You have to save a file with extension .bin");
-        exit(1);
-    }
-
-    char* directory = "../SaveTransitions/";
 
     char *path = malloc(strlen(directory)+strlen(name)+strlen(extension)+1);
 
@@ -31,9 +22,17 @@ void Save(T_Trainer* trainer, char* name, char* extension)
     strcat(path, name);
     strcat(path, extension);
 
+    printf("%s\n", path);
+    /*
+    for (unsigned long i = 0; i < strlen(path); ++i)
+    {
+        printf("%i", path[i]);
+    }
+     */
     if ((fp = fopen(path,"wb")) == NULL)
     {
         printf("Error! opening for save file");
+        perror("Error open");
         // Program exits if the file pointer returns NULL.
         exit(1);
     }
@@ -135,13 +134,11 @@ void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int n
 
 /// This function will load a binary file
 /// \return An array of double.
-T_Trainer* Load(char* name_extension)
+T_Trainer* Load(char* name, char* extension, char directory[])
 {
     FILE *fp;
 
-    char directory[] = "../SaveTransitions/";
-
-    char *path = calloc((strlen(directory)+strlen(name_extension)+1), sizeof(char));
+    char *path = calloc((strlen(directory)+strlen(name)+strlen(extension)+1), sizeof(char));
 
     if (path == NULL)
     {
@@ -150,12 +147,15 @@ T_Trainer* Load(char* name_extension)
     }
 
     strcat(path, directory);
-    strcat(path, name_extension);
+    strcat(path, name);
+    strcat(path, extension);
 
     if ((fp = fopen(path,"rb")) == NULL)
     {
 
-        printf("Error! opening for load file, %s", strerror(errno));
+        printf("Error! opening for load file, %s _ %s\n", strerror(errno), path);
+        perror("Error open");
+
 
         // Program exits if the file pointer returns NULL.
         exit(1);

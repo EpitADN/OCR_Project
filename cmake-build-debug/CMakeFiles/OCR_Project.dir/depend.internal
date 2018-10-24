@@ -44,12 +44,20 @@ CMakeFiles/OCR_Project.dir/Transition.c.o
  /home/corentin/OCR_Project/Transition.c
  /home/corentin/OCR_Project/Transition.h
 CMakeFiles/OCR_Project.dir/UI.c.o
- /home/corentin/OCR_Project/UI.c
- /home/corentin/OCR_Project/UI.h
-CMakeFiles/OCR_Project.dir/main.c.o
+ /home/corentin/OCR_Project/Backprop.h
  /home/corentin/OCR_Project/Layer.h
  /home/corentin/OCR_Project/Network.h
  /home/corentin/OCR_Project/Node.h
+ /home/corentin/OCR_Project/Trainer.h
+ /home/corentin/OCR_Project/Transition.h
+ /home/corentin/OCR_Project/UI.c
+ /home/corentin/OCR_Project/UI.h
+CMakeFiles/OCR_Project.dir/main.c.o
+ /home/corentin/OCR_Project/Backprop.h
+ /home/corentin/OCR_Project/Layer.h
+ /home/corentin/OCR_Project/Network.h
+ /home/corentin/OCR_Project/Node.h
+ /home/corentin/OCR_Project/Trainer.h
  /home/corentin/OCR_Project/Transition.h
  /home/corentin/OCR_Project/UI.h
  /home/corentin/OCR_Project/main.c

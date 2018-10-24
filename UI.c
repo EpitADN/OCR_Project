@@ -41,7 +41,8 @@ int** parser(int* nblayers, char* entre)
 
 char* resultat(T_Trainer* trainer)
 {
-    char *ret = malloc(50000 * sizeof(char));
+    char *ret = malloc(50000000 * sizeof(char));
+
 
 
      ret  = strcat(ret,"Printing training results : \n\n");
@@ -73,7 +74,7 @@ char* resultat(T_Trainer* trainer)
             iSetOut[j] = outputNodes[j]->val;
 
         // Printing inputs
-        ret = strcat(ret,"Results of set" );
+        ret = strcat(ret,"Results of set " );
         ret = ret + i;
         ret = strcat(ret,": \n|");
         for (int k = 0; k < lengthInput; ++k)
@@ -100,7 +101,7 @@ char* resultat(T_Trainer* trainer)
             ierror = 100*fabs(sumResults - sumTargets) / fabs(sumTargets);
         else
             ierror = fabs(sumResults) / (0.01);
-        ret = strcat(ret,("\nNetwork was off by" ));
+        ret = strcat(ret,("\nNetwork was off by " ));
         ret = ret + (char)ierror;
         ret = strcat(ret,"%.\n\n");
         globalError += ierror;

@@ -4,6 +4,7 @@
 //
 
 #include <stdlib.h>
+
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include "Network.h"
@@ -27,15 +28,16 @@ void XOR3(GtkWidget *widget,gpointer data )
     int** sizeLayers;
     sizeLayers = parser(nbLayers,entre2);
 
+
     T_Network* network = CreateNetwork_Auto(nbLayers,sizeLayers);
 
+
     //PrintAllNetworkInfos(network);
+
 
     char *texte2 = "appeler fonction ";
     gtk_label_set_text(GTK_LABEL(label),texte2);
 }
-
-
 
 
 
@@ -93,9 +95,6 @@ int main (int argc, char **argv)
 
     g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK(gtk_main_quit),NULL);
 
-
-
-
     gtk_widget_show_all(window);
 
     gtk_main();
@@ -109,8 +108,9 @@ int main (int argc, char **argv)
 void XOR3(GtkWidget *widget,gpointer data )
 {
 
+
     GtkWidget *label = (GtkWidget *) data;
-    char *texte2 = resultat();
+    char *texte2 = resultat(CreateTrainerXOR());
     gtk_label_set_text(label,texte2);
 }
 
@@ -124,11 +124,11 @@ int main (int argc, char **argv)
 
 
 
-    /* Initialisation de GTK+ */
+    //Initialisation de GTK+
 
     gtk_init(&argc, &argv);
 
-    /*on initialise les widgets*/
+    //on initialise les widgets
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window),1200,800);
     vbox = gtk_vbox_new(TRUE,10);
@@ -137,7 +137,7 @@ int main (int argc, char **argv)
 
 
 
-    /* dans la box*/
+    // dans la box
     gtk_container_add(GTK_CONTAINER(window), vbox);
     gtk_box_pack_start(GTK_BOX(vbox),button,TRUE,TRUE,0);
     gtk_box_pack_start(GTK_BOX(vbox),label,TRUE,FALSE,0);
@@ -152,7 +152,7 @@ int main (int argc, char **argv)
     g_signal_connect(button,"clicked",G_CALLBACK(XOR3),label);
     g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_widget_destroy),button);
 
-    /*Destruction de la fenetre quand on clique sur la croix rouge ou sur quitter*/
+    //Destruction de la fenetre quand on clique sur la croix rouge ou sur quitter
 
     g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK(gtk_main_quit),NULL);
 
@@ -161,6 +161,4 @@ int main (int argc, char **argv)
     gtk_main();
 
     return 0;
-
-
 }

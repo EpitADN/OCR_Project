@@ -43,12 +43,20 @@ CMakeFiles/OCR_Project.dir/Transition.c.o: ../Node.h
 CMakeFiles/OCR_Project.dir/Transition.c.o: ../Transition.c
 CMakeFiles/OCR_Project.dir/Transition.c.o: ../Transition.h
 
+CMakeFiles/OCR_Project.dir/UI.c.o: ../Backprop.h
+CMakeFiles/OCR_Project.dir/UI.c.o: ../Layer.h
+CMakeFiles/OCR_Project.dir/UI.c.o: ../Network.h
+CMakeFiles/OCR_Project.dir/UI.c.o: ../Node.h
+CMakeFiles/OCR_Project.dir/UI.c.o: ../Trainer.h
+CMakeFiles/OCR_Project.dir/UI.c.o: ../Transition.h
 CMakeFiles/OCR_Project.dir/UI.c.o: ../UI.c
 CMakeFiles/OCR_Project.dir/UI.c.o: ../UI.h
 
+CMakeFiles/OCR_Project.dir/main.c.o: ../Backprop.h
 CMakeFiles/OCR_Project.dir/main.c.o: ../Layer.h
 CMakeFiles/OCR_Project.dir/main.c.o: ../Network.h
 CMakeFiles/OCR_Project.dir/main.c.o: ../Node.h
+CMakeFiles/OCR_Project.dir/main.c.o: ../Trainer.h
 CMakeFiles/OCR_Project.dir/main.c.o: ../Transition.h
 CMakeFiles/OCR_Project.dir/main.c.o: ../UI.h
 CMakeFiles/OCR_Project.dir/main.c.o: ../main.c
