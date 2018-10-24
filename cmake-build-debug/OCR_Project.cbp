@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/corentin/OCR_Project/."/>
 					<Add directory="/usr/include/gtk-3.0"/>
 					<Add directory="/usr/include/at-spi2-atk/2.0"/>
 					<Add directory="/usr/include/at-spi-2.0"/>
@@ -80,6 +81,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/corentin/OCR_Project/."/>
 					<Add directory="/usr/include/gtk-3.0"/>
 					<Add directory="/usr/include/at-spi2-atk/2.0"/>
 					<Add directory="/usr/include/at-spi-2.0"/>
@@ -110,6 +112,54 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/corentin/OCR_Project/Backprop.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Backprop.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Layer.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Layer.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Network.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Network.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Node.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Node.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/SaveAndLoad.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/SaveAndLoad.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Trainer.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Trainer.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Transition.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/Transition.h">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/UI.c">
+			<Option target="OCR_Project"/>
+		</Unit>
+		<Unit filename="/home/corentin/OCR_Project/UI.h">
+			<Option target="OCR_Project"/>
+		</Unit>
 		<Unit filename="/home/corentin/OCR_Project/main.c">
 			<Option target="OCR_Project"/>
 		</Unit>

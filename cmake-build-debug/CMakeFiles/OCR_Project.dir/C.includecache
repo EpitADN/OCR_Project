@@ -6,11 +6,35 @@
 
 #IncludeRegexTransform: 
 
+/home/corentin/OCR_Project/Layer.h
+Node.h
+/home/corentin/OCR_Project/Node.h
+
+/home/corentin/OCR_Project/Network.h
+Layer.h
+/home/corentin/OCR_Project/Layer.h
+Transition.h
+/home/corentin/OCR_Project/Transition.h
+
+/home/corentin/OCR_Project/Node.h
+
+/home/corentin/OCR_Project/Transition.h
+Layer.h
+/home/corentin/OCR_Project/Layer.h
+
+/home/corentin/OCR_Project/UI.h
+
 /home/corentin/OCR_Project/main.c
 stdlib.h
 -
+stdio.h
+-
 gtk/gtk.h
 -
+Network.h
+/home/corentin/OCR_Project/Network.h
+UI.h
+/home/corentin/OCR_Project/UI.h
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h

@@ -123,6 +123,222 @@ OCR_Project/fast:
 	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/build
 .PHONY : OCR_Project/fast
 
+Backprop.o: Backprop.c.o
+
+.PHONY : Backprop.o
+
+# target to build an object file
+Backprop.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Backprop.c.o
+.PHONY : Backprop.c.o
+
+Backprop.i: Backprop.c.i
+
+.PHONY : Backprop.i
+
+# target to preprocess a source file
+Backprop.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Backprop.c.i
+.PHONY : Backprop.c.i
+
+Backprop.s: Backprop.c.s
+
+.PHONY : Backprop.s
+
+# target to generate assembly for a file
+Backprop.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Backprop.c.s
+.PHONY : Backprop.c.s
+
+Layer.o: Layer.c.o
+
+.PHONY : Layer.o
+
+# target to build an object file
+Layer.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Layer.c.o
+.PHONY : Layer.c.o
+
+Layer.i: Layer.c.i
+
+.PHONY : Layer.i
+
+# target to preprocess a source file
+Layer.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Layer.c.i
+.PHONY : Layer.c.i
+
+Layer.s: Layer.c.s
+
+.PHONY : Layer.s
+
+# target to generate assembly for a file
+Layer.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Layer.c.s
+.PHONY : Layer.c.s
+
+Network.o: Network.c.o
+
+.PHONY : Network.o
+
+# target to build an object file
+Network.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Network.c.o
+.PHONY : Network.c.o
+
+Network.i: Network.c.i
+
+.PHONY : Network.i
+
+# target to preprocess a source file
+Network.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Network.c.i
+.PHONY : Network.c.i
+
+Network.s: Network.c.s
+
+.PHONY : Network.s
+
+# target to generate assembly for a file
+Network.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Network.c.s
+.PHONY : Network.c.s
+
+Node.o: Node.c.o
+
+.PHONY : Node.o
+
+# target to build an object file
+Node.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Node.c.o
+.PHONY : Node.c.o
+
+Node.i: Node.c.i
+
+.PHONY : Node.i
+
+# target to preprocess a source file
+Node.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Node.c.i
+.PHONY : Node.c.i
+
+Node.s: Node.c.s
+
+.PHONY : Node.s
+
+# target to generate assembly for a file
+Node.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Node.c.s
+.PHONY : Node.c.s
+
+SaveAndLoad.o: SaveAndLoad.c.o
+
+.PHONY : SaveAndLoad.o
+
+# target to build an object file
+SaveAndLoad.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o
+.PHONY : SaveAndLoad.c.o
+
+SaveAndLoad.i: SaveAndLoad.c.i
+
+.PHONY : SaveAndLoad.i
+
+# target to preprocess a source file
+SaveAndLoad.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/SaveAndLoad.c.i
+.PHONY : SaveAndLoad.c.i
+
+SaveAndLoad.s: SaveAndLoad.c.s
+
+.PHONY : SaveAndLoad.s
+
+# target to generate assembly for a file
+SaveAndLoad.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/SaveAndLoad.c.s
+.PHONY : SaveAndLoad.c.s
+
+Trainer.o: Trainer.c.o
+
+.PHONY : Trainer.o
+
+# target to build an object file
+Trainer.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Trainer.c.o
+.PHONY : Trainer.c.o
+
+Trainer.i: Trainer.c.i
+
+.PHONY : Trainer.i
+
+# target to preprocess a source file
+Trainer.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Trainer.c.i
+.PHONY : Trainer.c.i
+
+Trainer.s: Trainer.c.s
+
+.PHONY : Trainer.s
+
+# target to generate assembly for a file
+Trainer.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Trainer.c.s
+.PHONY : Trainer.c.s
+
+Transition.o: Transition.c.o
+
+.PHONY : Transition.o
+
+# target to build an object file
+Transition.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Transition.c.o
+.PHONY : Transition.c.o
+
+Transition.i: Transition.c.i
+
+.PHONY : Transition.i
+
+# target to preprocess a source file
+Transition.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Transition.c.i
+.PHONY : Transition.c.i
+
+Transition.s: Transition.c.s
+
+.PHONY : Transition.s
+
+# target to generate assembly for a file
+Transition.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/Transition.c.s
+.PHONY : Transition.c.s
+
+UI.o: UI.c.o
+
+.PHONY : UI.o
+
+# target to build an object file
+UI.c.o:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/UI.c.o
+.PHONY : UI.c.o
+
+UI.i: UI.c.i
+
+.PHONY : UI.i
+
+# target to preprocess a source file
+UI.c.i:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/UI.c.i
+.PHONY : UI.c.i
+
+UI.s: UI.c.s
+
+.PHONY : UI.s
+
+# target to generate assembly for a file
+UI.c.s:
+	$(MAKE) -f CMakeFiles/OCR_Project.dir/build.make CMakeFiles/OCR_Project.dir/UI.c.s
+.PHONY : UI.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +375,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OCR_Project"
+	@echo "... Backprop.o"
+	@echo "... Backprop.i"
+	@echo "... Backprop.s"
+	@echo "... Layer.o"
+	@echo "... Layer.i"
+	@echo "... Layer.s"
+	@echo "... Network.o"
+	@echo "... Network.i"
+	@echo "... Network.s"
+	@echo "... Node.o"
+	@echo "... Node.i"
+	@echo "... Node.s"
+	@echo "... SaveAndLoad.o"
+	@echo "... SaveAndLoad.i"
+	@echo "... SaveAndLoad.s"
+	@echo "... Trainer.o"
+	@echo "... Trainer.i"
+	@echo "... Trainer.s"
+	@echo "... Transition.o"
+	@echo "... Transition.i"
+	@echo "... Transition.s"
+	@echo "... UI.o"
+	@echo "... UI.i"
+	@echo "... UI.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
