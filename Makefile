@@ -3,7 +3,7 @@
 CC=gcc
 CPPFLAGS= -MMD
 CFLAGS= -Wall -Wextra -std=c99 -O2
-LDFLAGS=
+LDFLAGS= -lm
 EXEC = OCR
 SRC= main.c Backprop.c SaveAndLoad.c Layer.c Trainer.c Transition.c Node.c Network.c
 OBJ= $(SRC:.c=.o)
@@ -11,6 +11,7 @@ OBJ= $(SRC:.c=.o)
 all: ${EXEC}
 
 OCR : $(OBJ)
+	mkdir Saves
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 main.o: Trainer.h SaveAndLoad.h
@@ -23,5 +24,6 @@ clean:
 
 fclean: clean
 	rm -rf	${EXEC}
+	rm -rf Saves
 
 # END Makefile

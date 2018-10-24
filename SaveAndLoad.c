@@ -6,11 +6,9 @@
 #include <errno.h>
 #include "SaveAndLoad.h"
 
-void Save(T_Trainer* trainer, char* name, char* extension)
+void Save(T_Trainer* trainer, char* name, char* extension, char directory[])
 {
     FILE *fp;
-
-    char* directory = "SaveTransitions/";
 
     char *path = malloc(strlen(directory)+strlen(name)+strlen(extension)+1);
 
@@ -136,11 +134,9 @@ void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int n
 
 /// This function will load a binary file
 /// \return An array of double.
-T_Trainer* Load(char* name, char* extension)
+T_Trainer* Load(char* name, char* extension, char directory[])
 {
     FILE *fp;
-
-    char directory[] = "SaveTransitions/";
 
     char *path = calloc((strlen(directory)+strlen(name)+strlen(extension)+1), sizeof(char));
 

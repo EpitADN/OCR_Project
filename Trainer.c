@@ -208,3 +208,44 @@ void FreeTrainer(T_Trainer *trainer) {
     free(trainer->SetsOfTargets);
     free(trainer);
 }
+
+
+
+T_Trainer* CreateTrainerXOR(){
+
+    // Creating parameters for Network
+    int* nbLayers = malloc(sizeof(int));
+    *nbLayers = 3;
+
+    int** sizeLayers = malloc(3 * sizeof(int*));
+
+    for (int i = 0; i < 3; ++i)
+        sizeLayers[i] = malloc(sizeof(int));
+
+    *sizeLayers[0] = 2;
+    *sizeLayers[1] = 2;
+    *sizeLayers[2] = 1;
+
+    T_Network* network = CreateNetwork_Auto(nbLayers, sizeLayers);
+
+    int nbSets = 4;
+    double** SetsOfInputs = malloc(4 * sizeof(int*));
+    double** SetsOfOutputs = malloc(4 * sizeof(int*));
+
+    for (int j = 0; j < 4; ++j) {
+        SetsOfInputs[j] = malloc(2 * sizeof(int));
+        SetsOfOutputs[j] = malloc(1 * sizeof(int));
+    }
+
+    SetsOfInputs[0][0] = 0;  SetsOfInputs[0][1] = 0;
+    SetsOfInputs[1][0] = 0;  SetsOfInputs[1][1] = 1;
+    SetsOfInputs[2][0] = 1;  SetsOfInputs[2][1] = 0;
+    SetsOfInputs[3][0] = 1;  SetsOfInputs[3][1] = 1;
+
+    SetsOfOutputs[0][0] = 0;
+    SetsOfOutputs[1][0] = 1;
+    SetsOfOutputs[2][0] = 1;
+    SetsOfOutputs[3][0] = 0;
+
+    return CreateTrainer_Auto(network, nbSets, SetsOfInputs, SetsOfOutputs);
+}

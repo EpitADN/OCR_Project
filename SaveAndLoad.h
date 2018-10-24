@@ -10,7 +10,7 @@
 #include "Network.h"
 #include "Trainer.h"
 
-void Save(T_Trainer* trainer, char* name, char* extension);
+void Save(T_Trainer* trainer, char* name, char* extension, char directory[]);
 
 void SaveNetwork(T_Network* network, FILE *fp);
 
@@ -28,7 +28,7 @@ void SaveTrainerSetsOfInputs (double** SetsOfInputs, T_Network* network, int nbS
 
 void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int nbSets, FILE* fp);
 
-T_Trainer* Load(char* name, char* extension);
+T_Trainer* Load(char* name, char* extension, char directory[]);
 
 T_Network* LoadNetwork(FILE* fp);
 
