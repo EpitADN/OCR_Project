@@ -11,8 +11,8 @@ OBJ= $(SRC:.c=.o)
 all: ${EXEC}
 
 OCR : $(OBJ)
-	mkdir Saves
 	$(CC) -o $@ $^ $(LDFLAGS)
+	mkdir Saves
 
 main.o: Trainer.h SaveAndLoad.h
 

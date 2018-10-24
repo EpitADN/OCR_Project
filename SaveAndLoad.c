@@ -22,13 +22,6 @@ void Save(T_Trainer* trainer, char* name, char* extension, char directory[])
     strcat(path, name);
     strcat(path, extension);
 
-    printf("%s\n", path);
-    /*
-    for (unsigned long i = 0; i < strlen(path); ++i)
-    {
-        printf("%i", path[i]);
-    }
-     */
     if ((fp = fopen(path,"wb")) == NULL)
     {
         printf("Error! opening for save file");
@@ -58,7 +51,6 @@ void SaveNetwork(T_Network* network, FILE *fp)
 
 void SaveNetworkInfo(int* nbLayers, int** sizeLayers, FILE* fp)
 {
-    printf("nbLayers %i\n", *nbLayers);
     fwrite(nbLayers, sizeof(int), 1, fp);
     int isize;
     for (int i = 0; i < *nbLayers - 1; ++i)

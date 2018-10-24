@@ -42,6 +42,7 @@ int main (int argc, char* argv[]){
 
     printf("\n");
     printf("Hello, World!\n");
+    printf("Parameters used : Name = \"%s\", Iteration = %d, Nu = %lf.\n\n", NAME, ITERATION, NU);
 
     if (strcmp(NAME, "XOR") == 0){
 
@@ -79,6 +80,7 @@ int main (int argc, char* argv[]){
 
     // Post-Training print
     PrintNetworkTransitions(network);
+    printf("\n");
     ShowResults(trainer);
 
     //Post-Training save

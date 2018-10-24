@@ -223,7 +223,7 @@ T_Trainer* CreateTrainerXOR(){
         sizeLayers[i] = malloc(sizeof(int));
 
     *sizeLayers[0] = 2;
-    *sizeLayers[1] = 2;
+    *sizeLayers[1] = 3;
     *sizeLayers[2] = 1;
 
     T_Network* network = CreateNetwork_Auto(nbLayers, sizeLayers);
