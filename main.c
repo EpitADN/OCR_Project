@@ -3,11 +3,12 @@
 #include "Trainer.h"
 #include "SaveAndLoad.h"
 
-int main() {
+int main () {
 
     // Main constant
-    int iteration = 20000;
+
     double nu = 2;
+    int iteration = 20000;
 
     // User prompting
     printf("\n");
@@ -47,7 +48,7 @@ int main() {
 
     //Post-Training load
 
-    T_Trainer* trainer2 = Load("Save.bin");
+    T_Trainer* trainer2 = Load("Save", ".bin");
     T_Network* network2 = trainer2->Network;
 
     //Post-Load print
