@@ -1,7 +1,6 @@
 # Simple Makefile
 
 CC=gcc
-CPPFLAGS= -MMD
 CFLAGS= -Wall -Wextra -std=c99 -O2
 LDFLAGS= -lm
 EXEC = OCR
