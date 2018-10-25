@@ -1,20 +1,19 @@
 # Simple Makefile
 
 CC=gcc
-CPPFLAGS= -MMD
-CFLAGS= -Wall -Wextra -std=c99 -O2
-LDFLAGS= -lm
+CFLAGS= -Wall -Wextra -std=c99 -O2 $(shell pkg-config --cflags gtk+-2.0)
+LDFLAGS= $(shell pkg-config --libs gtk+-2.0) -lm
 EXEC = OCR
-SRC= main.c Backprop.c SaveAndLoad.c Layer.c Trainer.c Transition.c Node.c Network.c
+SRC= main.c Backprop.c SaveAndLoad.c Layer.c Trainer.c Transition.c Node.c Network.c UI.c
 OBJ= $(SRC:.c=.o)
 
 all: ${EXEC}
 
 OCR : $(OBJ)
-	mkdir Saves
+	mkdir -p Saves
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-main.o: Trainer.h SaveAndLoad.h
+main.o: Network.h UI.h
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)

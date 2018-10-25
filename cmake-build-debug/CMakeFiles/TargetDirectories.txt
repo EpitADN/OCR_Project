@@ -1,3 +1,3 @@
-/home/corentin/OCR_Project/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/corentin/OCR_Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/corentin/OCR_Project/cmake-build-debug/CMakeFiles/OCR_Project.dir
+/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles/OCR_Project.dir

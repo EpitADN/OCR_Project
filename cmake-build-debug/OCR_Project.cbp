@@ -5,166 +5,377 @@
 		<Option title="OCR_Project"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\clion-2018.2.4\;CMake Files\..\clion-2018.2.4\bin\;CMake Files\..\clion-2018.2.4\bin\cmake\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Internal\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/corentin/OCR_Project/cmake-build-debug"/>
+				<Option working_dir="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/corentin/OCR_Project/cmake-build-debug"/>
+				<Option working_dir="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/corentin/OCR_Project/cmake-build-debug"/>
+				<Option working_dir="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OCR_Project">
-				<Option output="/home/corentin/OCR_Project/cmake-build-debug/OCR_Project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/corentin/OCR_Project/cmake-build-debug"/>
+				<Option output="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/OCR_Project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/corentin/OCR_Project/."/>
+					<Add directory="/home/corentin.ourvoy/afs/OCR_Project/."/>
 					<Add directory="/usr/include/gtk-3.0"/>
-					<Add directory="/usr/include/at-spi2-atk/2.0"/>
-					<Add directory="/usr/include/at-spi-2.0"/>
-					<Add directory="/usr/include/dbus-1.0"/>
-					<Add directory="/usr/lib/x86_64-linux-gnu/dbus-1.0/include"/>
-					<Add directory="/usr/include/gio-unix-2.0"/>
-					<Add directory="/usr/include/cairo"/>
 					<Add directory="/usr/include/pango-1.0"/>
-					<Add directory="/usr/include/harfbuzz"/>
-					<Add directory="/usr/include/atk-1.0"/>
+					<Add directory="/usr/include/glib-2.0"/>
+					<Add directory="/usr/lib/glib-2.0/include"/>
+					<Add directory="/usr/lib/libffi-3.2.1/include"/>
+					<Add directory="/usr/include/fribidi"/>
+					<Add directory="/usr/include/cairo"/>
 					<Add directory="/usr/include/pixman-1"/>
 					<Add directory="/usr/include/freetype2"/>
 					<Add directory="/usr/include/libpng16"/>
+					<Add directory="/usr/include/harfbuzz"/>
+					<Add directory="/usr/include/uuid"/>
 					<Add directory="/usr/include/gdk-pixbuf-2.0"/>
-					<Add directory="/usr/include/glib-2.0"/>
-					<Add directory="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/include/libmount"/>
+					<Add directory="/usr/include/blkid"/>
+					<Add directory="/usr/include/gio-unix-2.0"/>
+					<Add directory="/usr/include/libdrm"/>
+					<Add directory="/usr/include/atk-1.0"/>
+					<Add directory="/usr/include/at-spi2-atk/2.0"/>
+					<Add directory="/usr/include/at-spi-2.0"/>
+					<Add directory="/usr/include/dbus-1.0"/>
+					<Add directory="/usr/lib/dbus-1.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 OCR_Project"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 OCR_Project"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OCR_Project/fast">
-				<Option output="/home/corentin/OCR_Project/cmake-build-debug/OCR_Project" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/corentin/OCR_Project/cmake-build-debug"/>
+				<Option output="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/OCR_Project" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/corentin/OCR_Project/."/>
+					<Add directory="/home/corentin.ourvoy/afs/OCR_Project/."/>
 					<Add directory="/usr/include/gtk-3.0"/>
-					<Add directory="/usr/include/at-spi2-atk/2.0"/>
-					<Add directory="/usr/include/at-spi-2.0"/>
-					<Add directory="/usr/include/dbus-1.0"/>
-					<Add directory="/usr/lib/x86_64-linux-gnu/dbus-1.0/include"/>
-					<Add directory="/usr/include/gio-unix-2.0"/>
-					<Add directory="/usr/include/cairo"/>
 					<Add directory="/usr/include/pango-1.0"/>
-					<Add directory="/usr/include/harfbuzz"/>
-					<Add directory="/usr/include/atk-1.0"/>
+					<Add directory="/usr/include/glib-2.0"/>
+					<Add directory="/usr/lib/glib-2.0/include"/>
+					<Add directory="/usr/lib/libffi-3.2.1/include"/>
+					<Add directory="/usr/include/fribidi"/>
+					<Add directory="/usr/include/cairo"/>
 					<Add directory="/usr/include/pixman-1"/>
 					<Add directory="/usr/include/freetype2"/>
 					<Add directory="/usr/include/libpng16"/>
+					<Add directory="/usr/include/harfbuzz"/>
+					<Add directory="/usr/include/uuid"/>
 					<Add directory="/usr/include/gdk-pixbuf-2.0"/>
-					<Add directory="/usr/include/glib-2.0"/>
-					<Add directory="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/include/libmount"/>
+					<Add directory="/usr/include/blkid"/>
+					<Add directory="/usr/include/gio-unix-2.0"/>
+					<Add directory="/usr/include/libdrm"/>
+					<Add directory="/usr/include/atk-1.0"/>
+					<Add directory="/usr/include/at-spi2-atk/2.0"/>
+					<Add directory="/usr/include/at-spi-2.0"/>
+					<Add directory="/usr/include/dbus-1.0"/>
+					<Add directory="/usr/lib/dbus-1.0/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 OCR_Project/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 OCR_Project/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/corentin/OCR_Project/Backprop.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Backprop.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Backprop.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Backprop.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Layer.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Layer.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Layer.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Layer.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Network.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Network.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Network.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Network.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Node.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Node.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Node.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Node.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/SaveAndLoad.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/SaveAndLoad.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/SaveAndLoad.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/SaveAndLoad.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Trainer.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Trainer.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Trainer.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Trainer.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Transition.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Transition.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/Transition.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/Transition.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/UI.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/UI.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/UI.h">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/UI.h">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/main.c">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/main.c">
 			<Option target="OCR_Project"/>
 		</Unit>
-		<Unit filename="/home/corentin/OCR_Project/CMakeLists.txt">
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeCInformation.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeCommonLanguageInclude.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeCompilerIdDetection.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompileFeatures.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompilerABI.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompilerId.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineSystem.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeFindBinUtils.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeFindCodeBlocks.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeGenericSystem.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeInitializeConfigs.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeLanguageInformation.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeParseImplicitLinkInfo.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeSystemSpecificInformation.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeSystemSpecificInitialize.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeTestCCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeTestCompilerCommon.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeUnixFindMake.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindPackageMessage.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindPkgConfig.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/ProcessorCount.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/ADSP-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/ARMCC-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/AppleClang-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Borland-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Bruce-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/CMakeCommonCompilerMacros.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Clang-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Clang-DetermineCompilerInternal.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Compaq-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Cray-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Embarcadero-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Fujitsu-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GHS-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C-FeatureTests.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-FindBinUtils.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/HP-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/IAR-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Intel-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/MIPSpro-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/MSVC-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/NVIDIA-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/PGI-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/PathScale-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/SCO-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/SDCC-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/SunPro-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/TI-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Watcom-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/XL-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/zOS-C-DetermineCompiler.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Platform/Linux-GNU-C.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Platform/Linux-GNU.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Platform/Linux.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Platform/UnixPaths.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Internal/FeatureTesting.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Internal\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
