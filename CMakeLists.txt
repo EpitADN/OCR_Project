@@ -14,19 +14,21 @@ PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
 include_directories(${GTK3_INCLUDE_DIRS})
 link_directories(${GTK3_LIBRARY_DIRS})
 
+
 add_executable(OCR_Project
         Backprop.c
         Backprop.h
         Layer.c
         Layer.h
-        main.c
+        #test.c
+        #test2.c
         Network.c
         Network.h
         Node.c
         Node.h
         SaveAndLoad.c
         SaveAndLoad.h
-
+        main.c
         Trainer.c
         Trainer.h
         Transition.c

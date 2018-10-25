@@ -83,22 +83,9 @@ CMakeFiles/OCR_Project.dir/Layer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OCR_Project.dir/Layer.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/corentin.ourvoy/afs/OCR_Project/Layer.c -o CMakeFiles/OCR_Project.dir/Layer.c.s
 
-CMakeFiles/OCR_Project.dir/main.c.o: CMakeFiles/OCR_Project.dir/flags.make
-CMakeFiles/OCR_Project.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OCR_Project.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OCR_Project.dir/main.c.o   -c /home/corentin.ourvoy/afs/OCR_Project/main.c
-
-CMakeFiles/OCR_Project.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OCR_Project.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/corentin.ourvoy/afs/OCR_Project/main.c > CMakeFiles/OCR_Project.dir/main.c.i
-
-CMakeFiles/OCR_Project.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OCR_Project.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/corentin.ourvoy/afs/OCR_Project/main.c -o CMakeFiles/OCR_Project.dir/main.c.s
-
 CMakeFiles/OCR_Project.dir/Network.c.o: CMakeFiles/OCR_Project.dir/flags.make
 CMakeFiles/OCR_Project.dir/Network.c.o: ../Network.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OCR_Project.dir/Network.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OCR_Project.dir/Network.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OCR_Project.dir/Network.c.o   -c /home/corentin.ourvoy/afs/OCR_Project/Network.c
 
 CMakeFiles/OCR_Project.dir/Network.c.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/OCR_Project.dir/Network.c.s: cmake_force
 
 CMakeFiles/OCR_Project.dir/Node.c.o: CMakeFiles/OCR_Project.dir/flags.make
 CMakeFiles/OCR_Project.dir/Node.c.o: ../Node.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OCR_Project.dir/Node.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OCR_Project.dir/Node.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OCR_Project.dir/Node.c.o   -c /home/corentin.ourvoy/afs/OCR_Project/Node.c
 
 CMakeFiles/OCR_Project.dir/Node.c.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/OCR_Project.dir/Node.c.s: cmake_force
 
 CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o: CMakeFiles/OCR_Project.dir/flags.make
 CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o: ../SaveAndLoad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o   -c /home/corentin.ourvoy/afs/OCR_Project/SaveAndLoad.c
 
 CMakeFiles/OCR_Project.dir/SaveAndLoad.c.i: cmake_force
@@ -134,6 +121,19 @@ CMakeFiles/OCR_Project.dir/SaveAndLoad.c.i: cmake_force
 CMakeFiles/OCR_Project.dir/SaveAndLoad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OCR_Project.dir/SaveAndLoad.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/corentin.ourvoy/afs/OCR_Project/SaveAndLoad.c -o CMakeFiles/OCR_Project.dir/SaveAndLoad.c.s
+
+CMakeFiles/OCR_Project.dir/main.c.o: CMakeFiles/OCR_Project.dir/flags.make
+CMakeFiles/OCR_Project.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OCR_Project.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OCR_Project.dir/main.c.o   -c /home/corentin.ourvoy/afs/OCR_Project/main.c
+
+CMakeFiles/OCR_Project.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OCR_Project.dir/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/corentin.ourvoy/afs/OCR_Project/main.c > CMakeFiles/OCR_Project.dir/main.c.i
+
+CMakeFiles/OCR_Project.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OCR_Project.dir/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/corentin.ourvoy/afs/OCR_Project/main.c -o CMakeFiles/OCR_Project.dir/main.c.s
 
 CMakeFiles/OCR_Project.dir/Trainer.c.o: CMakeFiles/OCR_Project.dir/flags.make
 CMakeFiles/OCR_Project.dir/Trainer.c.o: ../Trainer.c
@@ -178,10 +178,10 @@ CMakeFiles/OCR_Project.dir/UI.c.s: cmake_force
 OCR_Project_OBJECTS = \
 "CMakeFiles/OCR_Project.dir/Backprop.c.o" \
 "CMakeFiles/OCR_Project.dir/Layer.c.o" \
-"CMakeFiles/OCR_Project.dir/main.c.o" \
 "CMakeFiles/OCR_Project.dir/Network.c.o" \
 "CMakeFiles/OCR_Project.dir/Node.c.o" \
 "CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o" \
+"CMakeFiles/OCR_Project.dir/main.c.o" \
 "CMakeFiles/OCR_Project.dir/Trainer.c.o" \
 "CMakeFiles/OCR_Project.dir/Transition.c.o" \
 "CMakeFiles/OCR_Project.dir/UI.c.o"
@@ -191,10 +191,10 @@ OCR_Project_EXTERNAL_OBJECTS =
 
 OCR_Project: CMakeFiles/OCR_Project.dir/Backprop.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/Layer.c.o
-OCR_Project: CMakeFiles/OCR_Project.dir/main.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/Network.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/Node.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/SaveAndLoad.c.o
+OCR_Project: CMakeFiles/OCR_Project.dir/main.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/Trainer.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/Transition.c.o
 OCR_Project: CMakeFiles/OCR_Project.dir/UI.c.o

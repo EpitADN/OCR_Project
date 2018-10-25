@@ -5,7 +5,7 @@
 		<Option title="OCR_Project"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\clion-2018.2.4\;CMake Files\..\clion-2018.2.4\bin\;CMake Files\..\clion-2018.2.4\bin\cmake\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Internal\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\clion-2018.2.4\;CMake Files\..\clion-2018.2.4\bin\;CMake Files\..\clion-2018.2.4\bin\cmake\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\;CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/corentin.ourvoy/afs/OCR_Project/cmake-build-debug"/>
@@ -182,31 +182,7 @@
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeCommonLanguageInclude.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
 		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeCompilerIdDetection.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompileFeatures.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompilerABI.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineCompilerId.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeDetermineSystem.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeFindBinUtils.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
 		</Unit>
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeFindCodeBlocks.cmake">
@@ -221,22 +197,10 @@
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeLanguageInformation.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
 		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeParseImplicitLinkInfo.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeSystemSpecificInformation.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
 		</Unit>
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeSystemSpecificInitialize.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeTestCCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeTestCompilerCommon.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/CMakeUnixFindMake.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
 		</Unit>
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake">
@@ -251,117 +215,6 @@
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/ProcessorCount.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\"/>
 		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/ADSP-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/ARMCC-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/AppleClang-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Borland-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Bruce-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/CMakeCommonCompilerMacros.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Clang-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Clang-DetermineCompilerInternal.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Compaq-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Cray-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Embarcadero-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Fujitsu-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GHS-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C-FeatureTests.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-FindBinUtils.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/HP-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/IAR-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Intel-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/MIPSpro-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/MSVC-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/NVIDIA-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/PGI-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/PathScale-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/SCO-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/SDCC-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/SunPro-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/TI-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/Watcom-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/XL-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/zOS-C-DetermineCompiler.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
-		</Unit>
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Platform/Linux-GNU-C.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\"/>
 		</Unit>
@@ -374,8 +227,14 @@
 		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Platform/UnixPaths.cmake">
 			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Platform\"/>
 		</Unit>
-		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Internal/FeatureTesting.cmake">
-			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Internal\"/>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/CMakeCommonCompilerMacros.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
+		</Unit>
+		<Unit filename="/home/corentin.ourvoy/afs/OCR_Project/../clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU.cmake">
+			<Option virtualFolder="CMake Files\..\clion-2018.2.4\bin\cmake\linux\share\cmake-3.12\Modules\Compiler\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

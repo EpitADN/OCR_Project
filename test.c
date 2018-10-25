@@ -1,4 +1,10 @@
-/*
+#include <stdlib.h>
+#include <stdio.h>
+#include <gtk/gtk.h>
+#include "Network.h"
+#include "UI.h"
+
+
 static  GtkWidget *NbLayersEntry;
 static GtkWidget *NbnoeudsEntry;
 
@@ -33,12 +39,15 @@ int main (int argc, char **argv)
 {
     //On declare nos widget
     GtkWidget *window;
-    GtkWidget *grid;
+
     GtkWidget *button;
     GtkWidget *resultat;
     GtkWidget *NbLayers;
     GtkWidget *Nbnoeuds;
 
+    GtkWidget *Vbox1;
+    GtkWidget *Hbox1;
+    GtkWidget *Hbox2;
 
 
 
@@ -50,7 +59,9 @@ int main (int argc, char **argv)
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window),1200,800);
-    grid = gtk_grid_new();
+    Vbox1 = gtk_vbox_new(TRUE,10);
+    Hbox1 = gtk_hbox_new(TRUE,10);
+    Hbox2 = gtk_hbox_new(TRUE,10);
     button = gtk_button_new_with_label("Train");
 
     resultat = gtk_label_new("Resultat");
@@ -63,13 +74,15 @@ int main (int argc, char **argv)
 
 
     //dans la grid
-    gtk_container_add(GTK_CONTAINER(window), grid);
-    gtk_grid_attach(GTK_GRID(grid),NbLayers,0,0,1,1);
-    gtk_grid_attach(GTK_GRID(grid),NbLayersEntry,1,0,1,1);
-    gtk_grid_attach(GTK_GRID(grid),Nbnoeuds,0,1,1,1);
-    gtk_grid_attach(GTK_GRID(grid),NbnoeudsEntry,1,1,1,1);
-    gtk_grid_attach(GTK_GRID(grid),button,0,2,1,1);
-    gtk_grid_attach(GTK_GRID(grid),resultat,1,2,1,1);
+    gtk_container_add(GTK_CONTAINER(window), Vbox1);
+    gtk_box_pack_start(Vbox1,Hbox1,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Vbox1,Hbox2,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Vbox1,button,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Hbox1,NbLayers,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Hbox1,NbLayersEntry,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Hbox2,Nbnoeuds,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Hbox2,NbnoeudsEntry,TRUE,TRUE,NULL);
+
 
 
 
@@ -91,4 +104,3 @@ int main (int argc, char **argv)
 
 
 }
-*/
