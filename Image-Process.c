@@ -7,9 +7,13 @@
 
 int main(int argc, char const *argv[])
 {
-    FILE *path ;
-    printf("dfsq");
-    //path =  fopen("/home/adrien/Desktop/OCR_Project/Bitmap.bmp", "r" );
+    FILE *path = NULL;
+    printf("Hello world !");
+    path =  fopen("../Bitmap.bmp", "r" );
+    if (path == NULL) {
+        printf("Cant open file.");
+        exit(-1);
+    }
     printf( "%d",gettingimage(path).Height);
 
     return 0;
@@ -17,27 +21,37 @@ int main(int argc, char const *argv[])
 
 
 Bmp gettingimage(FILE *path){
-    Bmp retBmp;
+
     char readhead[30];
-    fread(readhead, 30,1,path);
+    for (int i = 0; i < 30; ++i) {
+        fread(&readhead[i], sizeof(char), 1, path);
+    }
+
+
+
     Header head;
     head.Width =*((int *) (readhead + 18));  //initialisation of param
     head.Height =*((int *) (readhead + 22));   //int = 4 byte
     head.Size =(head.Width * head.Height);
     head.startimage = *((int *) (readhead + 10));
-    fseek(path ,head.startimage,SEEK_SET); // met le pointeur a la valeur de startimage donc on peux lire les couleurs
-    char Colors[head.Size * 3]; // nombre de pixels * 3(RVB)
-    fread(Colors,(size_t) head.Size * 3, 1 , path );
-   // retBmp = ColorsToPixel(Colors , head);
 
-    return retBmp;
+
+
+    fseek(path ,head.startimage,SEEK_SET); // met le pointeur a la valeur de startimage donc on peux lire les couleurs
+
+    int nbPixel = head.Size * 3;
+    char Colors[nbPixel]; // nombre de pixels * 3(RVB)
+
+    for (int j = 0; j < nbPixel; ++j) {
+        fread(&Colors[j], sizeof(char), 1, path);
+    }
+
+    return ColorsToPixel(Colors , head);;
 }
-/*
+
 Bmp ColorsToPixel(char Color[] , Header head) {
     Bmp retbmp;
-    retbmp.Size = head.Size;
-    retbmp.Width = head.Width;
-    retbmp.Height = head.Height;
+    retbmp.header = head;
     Pixel** Pixels = (Pixel**)malloc(sizeof(Pixel*) * retbmp.Width);
     for (int l = 0; l < retbmp.Width; ++l)
         Pixels[l] = (Pixel*)malloc(sizeof(Pixel) * retbmp.Height);
@@ -61,7 +75,7 @@ Bmp ColorsToPixel(char Color[] , Header head) {
     return retbmp;
 }
 
-
+/*
  double** Decolorize(Bmp bmp) {
 
     double** arrays[bmp.Height][bmp.Width]

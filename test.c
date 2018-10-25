@@ -78,7 +78,7 @@ int** deeppaissage(int** letter, int width, int heigth)
 
 
 
-
+/*
 
 int main(int argc, char const *argv[])
 {
@@ -95,7 +95,7 @@ int main(int argc, char const *argv[])
 	{0,1,1,1,1,1,1,0},4
 	{1,1,0,0,0,0,1,1},5
 	{1,1,0,0,0,0,1,1}6
-	}; */
+	};
 	letter[0][2] = 1;
 	letter[0][5] = 1;
 	letter[0][3] = 1;
@@ -156,3 +156,5 @@ int main(int argc, char const *argv[])
   	free(letter);
 	return 0;
 }
+
+*/

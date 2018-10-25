@@ -45,7 +45,7 @@ typedef struct {
     int Width;
     int Height;
     Pixel **Pixels;
-    char Header;
+    Header header;
 }Bmp;
 
 
