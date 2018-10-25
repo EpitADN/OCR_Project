@@ -6,21 +6,9 @@
 #include <errno.h>
 #include "SaveAndLoad.h"
 
-void Save(T_Trainer* trainer, char* name, char* extension, char directory[])
+void Save(T_Trainer* trainer, char* path)
 {
     FILE *fp;
-
-    char *path = malloc(strlen(directory)+strlen(name)+strlen(extension)+1);
-
-    if (path == NULL)
-    {
-        printf("Malloc impossible");
-        exit(1);
-    }
-
-    strcat(path, directory);
-    strcat(path, name);
-    strcat(path, extension);
 
     if ((fp = fopen(path,"wb")) == NULL)
     {
@@ -126,21 +114,9 @@ void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int n
 
 /// This function will load a binary file
 /// \return An array of double.
-T_Trainer* Load(char* name, char* extension, char directory[])
+T_Trainer* Load(char* path)
 {
     FILE *fp;
-
-    char *path = calloc((strlen(directory)+strlen(name)+strlen(extension)+1), sizeof(char));
-
-    if (path == NULL)
-    {
-        printf("Malloc impossible");
-        exit(1);
-    }
-
-    strcat(path, directory);
-    strcat(path, name);
-    strcat(path, extension);
 
     if ((fp = fopen(path,"rb")) == NULL)
     {

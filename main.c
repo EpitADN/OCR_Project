@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "Trainer.h"
 #include "SaveAndLoad.h"
 
@@ -10,7 +11,10 @@ int main (int argc, char* argv[]){
     char* NAME;
     int ITERATION;
     double NU;
-    char directory[] = "Saves/";
+
+    // Saves parameters
+    char* directory = "Saves/";
+    char* extension = ".bin";
 
     // Reading parameters and auto-setting
 
@@ -29,6 +33,7 @@ int main (int argc, char* argv[]){
     else
         NU = 2;
 
+
     // Verifying integrity
     if (argc >= 5 || NAME == NULL || ITERATION <= 0 || NU <= 0){
         printf("Error parsing parameters, we got : Name = \"%s\", Iteration = %d, Nu = %lf.\n", NAME, ITERATION, NU);
@@ -36,28 +41,55 @@ int main (int argc, char* argv[]){
     }
 
 
+    // Printing recap
+    printf("\n");
+    printf("Hello, World!\n");
+    printf("Name = \"%s\", Iteration = %d, Nu = %lf.\n\n", NAME, ITERATION, NU);
+
+
+
+    // Concatening path
+    char *path = malloc(strlen(directory)+strlen(NAME)+strlen(extension)+1);
+    strcat(path, directory);
+    strcat(path, NAME);
+    strcat(path, extension);
+
+
     // Creating Trainer
     T_Trainer* trainer;
     T_Network* network;
 
-    printf("\n");
-    printf("Hello, World!\n");
-    printf("Parameters used : Name = \"%s\", Iteration = %d, Nu = %lf.\n\n", NAME, ITERATION, NU);
 
-    if (strcmp(NAME, "XOR") == 0){
+    if( access(path, F_OK ) != -1 ) {
 
-        // Auto creating XOR
-        printf("Automatic creation of XOR...\n\n");
-        trainer = CreateTrainerXOR();
-        network =  trainer->Network;
+        // file exists
+        printf("Found a save, loading file... ");
+        trainer = Load(path);
+        network = trainer->Network;
+        printf("Done !\n\n");
 
     } else {
 
-        // User prompting
-        network = CreateNetwork_Manual();
-        trainer = CreateTrainer_Manual(network);
+        // file doesn't exist
+
+        if (strcmp(NAME, "XOR") == 0){
+
+            // Auto creating XOR
+            printf("Automatic creation of XOR... ");
+            trainer = CreateTrainerXOR();
+            network =  trainer->Network;
+            printf("Done !\n\n");
+
+        } else {
+
+            // User prompting
+            network = CreateNetwork_Manual();
+            trainer = CreateTrainer_Manual(network);
+
+        }
 
     }
+
 
     // Separator
     printf("================================\n");
@@ -84,26 +116,11 @@ int main (int argc, char* argv[]){
     ShowResults(trainer);
 
     //Post-Training save
-    Save(trainer, NAME, ".bin", directory);
+    Save(trainer, path);
 
     // Freeing Memory
     FreeTrainer(trainer);
 
-    /*
-
-    //Post-Training load
-    T_Trainer* trainer2 = Load(NAME, ".bin", directory);
-    T_Network* network2 = trainer2->Network;
-
-    //Post-Load print
-    PrintAllNetworkInfos(network2);
-    PrintNetworkTransitions(network2);
-    ShowResults(trainer2);
-
-    // Freeing Network
-    FreeTrainer(trainer2);
-
-     */
 
     return 0;
 }
