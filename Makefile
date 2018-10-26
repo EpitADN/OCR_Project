@@ -3,14 +3,13 @@
 CC=gcc
 CFLAGS= -Wall -Wextra -std=c99 -O2 $(shell pkg-config --cflags gtk+-2.0)
 LDFLAGS= $(shell pkg-config --libs gtk+-2.0) -lm
-EXEC = OCR
+EXEC = OCR_Graphical_UI
 SRC= main.c Backprop.c SaveAndLoad.c Layer.c Trainer.c Transition.c Node.c Network.c UI.c
 OBJ= $(SRC:.c=.o)
 
 all: ${EXEC}
 
-OCR : $(OBJ)
-	mkdir -p Saves
+OCR_Graphical_UI : $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 main.o: Network.h UI.h
@@ -23,6 +22,5 @@ clean:
 
 fclean: clean
 	rm -rf	${EXEC}
-	rm -rf Saves
 
 # END Makefile
