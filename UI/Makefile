@@ -11,7 +11,7 @@ all: ${EXEC}
 
 OCR_GraphicalUI : $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
-	mkdir Saves
+
 
 main_UI.o: ../Network.h UI.h
 

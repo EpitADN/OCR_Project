@@ -5,8 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "UI.h"
-#include "Network.h"
-#include "Trainer.h"
+
 
 
 

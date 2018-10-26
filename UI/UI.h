@@ -3,8 +3,8 @@
 //
 #ifndef OCR_PROJECT_UI_H
 #define OCR_PROJECT_UI_H
-#include "Network.h"
-#include "Trainer.h"
+
+#include "../Trainer.h"
 
 int** parser(int* nblayers, char* entres);
 char* resultat(T_Trainer* trainer);
