@@ -63,6 +63,7 @@ int main (int argc, char **argv)
     Vbox1 = gtk_vbox_new(TRUE,10);
     Hbox1 = gtk_hbox_new(TRUE,10);
     Hbox2 = gtk_hbox_new(TRUE,10);
+    Hbox3 = gtk_hbox_new(TRUE,10);
     button = gtk_button_new_with_label("Train");
 
     resultat = gtk_label_new("Resultat");
@@ -84,7 +85,7 @@ int main (int argc, char **argv)
     gtk_box_pack_start(Hbox2,Nbnoeuds,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox2,NbnoeudsEntry,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox3,button,TRUE,TRUE,NULL);
-    tk_box_pack_start(Hbox3,resultat,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Hbox3,resultat,TRUE,TRUE,NULL);
 
 
 

@@ -33,7 +33,7 @@ int** parser(int* nblayers, char* entre)
         }
 
         sizeLayers[isize] = malloc(sizeof(int));
-        sizeLayers[isize] = tmp;
+        //sizeLayers[isize] = tmp;
 
     }
     return sizeLayers;
