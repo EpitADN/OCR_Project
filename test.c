@@ -37,7 +37,7 @@ void XOR3(GtkWidget *widget,gpointer data )
 
 int main (int argc, char **argv)
 {
-    //On declare nos widget
+    //Widgets Delcaration
     GtkWidget *window;
 
     GtkWidget *button;
@@ -48,14 +48,15 @@ int main (int argc, char **argv)
     GtkWidget *Vbox1;
     GtkWidget *Hbox1;
     GtkWidget *Hbox2;
+    GtkWidget *Hbox3;
 
 
 
-    // Initialisation de GTK+
+    // GTK+ initialising
 
     gtk_init(&argc, &argv);
 
-    //on initialise les widgets
+    //widgets initialising
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window),1200,800);
@@ -73,15 +74,17 @@ int main (int argc, char **argv)
 
 
 
-    //dans la grid
+    //Into the box
     gtk_container_add(GTK_CONTAINER(window), Vbox1);
     gtk_box_pack_start(Vbox1,Hbox1,TRUE,TRUE,NULL);
     gtk_box_pack_start(Vbox1,Hbox2,TRUE,TRUE,NULL);
-    gtk_box_pack_start(Vbox1,button,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Vbox1,Hbox3,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox1,NbLayers,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox1,NbLayersEntry,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox2,Nbnoeuds,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox2,NbnoeudsEntry,TRUE,TRUE,NULL);
+    gtk_box_pack_start(Hbox3,button,TRUE,TRUE,NULL);
+    tk_box_pack_start(Hbox3,resultat,TRUE,TRUE,NULL);
 
 
 
@@ -92,9 +95,11 @@ int main (int argc, char **argv)
     g_signal_connect(button,"clicked",G_CALLBACK(XOR3),resultat);
     g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_widget_destroy),button);
 
-    //Destruction de la fenetre quand on clique sur la croix rouge ou sur quitter
+    //Window destroy
 
     g_signal_connect(G_OBJECT(window),"destroy",G_CALLBACK(gtk_main_quit),NULL);
+
+    //show window
 
     gtk_widget_show_all(window);
 
