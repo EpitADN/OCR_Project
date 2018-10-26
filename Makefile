@@ -2,17 +2,16 @@
 
 CC=gcc
 CFLAGS= -Wall -Wextra -std=c99 -O2
-LDFLAGS= `pkg-config --libs sdl` -lSDL_image -lm
-EXEC = OCR_Image_Process
-SRC= mainSegmentation.c Load_Image.c Segmentation.c
+LDFLAGS= -lm
+EXEC = OCR
+SRC= main.c Node.c Layer.c Transition.c Network.c Backprop.c Trainer.c SaveAndLoad.c
 OBJ= $(SRC:.c=.o)
 
 all: ${EXEC}
 
-OCR_Image_Process : $(OBJ)
+OCR : $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
-
-mainSegmentation.o: Load_Image.h Segmentation.h
+	mkdir Saves
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
@@ -22,5 +21,6 @@ clean:
 
 fclean: clean
 	rm -rf	${EXEC}
+	rm -rf Saves/
 
 # END Makefile
