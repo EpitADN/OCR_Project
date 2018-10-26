@@ -49,7 +49,8 @@ int main (int argc, char* argv[]){
 
 
     // Concatening path
-    char *path = malloc(strlen(directory)+strlen(NAME)+strlen(extension)+1);
+    char* path = malloc(strlen(directory)+strlen(NAME)+strlen(extension)+1);
+    path[0] = '\0';
     strcat(path, directory);
     strcat(path, NAME);
     strcat(path, extension);
@@ -120,7 +121,7 @@ int main (int argc, char* argv[]){
 
     // Freeing Memory
     FreeTrainer(trainer);
-
+    free(path);
 
     return 0;
 }
