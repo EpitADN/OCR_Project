@@ -78,6 +78,7 @@ int main (int argc, char **argv)
     gtk_box_pack_start(Vbox1,Hbox1,TRUE,TRUE,NULL);
     gtk_box_pack_start(Vbox1,Hbox2,TRUE,TRUE,NULL);
     gtk_box_pack_start(Vbox1,button,TRUE,TRUE,NULL);
+    
     gtk_box_pack_start(Hbox1,NbLayers,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox1,NbLayersEntry,TRUE,TRUE,NULL);
     gtk_box_pack_start(Hbox2,Nbnoeuds,TRUE,TRUE,NULL);
