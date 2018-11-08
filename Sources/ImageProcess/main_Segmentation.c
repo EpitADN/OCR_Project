@@ -12,7 +12,7 @@ int main() {
 
     init_sdl();
 
-    image_surface = load_image("image4.bmp");
+    image_surface = load_image("Images/Examples/image4.bmp");
 
     screen_surface = display_image(image_surface);
 
@@ -53,6 +53,6 @@ int main() {
     SDL_FreeSurface(screen_surface);
     free_matrice(matrice , width);
 
-     //show_image("../image4.bmp");
+    //show_image("Images/Examples/image4.bmp");
     return 0;
 }
