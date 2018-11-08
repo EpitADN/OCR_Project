@@ -1,33 +1,32 @@
 # Simple Makefile edited by Griffures
 
 CC=gcc
-CFLAGS=	-Wall -Wextra -std=c99 -O2
+CFLAGS=		-Wall -Wextra -std=c99 -O2
 
-EXEC = UserInterface ImageProcess NeuralNetwork 
+EXEC = 		NeuralNetwork ImageProcess UserInterface
 
-LDFLAGS_UI = -lm $(shell pkg-config --libs gtk+-2.0)
-LDFLAGS_IP = -lm $(shell pkg-config --libs sdl) -lSDL_image
-LDFLAGS_NR = -lm
+LDFLAGS_NR = 	-lm
+LDFLAGS_IP = 	-lm $(shell pkg-config --libs sdl) -lSDL_image
+LDFLAGS_UI = 	-lm $(shell pkg-config --libs gtk+-2.0)
 
-SRC_UI = $(wildcard Sources/UserInterface/*.c)
-SRC_IP = $(wildcard Sources/ImageProcess/*.c)
-SRC_NR = $(wildcard Sources/NeuralNetwork/*.c)
+SRC_NR = 	$(wildcard Sources/NeuralNetwork/*.c)
+SRC_IP = 	$(wildcard Sources/ImageProcess/*.c)
+SRC_UI = 	$(wildcard Sources/UserInterface/*.c)
 
-OBJ_UI = $(SRC_UI:.c=.o)
-OBJ_IP = $(SRC_IP:.c=.o)
-OBJ_NR = $(SRC_NR:.c=.o)
+OBJ_NR = 	$(SRC_NR:.c=.o)
+OBJ_IP = 	$(SRC_IP:.c=.o)
+OBJ_UI = 	$(SRC_UI:.c=.o)
 
 all: ${EXEC}
 
-UserInterface : $(OBJ_NR) $(OBJ_UI)
-	$(CC) -o $@ $^ $(LDFLAGS_UI)
+NeuralNetwork : $(OBJ_NR)
+	$(CC) -o $@ $^ $(LDFLAGS_NR)
 
 ImageProcess : $(OBJ_IP)
 	$(CC) -o $@ $^ $(LDFLAGS_IP)
 
-NeuralNetwork : $(OBJ_NR)
-	$(CC) -o $@ $^ $(LDFLAGS_NR)
-	mkdir Saves
+UserInterface : $(OBJ_NR) $(OBJ_UI)
+	$(CC) -o $@ $^ $(LDFLAGS_UI)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
