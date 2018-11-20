@@ -40,4 +40,9 @@ fclean: clean
 	rm -rf	${EXEC}
 	rm -rf Saves/*.bin
 
+cclean: clean
+	rm -rf .idea/
+	rm -rf cmake-build-debug/
+	rm -rf CMakeLists.txt
+
 # END Makefile

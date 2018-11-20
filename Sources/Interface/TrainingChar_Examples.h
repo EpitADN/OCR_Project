@@ -14,7 +14,7 @@
 
 //------------------------------------------//
 
-double A1values[] = {
+extern double A1values[] = {
         0,0,0,0,0,0,0,0,0,0,
         0,1,1,1,1,1,1,1,1,0,
         0,1,1,1,1,1,1,1,1,0,
@@ -27,9 +27,7 @@ double A1values[] = {
         0,0,0,0,0,0,0,0,0,0
 };
 
-const T_TrainingChar A1 = {
-        'A',
-        100,
+extern const T_TrainingChar A1 = {
         A1values
 };
 
@@ -48,9 +46,7 @@ double A2values[] = {
         0,0,0,0,0,0,0,0,0,0
 };
 
-const T_TrainingChar A2 = {
-        'A',
-        100,
+extern const T_TrainingChar A2 = {
         A2values
 };
 
@@ -69,9 +65,7 @@ double A3values[] = {
         0,0,0,0,0,0,0,0,0,0
 };
 
-const T_TrainingChar A3 = {
-        'A',
-        100,
+extern const T_TrainingChar A3 = {
         A3values
 };
 
@@ -90,9 +84,7 @@ double B1values[] = {
         0,0,0,0,0,0,0,0,0,0
 };
 
-const T_TrainingChar B1 = {
-        'B',
-        100,
+extern const T_TrainingChar B1 = {
         B1values
 };
 
@@ -111,9 +103,7 @@ double B2values[] = {
         0,0,0,0,0,0,0,0,0,0
 };
 
-const T_TrainingChar B2 = {
-        'B',
-        100,
+extern const T_TrainingChar B2 = {
         B2values
 };
 
@@ -132,9 +122,7 @@ double B3values[] = {
         0,0,0,0,0,0,0,0,0,0
 };
 
-const T_TrainingChar B3 = {
-        'B',
-        100,
+extern const T_TrainingChar B3 = {
         B3values
 };
 
