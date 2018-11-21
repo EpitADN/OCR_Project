@@ -12,11 +12,12 @@ int main() {
 
     init_sdl();
 
-    image_surface = load_image("image4.bmp");
+    image_surface = load_image(".alphabet.bmp");
 
     screen_surface = display_image(image_surface);
 
 
+    wait_for_keypressed();
     wait_for_keypressed();
 
     Grissification(image_surface);

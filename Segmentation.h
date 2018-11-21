@@ -17,9 +17,15 @@ int** creationarrays(SDL_Surface* image_surface);
 
 void Histogrammification(int** arrays ,int width , int height , int* histogramme1, int* histogramme2);
 
+void listification (int** arrays , int* hiligne ,int width , int height ,int* sizeofline, int*** listoflignes);
+
+void addtolist(int** arrays , int height, int start , int end , int*** listoflignes , int nbofligne);
+
 void printarray (int** arrays ,int width , int height);
 
 void free_matrice(int** arrays ,int width );
+
+void free_listofmatrice(int*** arrays ,int* sizeofline ,int width );
 
 void printlist(int* list, int size );
 
