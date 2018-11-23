@@ -21,6 +21,8 @@ void listification (int** arrays , int* hiligne ,int width , int height ,int* si
 
 void addtolist(int** arrays , int height, int start , int end , int*** listoflignes , int nbofligne);
 
+void test(int* sizeofline, int*** listoflignes);
+
 void printarray (int** arrays ,int width , int height);
 
 void free_matrice(int** arrays ,int width );

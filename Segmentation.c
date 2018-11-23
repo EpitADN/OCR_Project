@@ -13,15 +13,15 @@ int** creationarrays(SDL_Surface* image_surface)
     int width = image_surface->w;
     int height = image_surface->h;
 
-    int** matrix = (int **)malloc(sizeof(int *) * width);
-    for (int l = 0; l < width; l++)
-        matrix[l] = (int *)malloc(sizeof(int) * height);
+    int** matrix = (int **)malloc(sizeof(int *) * height);
+    for (int l = 0; l < height; l++)
+        matrix[l] = (int *)malloc(sizeof(int) * width);
 
-    for(int x =0; x < width;++x)
+    for(int x =0; x < height;++x)
     {
-        for(int y=0; y < height;++y)
+        for(int y=0; y < width;++y)
         {
-            Uint32 pixel = get_pixel(image_surface, x, y);
+            Uint32 pixel = get_pixel(image_surface, y, x);
             Uint8 r, g, b;
             SDL_GetRGB(pixel, image_surface->format, &r, &g, &b);
             matrix[x][y] = r/255;
@@ -33,8 +33,8 @@ int** creationarrays(SDL_Surface* image_surface)
 void Histogrammification(int** arrays ,int width , int height , int* histogramme1, int* histogramme2){
 
 
-    for (int i = 0;i<width;++i) {
-        for(int j = 0;j< height ; ++j){
+    for (int i = 0;i<height;++i) {
+        for(int j = 0;j< width ; ++j){
             if (arrays[i][j] >= 0.5) {
                 histogramme1[i] += 1;
                 histogramme2[j] += 1;
@@ -48,10 +48,11 @@ void listification (int** arrays , int* hiligne ,int width , int height ,int* si
 {
     printf("width = %d height = %d \n" , width , height);
     int average = 0;
-    for (int k = 0; k < height; ++k) {
+    for (int k = 0; k < width; ++k) {
         average += hiligne[k];
     }
-    average /= height ;
+    average /= width ;
+    average = 1.30* average;
 
     int nbofligne =0;
     int start = 0;
@@ -79,7 +80,7 @@ void listification (int** arrays , int* hiligne ,int width , int height ,int* si
     //for (int i = 0; i < nbofligne - 1; ++i)
     //{ 
     printf("ligne 1 \n \n" );
-    printarray(listoflignes[1] , 100, 18);
+   // printarray(listoflignes[0] , 190, 16);
     printf("ligne 1 \n \n" );
     //printarray(listoflignes[1] , 190, 128 - 91);
     printf("ligne 1 \n \n" );
@@ -97,27 +98,40 @@ void addtolist(int** arrays , int width, int start , int end , int*** listoflign
         printf("%s\n", " erreur realloc ");
 
     }
-    listoflignes[nbofligne - 1] = malloc(sizeof(int *) * width );
-    for (int l = 0; l < width; ++l)
-        listoflignes[nbofligne - 1][l] =  malloc(sizeof(int) * end - start); /*calloc(end - start , sizeof(int));*/
+    listoflignes[nbofligne - 1] = calloc(end - start ,sizeof(int *) );
+    for (int l = 0; l < end - start; ++l)
+        listoflignes[nbofligne - 1][l] = /* malloc(sizeof(int) * end - start);*/ calloc( width , sizeof(int));
 
-    for(int x =0 ; x < width ;++x)
+    for(int x =start ; x < end ;++x)
     //for(int y=start; y < end ;++y)
     {
         //printf("\\ %d \n", x );
-        for(int y=start; y < end ;++y)
+        
         //for(int x =0 ; x < width ;++x)
+        for(int y=0; y < width ;++y)
         {            
             //printf("%d",arrays[x][y] );
             //listoflignes[nbofligne -1 ][x][y - start] = 0;
             
-            listoflignes[nbofligne -1 ][x][y - start] = arrays[x][y];
+            listoflignes[nbofligne -1 ][x - start][y] = arrays[x][y];
             //printf("%d",listoflignes[nbofligne -1 ][x][y - start] );
         }
     }
+    
+    if (nbofligne != 0)
+        {
+            arrays[0][0] = 222;
+            //printf("%d %d \n",start , end );
+            printarray(listoflignes[nbofligne- 1] , 190, end - start  );
+        }
 
     //printf("ligne %i has workaded %i \n",nbofligne -1 , listoflignes[nbofligne -1 ][0][0]  );
 
+}
+
+void test(int* sizeofline, int*** listoflignes)
+{
+    printarray(listoflignes[0], 190, sizeofline[1]);
 }
 
 
@@ -147,7 +161,7 @@ void printarray (int** arrays ,int width , int height)
 {
     for(int i = 0; i < height; ++i) {
         for(int j = 0; j < width; ++j) {
-            printf("%d", arrays[j][i]);
+            printf("%d", arrays[i][j]);
         }
         printf("\n");
     }

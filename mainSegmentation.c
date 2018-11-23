@@ -12,7 +12,7 @@ int main() {
 
     init_sdl();
 
-    image_surface = load_image("alpha.bmp");
+    image_surface = load_image("image.bmp");
 
     screen_surface = display_image(image_surface);
 
@@ -40,36 +40,36 @@ segmentation
     SDL_FreeSurface(screen_surface);
     //we can free the sdl
 
-    int* hicollone = calloc(width, sizeof(int));
-    int* hiligne = calloc(height, sizeof(int));
+    int* hicollone = calloc(height, sizeof(int));
+    int* hiligne = calloc(width, sizeof(int));
 
     Histogrammification(matrice , width, height, hicollone, hiligne);
 
-    //int* start ;
-    //int* end ;
-    //start = -1;
-    //choosefrom_histo(histo1 , width, start, end);
-    //printf("%d %d" , start, end);
+    
     printf("\n");
     printf("\n");
-    //printlist(hicollone, width); // histo des collones 
+    printlist(hicollone, height); // histo des collones 
     //printf("\n");
     //printf("\n");
    
-    //printlist(hiligne, height);//histo des lignes 
+    printlist(hiligne, width);//histo des lignes 
     printf("\n");
     printf("\n");
+    
     int*** listoflignes = calloc(1, sizeof(int **));
     int* sizeofline = calloc(1, sizeof(int));
 
-    listification(matrice , hiligne ,width ,height ,sizeofline, listoflignes);
+    listification(matrice , hicollone ,width ,height ,sizeofline, listoflignes);
+    //test(sizeofline, listoflignes);
     //printarray(matrice, 190 , 190);
-    //printarray(listoflignes[0] , 190 , 20);
+    //printarray(listoflignes[0] , 190 , 10);
 
 
-    free_listofmatrice(listoflignes, sizeofline , width);
+    //free_listofmatrice(listoflignes, sizeofline , width);
     free_matrice(matrice , width);
 
      //show_image("../image4.bmp");
+
+    /* */
     return 0;
 }
