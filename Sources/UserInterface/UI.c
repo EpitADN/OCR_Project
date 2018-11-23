@@ -6,7 +6,25 @@
 #include <stdio.h>
 #include "UI.h"
 
+void add_word(char s1[],char s2[])
+{
+    int i =0;
+    while(s1[i] != '\0')
+    {
+        i++;
+    }
+    i++;
+    s1[i] = ' ';
 
+    int j=0;
+    while(s2[j] != '\0')
+    {
+        s1[i] = s2[j];
+        j++;
+        i++;
+    }
+    s1[i+1] = '\0';
+}
 
 
 int** parser(int* nblayers, char* entre)
@@ -41,10 +59,12 @@ int** parser(int* nblayers, char* entre)
 char* resultat(T_Trainer* trainer)
 {
     char *ret = malloc(50000000 * sizeof(char));
+    char tmp[10];
+    ret[0] = '\0';
 
 
 
-     ret  = strcat(ret,"Printing training results : \n\n");
+    add_word(ret,"Printing training results : \n\n\0");
 
     // Retrieving network info
     T_Network* network = trainer->Network;
@@ -73,25 +93,29 @@ char* resultat(T_Trainer* trainer)
             iSetOut[j] = outputNodes[j]->val;
 
         // Printing inputs
-        ret = strcat(ret,"Results of set " );
+        add_word(ret,"Results of set \0" );
         ret = ret + i;
-        ret = strcat(ret,": \n|");
+        add_word(ret,": \n|\0");
         for (int k = 0; k < lengthInput; ++k)
-            ret = ret + (char)(iSetIn[k]);
+            tmp = (char)(iSetIn[k]) + '\0';
+            add_word(ret,tmp);
 
         // Printings target
         sumTargets = 0;
-        ret = strcat(ret,("\nExpected Values : \n|"));
+        add_word(ret,("\nExpected Values : \n|\0"));
         for (int k = 0; k < lengthOutput; ++k){
-            ret = ret + (char)(iSetTarget[k]);
+            tmp = (char)(iSetTarget[k]) + '\0';
+            add_word(ret,tmp);
+
             sumTargets += iSetTarget[k];
         }
 
         // Printing result
         sumResults = 0;
-        ret = strcat(ret,("\nNetwork responded : \n|"));
+         add_word(ret,("\nNetwork responded : \n|\0"));
         for (int k = 0; k < lengthOutput; ++k){
-            ret = ret +(char)(iSetOut[k]);
+            tmp = (char)(iSetOut[k]) + '\0';
+            add_word(ret,tmp);
             sumResults += iSetOut[k];
         }
 
@@ -100,17 +124,19 @@ char* resultat(T_Trainer* trainer)
             ierror = 100*fabs(sumResults - sumTargets) / fabs(sumTargets);
         else
             ierror = fabs(sumResults) / (0.01);
-        ret = strcat(ret,("\nNetwork was off by " ));
-        ret = ret + (char)ierror;
-        ret = strcat(ret,"%.\n\n");
+        add_word(ret,("\nNetwork was off by '\0'" ));
+        tmp = (char)ierror + '\0';
+        add_word(ret,tmp);
+        
         globalError += ierror;
     }
 
     // Printing global error
     globalError /= trainer->nbSets;
-    ret = strcat(ret,("Network overall error is : "));
-    ret = ret + (char)globalError;
-    ret = strcat(ret,"%\n\n");
+    add_word(ret,("Network overall error is : \0"));
+    tmp = (char)globalError + '\0';
+    add_word(ret,tmp);
+    add_word(ret,"%\n\n'\0'");
 
     return ret;
 }
