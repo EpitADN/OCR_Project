@@ -7,7 +7,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <string.h>
+#include <dirent.h>
 
 typedef struct S_TrainingChar {
     double* values;
@@ -15,11 +16,11 @@ typedef struct S_TrainingChar {
 
 
 typedef struct S_TrainingResource {
-    unsigned int nbTargets;
-    unsigned int size;
+    int size;
+    int nbTargets;
     char* Targets;
-    unsigned int* nbDuplicates;
-    T_TrainingChar* TrainingChars;
+    int* nbDuplicates;
+    T_TrainingChar** TrainingChars;
 } T_TrainingResource;
 
 
@@ -59,7 +60,13 @@ typedef struct S_TrainingResource {
 /// WARNING : Folder must contain a '_config.txt' file and be correctly structured
 /// \param folder Path to the folder containing the sample
 /// \return A pointer to the initialized Training Resource
-T_TrainingResource* TransformTrainingRessource(char* folder);
+T_TrainingResource* TransformTrainingResource(char* folder);
+
+
+/// Loads Training Chars associated with a training resource
+/// \param folder Path to the training folder
+/// \param trainingResource Pointer to the concerned trainingResource
+void LoadTrainingChars(char* targetFolder, T_TrainingResource* trainingResource);
 
 
 /// Loads a Training Char from path (matrix of values)
