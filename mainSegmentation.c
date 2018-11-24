@@ -66,7 +66,7 @@ segmentation
 
 
     //free_listofmatrice(listoflignes, sizeofline , width);
-    free_matrice(matrice , width);
+    free_matrice(matrice , height);
 
      //show_image("../image4.bmp");
 

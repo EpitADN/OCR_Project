@@ -75,7 +75,7 @@ void listification (int** arrays , int* hiligne ,int width , int height ,int* si
         }
             
     }
-    sizeofline[0] = nbofligne;
+    //sizeofline[0] = nbofligne;
     //printf("%d\n",nbofligne );
     //for (int i = 0; i < nbofligne - 1; ++i)
     //{ 
@@ -120,8 +120,6 @@ void addtolist(int** arrays , int width, int start , int end , int*** listoflign
     
     if (nbofligne != 0)
         {
-            arrays[0][0] = 222;
-            //printf("%d %d \n",start , end );
             printarray(listoflignes[nbofligne- 1] , 190, end - start  );
         }
 
