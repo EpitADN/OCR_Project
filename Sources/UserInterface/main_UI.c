@@ -3,6 +3,15 @@
 #include <gtk/gtk.h>
 
 
+/*
+
+Pour compiler sur les nucs : 
+
+gcc main_UI.c -o UI `pkg-config --cflags --libs gtk+-2.0`
+
+
+*/
+
 
 void XOR(GtkWidget *widget,gpointer data )
 {
