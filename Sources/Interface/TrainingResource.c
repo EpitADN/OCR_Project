@@ -70,12 +70,13 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
     for (int i = 0; i < nbTargets; ++i) {
 
         // Reading number of duplicate for target i
-        index = 0; nbDuplicates[index] = 0;
+        nbDuplicates[i] = 0;
         if (fgets(buffer, 60, fp) == NULL){
             printf("Error reading number of duplicates for target %c\n", Targets[i]);
             exit(1);
         }
-        nbDuplicates[i] = atoi(buffer);
+        int tmp = atoi(buffer);
+        nbDuplicates[i] = tmp;
 
     }
 
@@ -104,7 +105,7 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
         buffer[strlen(folder)] = Targets[j];
 
         printf("Looking in directory %s\n", buffer);
-        LoadTrainingChars(buffer, trainingResource);
+        TransformTrainingChars(buffer, trainingResource);
     }
 
     return trainingResource;
@@ -112,10 +113,10 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
 }
 
 
-/// Loads Training Chars associated with a training resource
+/// Transforms Training Chars associated with a training resource
 /// \param folder Path to the training folder
 /// \param trainingResource Pointer to the concerned trainingResource
-void LoadTrainingChars(char* targetFolder, T_TrainingResource* trainingResource){
+void TransformTrainingChars(char* targetFolder, T_TrainingResource* trainingResource){
 
     DIR* targetDir;
 
@@ -140,10 +141,10 @@ void LoadTrainingChars(char* targetFolder, T_TrainingResource* trainingResource)
 
 }
 
-/// Loads a Training Char from path (matrix of values)
+/// Transform a Training Char from path (bmp image)
 /// \param path Path of the Training char
-/// \return The Training char
-T_TrainingChar LoadTrainingChar(char* path) {
+/// \return the Training char
+T_TrainingChar TransformTrainingChar(char* path) {
 
     // TODO
     exit(1);
@@ -155,9 +156,17 @@ T_TrainingChar LoadTrainingChar(char* path) {
 /// \param trainingResource Pointer to the training resource
 void PrintTrainingResource(T_TrainingResource* trainingResource) {
 
-    // TODO
-    exit(1);
+    printf("Printing info on training resource : \n\n");
 
+    printf("Resource contains %d different targets of size %d, which are :\n", trainingResource->nbTargets, trainingResource->size);
+    for (int i = 0; i < trainingResource->nbTargets; ++i)
+        printf("%3c", trainingResource->Targets[i]);
+
+    printf("\n\nNumber of duplicates per target :\n");
+    for (int j = 0; j < trainingResource->nbTargets; ++j)
+        printf("- '%c' : %d\n", trainingResource->Targets[j], trainingResource->nbDuplicates[j]);
+
+    printf("\n");
 }
 
 
@@ -166,9 +175,41 @@ void PrintTrainingResource(T_TrainingResource* trainingResource) {
 /// \param path Folder/name to save in
 void SaveTrainingResource(T_TrainingResource* trainingResource, char* path) {
 
-    // TODO
-    exit(1);
+    FILE* fp;
 
+    if ((fp = fopen(path, "wb")) == NULL) {
+        printf("Error saving for resource at path %s\n", path);
+        exit(1);
+    }
+
+    int nbTargets = trainingResource->nbTargets;
+
+    fwrite(&trainingResource->size, sizeof(int), 1, fp);
+    fwrite(&nbTargets, sizeof(int), 1, fp);
+
+    for (int i = 0; i < nbTargets; ++i)
+        fwrite(&trainingResource->Targets[i], sizeof(char), 1, fp);
+
+    for (int j = 0; j < nbTargets; ++j)
+        fwrite(&trainingResource->nbDuplicates[j], sizeof(int), 1, fp);
+
+    for (int k = 0; k < nbTargets; ++k) {
+        for (int l = 0; l < trainingResource->nbDuplicates[k]; ++l) {
+            SaveTrainingChar(&trainingResource->TrainingChars[k][l], trainingResource->size, fp);
+        }
+    }
+
+}
+
+
+/// Save a training char to specified file
+/// \param trainingChar Pointer to the training char to be saved
+/// \param size Size of the training char (height*width)
+/// \param fp Save file pointer
+void SaveTrainingChar(T_TrainingChar* trainingChar, int size, FILE* fp){
+    for (int i = 0; i < size; ++i) {
+        fwrite(&trainingChar->values[i], sizeof(double), 1, fp);
+    }
 }
 
 
@@ -177,11 +218,56 @@ void SaveTrainingResource(T_TrainingResource* trainingResource, char* path) {
 /// \return A pointer to the loaded Training Resource
 T_TrainingResource* LoadTrainingResource(char* path) {
 
-    // TODO
-    exit(1);
+    FILE* fp;
+    if ((fp = fopen(path, "rb")) == NULL) {
+        printf("Error opening for resource save at path %s\n", path);
+        exit(1);
+    }
 
+    T_TrainingResource* trainingResource;
+    if ((trainingResource = malloc(sizeof(trainingResource))) == NULL)
+        exit(1);
+
+    int size; int nbTargets;
+    fread(&size, sizeof(int), 1, fp);
+    fread(&nbTargets, sizeof(int), 1, fp);
+    trainingResource->size = size;
+    trainingResource->nbTargets = nbTargets;
+
+
+    trainingResource->Targets = malloc(nbTargets * sizeof(char));
+    for (int i = 0; i < nbTargets; ++i)
+        fread(&trainingResource->Targets[i], sizeof(char), 1, fp);
+
+    trainingResource->nbDuplicates = malloc(nbTargets * sizeof(int));
+    for (int j = 0; j < nbTargets; ++j)
+        fread(&trainingResource->nbDuplicates[j], sizeof(int), 1, fp);
+
+    trainingResource->TrainingChars = malloc(nbTargets * sizeof(T_TrainingChar**));
+    for (int k = 0; k < nbTargets; ++k) {
+        trainingResource->TrainingChars[k] = malloc(trainingResource->nbDuplicates[k] * sizeof(T_TrainingChar));
+        for (int l = 0; l < trainingResource->nbDuplicates[k]; ++l)
+            trainingResource->TrainingChars[k][l] = LoadTrainingChar(size, fp);
+    }
+
+    return trainingResource;
 }
 
+
+/// Loads a training char from a file
+/// \param size Size of the training file
+/// \param fp File pointer to the save
+/// \return The training char as double array
+T_TrainingChar LoadTrainingChar(int size, FILE* fp) {
+
+    double* values = malloc(size * sizeof(double));
+    for (int i = 0; i < size; ++i)
+        fread(&values[i], sizeof(double), 1, fp);
+
+    T_TrainingChar trainingChar = {values};
+    return trainingChar;
+
+}
 
 /// Free the memory occupied by a training resource
 /// \param trainingResource Pointer to the resource to delete

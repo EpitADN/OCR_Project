@@ -9,7 +9,7 @@ int main(){
     char* path = "../Resource/";
 
     T_TrainingResource* trainingResource = TransformTrainingResource(path);
-
+    PrintTrainingResource(trainingResource);
     FreeTrainingResource(trainingResource);
 
 }

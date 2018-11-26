@@ -63,16 +63,16 @@ typedef struct S_TrainingResource {
 T_TrainingResource* TransformTrainingResource(char* folder);
 
 
-/// Loads Training Chars associated with a training resource
+/// Transforms Training Chars associated with a training resource
 /// \param folder Path to the training folder
 /// \param trainingResource Pointer to the concerned trainingResource
-void LoadTrainingChars(char* targetFolder, T_TrainingResource* trainingResource);
+void TransformTrainingChars(char* targetFolder, T_TrainingResource* trainingResource);
 
 
-/// Loads a Training Char from path (matrix of values)
+/// Transform a Training Char from path (bmp image)
 /// \param path Path of the Training char
-/// \return The Training char
-T_TrainingChar LoadTrainingChar(char* path);
+/// \return the Training char
+T_TrainingChar TransformTrainingChar(char* path);
 
 
 /// Prints info on a training resource
@@ -86,11 +86,24 @@ void PrintTrainingResource(T_TrainingResource* trainingResource);
 void SaveTrainingResource(T_TrainingResource* trainingResource, char* path);
 
 
+/// Save a training char to specified file
+/// \param trainingChar Pointer to the training char to be saved
+/// \param size Size of the training char (height*width)
+/// \param fp Save file pointer
+void SaveTrainingChar(T_TrainingChar* trainingChar, int size, FILE* fp);
+
+
 /// Loads the Training Resource from a unique file
 /// \param path Path to the file to load
 /// \return A pointer to the loaded Training Resource
 T_TrainingResource* LoadTrainingResource(char* path);
 
+
+/// Loads a training char from a file
+/// \param size Size of the training file
+/// \param fp File pointer to the save
+/// \return The training char as double array
+T_TrainingChar LoadTrainingChar(int size, FILE* fp);
 
 /// Free the memory occupied by a training resource
 /// \param trainingResource Pointer to the resource to delete
