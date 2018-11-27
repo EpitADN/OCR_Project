@@ -35,11 +35,12 @@ segmentation
     int width = image_surface->w; // number of pixel in a ligne
     int height = image_surface->h; // number of pixel in a collone 
     int** matrice = creationarrays(image_surface);
+    -----------------------------------------
     printarray(matrice, 190 , 190);
     SDL_FreeSurface(image_surface);
     SDL_FreeSurface(screen_surface);
     //we can free the sdl
-
+----------
     int* hicollone = calloc(height, sizeof(int));
     int* hiligne = calloc(width, sizeof(int));
 
@@ -70,6 +71,21 @@ segmentation
 
      //show_image("../image4.bmp");
 
-    /* */
+    
+    SDL_Surface* image_surface;
+    SDL_Surface* screen_surface;
+    init_sdl();
+
+    image_surface = load_image("image.bmp");
+    int width = image_surface->w; // number of pixel in a ligne
+    int height = image_surface->h; // number of pixel in a collone 
+    int** matrice = creationarrays(image_surface);
+
+
+
+
+
+
+    
     return 0;
 }

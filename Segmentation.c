@@ -78,13 +78,8 @@ void listification (int** arrays , int* hiligne ,int width , int height ,int* si
     //sizeofline[0] = nbofligne;
     //printf("%d\n",nbofligne );
     //for (int i = 0; i < nbofligne - 1; ++i)
-    //{ 
-    printf("ligne 1 \n \n" );
-   // printarray(listoflignes[0] , 190, 16);
-    printf("ligne 1 \n \n" );
-    //printarray(listoflignes[1] , 190, 128 - 91);
-    printf("ligne 1 \n \n" );
-    //printarray(listoflignes[4] , 190, 128 - 91);
+    //{    
+    //printarray(listoflignes[1] , 190, 10);
     //}
     
 }
@@ -127,6 +122,8 @@ void addtolist(int** arrays , int width, int start , int end , int*** listoflign
 
 }
 
+
+
 void test(int* sizeofline, int*** listoflignes)
 {
     printarray(listoflignes[0], 190, sizeofline[1]);
@@ -159,7 +156,8 @@ void printarray (int** arrays ,int width , int height)
 {
     for(int i = 0; i < height; ++i) {
         for(int j = 0; j < width; ++j) {
-            printf("%d", arrays[i][j]);
+            if (&arrays[i][j] != NULL)
+                printf("%d", arrays[i][j]);
         }
         printf("\n");
     }
