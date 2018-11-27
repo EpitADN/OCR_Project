@@ -5,7 +5,7 @@
 
 /*
 
-Pour compiler sur les nucs : 
+Pour compiler sur les nucs :
 
 gcc main_UI.c -o UI `pkg-config --cflags --libs gtk+-2.0`
 
@@ -13,10 +13,12 @@ gcc main_UI.c -o UI `pkg-config --cflags --libs gtk+-2.0`
 */
 
 
+char *filename  = "OCR_Project/Sources/UserInterface/Epitadn.png";
+
 void XOR(GtkWidget *widget,gpointer data )
 {
     GtkWidget *label = (GtkWidget *) data;
-    
+
     char *texte2 = "Test";
     gtk_label_set_text(GTK_LABEL(label),texte2);
 }
@@ -36,7 +38,7 @@ void Open_file(GtkWidget *widget,gpointer data)
 
     if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
     {
-        char *filename;
+
 
         filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
         //printf("%s",filename);
@@ -45,6 +47,11 @@ void Open_file(GtkWidget *widget,gpointer data)
     }
 
     gtk_widget_destroy (dialog);
+}
+
+void ChangeImage(GtkWidget *widget,gpointer data)
+{
+    gtk_image_set_from_file(widget,filename);
 }
 
 int main (int argc, char **argv)
@@ -56,6 +63,7 @@ int main (int argc, char **argv)
     GtkWidget *button_Xor;
     GtkWidget *button_Open_File;
     GtkWidget *label;
+    GtkWidget *image;
 
 
 
@@ -72,6 +80,7 @@ int main (int argc, char **argv)
     button_Xor = gtk_button_new_with_label("Xor");
     button_Open_File = gtk_button_new_with_label("Open File");
     label = gtk_label_new("Resultat");
+    image =  gtk_image_new_from_file(filename);
 
 
 
@@ -82,18 +91,20 @@ int main (int argc, char **argv)
     gtk_box_pack_start(GTK_BOX(vbox_button),button_Xor,TRUE,TRUE,0);
     gtk_box_pack_start(GTK_BOX(vbox_button),button_Open_File,TRUE,TRUE,0);
     gtk_box_pack_start(GTK_BOX(hbox_Main),label,TRUE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(hbox_Main),image,TRUE,FALSE,0);
 
 
 
 
 
-
+    //Clicking buttons
 
 
     g_signal_connect(button_Xor,"clicked",G_CALLBACK(XOR),label);
-   // g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_widget_destroy),button);
+
 
     g_signal_connect(button_Open_File,"clicked",G_CALLBACK(Open_file),label);
+    g_signal_connect_swapped (button_Open_File, "clicked", G_CALLBACK (ChangeImage),image);
 
     //Window destroy
 
