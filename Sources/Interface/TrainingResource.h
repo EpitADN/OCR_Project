@@ -7,8 +7,10 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <err.h>
 #include <string.h>
 #include <dirent.h>
+#include "Toolbox_SDL.h"
 
 typedef struct S_TrainingChar {
     double* values;
@@ -64,15 +66,20 @@ T_TrainingResource* TransformTrainingResource(char* folder);
 
 
 /// Transforms Training Chars associated with a training resource
-/// \param folder Path to the training folder
-/// \param trainingResource Pointer to the concerned trainingResource
-void TransformTrainingChars(char* targetFolder, T_TrainingResource* trainingResource);
+/// \param duplicatesPath Path to the training folder containing duplicates
+/// \param trainingChars Pointer to the concerned trainingChars
+/// \param maxChars Expected number of duplicates
+/// \param charSize Size (h*w) of a training char
+/// \param image Surface to load upon
+void TransformTrainingChars(char* duplicatesPath, T_TrainingChar* trainingChars, int maxChars, int charSize, SDL_Surface* image);
 
 
 /// Transform a Training Char from path (bmp image)
-/// \param path Path of the Training char
+/// \param charPath Path of the Training char
+/// \param charSize Size (h*w) of a training char
+/// \param image Surface to load upon
 /// \return the Training char
-T_TrainingChar TransformTrainingChar(char* path);
+T_TrainingChar TransformTrainingChar(char* charPath, int charSize, SDL_Surface* image);
 
 
 /// Prints info on a training resource

@@ -93,62 +93,114 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
     free(pathConfig);
     fclose(fp);
 
-    // Loading Images
+
+
+    // Initializing SDL
+    init_sdl();
+    SDL_Surface* image;
+
+    // Initializing path of duplicates
     char targetPath[] = "X/";
+    buffer[0] = '\0';
+    strcat(buffer, folder);
+    strcat(buffer, targetPath);
+    size_t len = strlen(folder);
+
+    // Loading Images
     for (int j = 0; j < nbTargets; ++j) {
 
-        trainingResource->TrainingChars[j] = malloc(trainingResource->nbDuplicates[j] * sizeof(T_TrainingChar));
+        // Allocating memory for the duplicates
+        trainingResource->TrainingChars[j] = malloc(nbDuplicates[j] * sizeof(T_TrainingChar));
 
-        buffer[0] = '\0';
-        strcat(buffer, folder);
-        strcat(buffer, targetPath);
-        buffer[strlen(folder)] = Targets[j];
+        // Setting path of duplicates
+        buffer[len] = Targets[j];
+        printf("Looking in directory %s :\n", buffer);
 
-        printf("Looking in directory %s\n", buffer);
-        TransformTrainingChars(buffer, trainingResource);
+        // Loading duplicates
+        TransformTrainingChars(buffer, trainingResource->TrainingChars[j], nbDuplicates[j], trainingResource->size, image);
     }
 
-    return trainingResource;
+    SDL_FreeSurface(image);
 
+    return trainingResource;
 }
 
-
 /// Transforms Training Chars associated with a training resource
-/// \param folder Path to the training folder
-/// \param trainingResource Pointer to the concerned trainingResource
-void TransformTrainingChars(char* targetFolder, T_TrainingResource* trainingResource){
+/// \param duplicatesPath Path to the training folder containing duplicates
+/// \param trainingChars Pointer to the concerned trainingChars
+/// \param maxChars Expected number of duplicates
+/// \param charSize Size (h*w) of a training char
+/// \param image Surface to load upon
+void TransformTrainingChars(char* duplicatesPath, T_TrainingChar* trainingChars, int maxChars, int charSize, SDL_Surface* image){
 
+    // Opening duplicates directory
     DIR* targetDir;
-
-    if ((targetDir = opendir(targetFolder)) == NULL){
-        printf("Error opening directory %s :\n", targetFolder);
+    if ((targetDir = opendir(duplicatesPath)) == NULL){
+        printf("Error opening directory %s :\n", duplicatesPath);
         exit(1);
     }
 
+    // Initializing path to training char
+    char buffer[60] = {'\0',};
+    strcat(buffer, duplicatesPath);
+    size_t len = strlen(duplicatesPath);
+
+    // Initializing variables
     int nbfiles = 0;
     struct dirent* dir;
-    while ((dir = readdir(targetDir)) != NULL) {
 
+    // Iterating on files in directory
+    while ((dir = readdir(targetDir)) != NULL && nbfiles < maxChars) {
+
+        // If t's not a file
         if (dir->d_type != DT_REG)
             continue;
 
-        printf(" -- %s\n", dir->d_name);
+        // Setting up path to training char
+        buffer[len] = '\0';
+        strcat(buffer, dir->d_name);
+        printf(" -- Treating %s\n", buffer);
+
+        // Loading training char
+        trainingChars[nbfiles] = TransformTrainingChar(buffer, charSize, image);
         nbfiles++;
     }
 
-    printf("Total number of files found : %d\n\n", nbfiles);
+    printf("Total number of files treated : %d\n\n", nbfiles);
     closedir(targetDir);
-
 }
 
+
 /// Transform a Training Char from path (bmp image)
-/// \param path Path of the Training char
+/// \param charPath Path of the Training char
+/// \param charSize Size (h*w) of a training char
+/// \param image Surface to load upon
 /// \return the Training char
-T_TrainingChar TransformTrainingChar(char* path) {
+T_TrainingChar TransformTrainingChar(char* charPath, int charSize, SDL_Surface* image) {
 
-    // TODO
-    exit(1);
+    image = load_image(charPath);
 
+    int height = image->h;
+    int width = image->w;
+
+    if (height * width != charSize) {
+        printf("Image %s has a unexpected size of %d pixels ! (Expected %d)", charPath, height*width, charSize);
+        exit(1);
+    }
+
+    double* values = malloc(charSize * sizeof(double));
+
+    for (unsigned int i = 0; i < height; ++i) {
+        for (unsigned int j = 0; j < width; ++j) {
+            values[i*height + j] = get_pixel(image, i, j);
+            printf("%d", (int)values[i*height + j]);
+        }
+        printf("\n");
+    }
+
+    T_TrainingChar trainingChar = {values};
+
+    return trainingChar;
 }
 
 
@@ -275,11 +327,9 @@ void FreeTrainingResource(T_TrainingResource* trainingResource) {
 
 
     for (int i = 0; i < trainingResource->nbTargets; ++i) {
-        /*
         for (int j = 0; j < trainingResource->nbDuplicates[i]; ++j) {
             free(trainingResource->TrainingChars[i][j].values);
         }
-         */
         free(trainingResource->TrainingChars[i]);
     }
     free(trainingResource->Targets);
