@@ -159,9 +159,13 @@ void ShowResults(T_Trainer* trainer){
             iSetOut[j] = outputNodes[j]->val;
 
         // Printing inputs
-        printf("Results of set %d : \n|", i);
-        for (int k = 0; k < lengthInput; ++k)
-            printf("%f|", iSetIn[k]);
+        printf("Results of set %d : \n", i+1);
+        if (lengthInput <= 10) {
+            printf("|");
+            for (int k = 0; k < lengthInput; ++k)
+                printf("%lf|", iSetIn[k]);
+        }
+
 
         // Printings target
         sumTargets = 0;

@@ -10,6 +10,7 @@
 #include <err.h>
 #include <string.h>
 #include <dirent.h>
+#include <math.h>
 #include "Toolbox_SDL.h"
 
 typedef struct S_TrainingChar {

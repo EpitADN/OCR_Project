@@ -164,16 +164,19 @@ void PrintAllNetworkInfos(T_Network* network){
     printf("\n");
 
     // Print Nodes info for each layer
-    T_Node* jnode;
-    for (int j = 0; j < *network->nbLayers; ++j) {
-        printf("Value of nodes in layer %d : \n", j+1);
-        for (int k = 0; k < *network->Layers[j]->nbNodes; ++k) {
-            jnode = network->Layers[j]->nodes[k];
-            printf("Value of node %d-%d : %f|%f|%f \n", j+1, k+1, jnode->val, jnode->net, jnode->error);
+    if (*network->sizeLayers[0] <= 20) {
+        T_Node *jnode;
+        for (int j = 0; j < *network->nbLayers; ++j) {
+            printf("Value of nodes in layer %d : \n", j + 1);
+            for (int k = 0; k < *network->Layers[j]->nbNodes; ++k) {
+                jnode = network->Layers[j]->nodes[k];
+                printf("Value of node %d-%d : %f|%f|%f \n", j + 1, k + 1, jnode->val, jnode->net, jnode->error);
+            }
+            printf("\n");
         }
         printf("\n");
     }
-    printf("\n");
+
 }
 
 /// Print all the transitions matrix in order

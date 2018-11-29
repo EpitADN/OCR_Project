@@ -94,7 +94,6 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
     fclose(fp);
 
 
-
     // Initializing SDL
     init_sdl();
     SDL_Surface* image;
@@ -119,8 +118,6 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
         // Loading duplicates
         TransformTrainingChars(buffer, trainingResource->TrainingChars[j], nbDuplicates[j], trainingResource->size, image);
     }
-
-    SDL_FreeSurface(image);
 
     return trainingResource;
 }
@@ -159,14 +156,14 @@ void TransformTrainingChars(char* duplicatesPath, T_TrainingChar* trainingChars,
         // Setting up path to training char
         buffer[len] = '\0';
         strcat(buffer, dir->d_name);
-        printf(" -- Treating %s\n", buffer);
+        //printf("-- Treating %s\n", buffer);
 
         // Loading training char
         trainingChars[nbfiles] = TransformTrainingChar(buffer, charSize, image);
         nbfiles++;
     }
 
-    printf("Total number of files treated : %d\n\n", nbfiles);
+    printf("Total of %d files treated.\n\n", nbfiles);
     closedir(targetDir);
 }
 
@@ -177,6 +174,7 @@ void TransformTrainingChars(char* duplicatesPath, T_TrainingChar* trainingChars,
 /// \param image Surface to load upon
 /// \return the Training char
 T_TrainingChar TransformTrainingChar(char* charPath, int charSize, SDL_Surface* image) {
+
 
     image = load_image(charPath);
 
@@ -192,10 +190,10 @@ T_TrainingChar TransformTrainingChar(char* charPath, int charSize, SDL_Surface* 
 
     for (unsigned int i = 0; i < height; ++i) {
         for (unsigned int j = 0; j < width; ++j) {
-            values[i*height + j] = get_pixel(image, i, j);
-            printf("%d", (int)values[i*height + j]);
+            values[i*height + j] = get_pixel(image, j, i);
+            //printf("%d", (int)values[i*height + j]);
         }
-        printf("\n");
+        //printf("\n");
     }
 
     T_TrainingChar trainingChar = {values};
@@ -218,7 +216,28 @@ void PrintTrainingResource(T_TrainingResource* trainingResource) {
     for (int j = 0; j < trainingResource->nbTargets; ++j)
         printf("- '%c' : %d\n", trainingResource->Targets[j], trainingResource->nbDuplicates[j]);
 
-    printf("\n");
+
+    /*
+    double* values;
+    printf("\n\nExamples of each target :\n\n");
+    for (int k = 0; k < trainingResource->nbTargets; ++k) {
+
+        printf("For %c : \n\n", trainingResource->Targets[k]);
+
+        for (int l = 0; l < 3; ++l) {
+
+            values = trainingResource->TrainingChars[k][l].values;
+
+            for (int i = 0; i < trainingResource->size; ++i) {
+                printf("%d", (int)values[i]);
+                if (i % (int)sqrtf(trainingResource->size) == 0)
+                    printf("\n");
+            }
+
+            printf("\n");
+        }
+    }
+    */
 }
 
 
@@ -246,9 +265,8 @@ void SaveTrainingResource(T_TrainingResource* trainingResource, char* path) {
         fwrite(&trainingResource->nbDuplicates[j], sizeof(int), 1, fp);
 
     for (int k = 0; k < nbTargets; ++k) {
-        for (int l = 0; l < trainingResource->nbDuplicates[k]; ++l) {
+        for (int l = 0; l < trainingResource->nbDuplicates[k]; ++l)
             SaveTrainingChar(&trainingResource->TrainingChars[k][l], trainingResource->size, fp);
-        }
     }
 
 }
@@ -259,9 +277,9 @@ void SaveTrainingResource(T_TrainingResource* trainingResource, char* path) {
 /// \param size Size of the training char (height*width)
 /// \param fp Save file pointer
 void SaveTrainingChar(T_TrainingChar* trainingChar, int size, FILE* fp){
-    for (int i = 0; i < size; ++i) {
+
+    for (int i = 0; i < size; ++i)
         fwrite(&trainingChar->values[i], sizeof(double), 1, fp);
-    }
 }
 
 
@@ -325,13 +343,12 @@ T_TrainingChar LoadTrainingChar(int size, FILE* fp) {
 /// \param trainingResource Pointer to the resource to delete
 void FreeTrainingResource(T_TrainingResource* trainingResource) {
 
-
     for (int i = 0; i < trainingResource->nbTargets; ++i) {
-        for (int j = 0; j < trainingResource->nbDuplicates[i]; ++j) {
+        for (int j = 0; j < trainingResource->nbDuplicates[i]; ++j)
             free(trainingResource->TrainingChars[i][j].values);
-        }
         free(trainingResource->TrainingChars[i]);
     }
+
     free(trainingResource->Targets);
     free(trainingResource->nbDuplicates);
     free(trainingResource->TrainingChars);

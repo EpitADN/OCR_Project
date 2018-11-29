@@ -36,7 +36,7 @@ clean:
 	rm -rf Sources/ImageProcess/*.o
 	rm -rf Sources/NeuralNetwork/*.o
 
-fclean: clean
+fclean: clean cclean
 	rm -rf	${EXEC}
 	rm -rf Saves/*.bin
 

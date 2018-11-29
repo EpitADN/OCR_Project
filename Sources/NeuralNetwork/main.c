@@ -13,7 +13,7 @@ int main (int argc, char* argv[]){
     double NU;
 
     // Saves parameters
-    char* directory = "Saves/";
+    char* directory = "./Saves/";
     char* extension = ".bin";
 
     // Reading parameters and auto-setting
@@ -65,7 +65,7 @@ int main (int argc, char* argv[]){
 
         // file exists
         printf("Found a save, loading file... ");
-        trainer = Load(path);
+        trainer = LoadTrainer(path);
         network = trainer->Network;
         printf("Done !\n\n");
 
@@ -99,7 +99,7 @@ int main (int argc, char* argv[]){
 
     // Pre-Training print
     PrintAllNetworkInfos(network);
-    PrintNetworkTransitions(network);
+    //PrintNetworkTransitions(network);
 
     // Separator
     printf("================================\n\n");
@@ -112,12 +112,12 @@ int main (int argc, char* argv[]){
     printf("================================\n\n");
 
     // Post-Training print
-    PrintNetworkTransitions(network);
+    //PrintNetworkTransitions(network);
     printf("\n");
     ShowResults(trainer);
 
     //Post-Training save
-    Save(trainer, path);
+    SaveTrainer(trainer, path);
 
     // Freeing Memory
     FreeTrainer(trainer);

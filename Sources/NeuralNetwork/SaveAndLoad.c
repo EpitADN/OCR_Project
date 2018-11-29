@@ -6,7 +6,7 @@
 #include <errno.h>
 #include "SaveAndLoad.h"
 
-void Save(T_Trainer* trainer, char* path)
+void SaveTrainer(T_Trainer* trainer, char* path)
 {
     FILE *fp;
 
@@ -18,20 +18,32 @@ void Save(T_Trainer* trainer, char* path)
         exit(1);
     }
 
-    SaveNetwork(trainer->Network, fp);
+    SaveNetwork_fp(trainer->Network, fp);
 
-    SaveTrainer(trainer, fp);
+    SaveTrainer_fp(trainer, fp);
+
+    fclose(fp);
+}
+
+void SaveNetwork(T_Network* network, char* path)
+{
+    FILE *fp;
+
+    if ((fp = fopen(path,"wb")) == NULL)
+    {
+        printf("Error! opening for save file");
+        perror("Error open");
+        // Program exits if the file pointer returns NULL.
+        exit(1);
+    }
+
+    SaveNetwork_fp(network, fp);
 
     fclose(fp);
 }
 
 
-/// This function will save a double array on a binary file.
-/// \param Heigth
-/// \param Weigth
-/// \param Data , double[]data
-
-void SaveNetwork(T_Network* network, FILE *fp)
+void SaveNetwork_fp(T_Network* network, FILE *fp)
 {
     SaveNetworkInfo(network->nbLayers, network->sizeLayers, fp);
     SaveTransitions(network->nbLayers, network->Transitions, fp);
@@ -71,7 +83,7 @@ void SaveTransition(T_Transition* transition, FILE* fp)
 }
 
 
-void SaveTrainer(T_Trainer* trainer, FILE* fp)
+void SaveTrainer_fp(T_Trainer* trainer, FILE* fp)
 {
     T_Network* network = trainer->Network;
     double** SetsOfInputs = trainer->SetsOfInputs;
@@ -114,7 +126,7 @@ void SaveTrainerSetsOfTargets (double** SetsOfTargets, T_Network* network, int n
 
 /// This function will load a binary file
 /// \return An array of double.
-T_Trainer* Load(char* path)
+T_Trainer* LoadTrainer(char* path)
 {
     FILE *fp;
 
@@ -129,16 +141,34 @@ T_Trainer* Load(char* path)
         exit(1);
     }
 
-    T_Network* network = LoadNetwork(fp);
+    T_Network* network = LoadNetwork_fp(fp);
 
-    T_Trainer* trainer = LoadTrainer(network, fp);
+    T_Trainer* trainer = LoadTrainer_fp(network, fp);
 
     fclose(fp);
 
     return trainer;
 }
 
-T_Network* LoadNetwork(FILE* fp)
+T_Network* LoadNetwork(char* path)
+{
+    FILE *fp;
+    if ((fp = fopen(path,"rb")) == NULL)
+    {
+        printf("Error! opening for load file, %s _ %s\n", strerror(errno), path);
+        perror("Error open");
+        // Program exits if the file pointer returns NULL.
+        exit(1);
+    }
+
+    T_Network* network = LoadNetwork_fp(fp);
+
+    fclose(fp);
+
+    return network;
+}
+
+T_Network* LoadNetwork_fp(FILE* fp)
 {
     T_Network* network = LoadNetworkInfo(fp);
     LoadNetworkTransitions(network, fp);
@@ -181,7 +211,7 @@ void LoadNetworkTransition(T_Transition* transition, FILE* fp)
     }
 }
 
-T_Trainer* LoadTrainer(T_Network* network, FILE* fp)
+T_Trainer* LoadTrainer_fp(T_Network* network, FILE* fp)
 {
     int nbSets;
     fread(&nbSets, sizeof(int), 1, fp);
