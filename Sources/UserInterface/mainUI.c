@@ -13,7 +13,7 @@ gcc main_UI.c -o UI `pkg-config --cflags --libs gtk+-2.0`
 */
 
 
-char *filename  = "OCR_Project/Sources/UserInterface/Epitadn.png";
+char *filename  = "OCR_Project/Images/Epitadn.png";
 
 void XOR(GtkWidget *widget,gpointer data )
 {

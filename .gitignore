@@ -54,10 +54,13 @@ dkms.conf
 
 # Manual ignore
 
+# Image Bank
+Resource/*/*.bmp
+
 # CLion generated
 cmake-build-debug/
 .idea/
 CMakeLists.txt
 
 # Exec generated
-Save/*
+*bin

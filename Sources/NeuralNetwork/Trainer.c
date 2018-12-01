@@ -103,13 +103,6 @@ void Train(T_Trainer* trainer, double nu, int iteration){
 
         percentage = (double)(i*10)/(double)iteration;
 
-        // Do a full cycle
-        for (int j = 0; j < nbSets; ++j) {
-            SetNetworkInputs_Auto(network, setsOfInputs[j]);
-            RunNetwork(network);
-            BackPropagate_AUTO(network, nu, setsOfTargets[j]);
-        }
-
         // Print a progress bar
         while (percentage >= milestone){
             printf("[");
@@ -119,6 +112,13 @@ void Train(T_Trainer* trainer, double nu, int iteration){
                 printf("-");
             printf("] Training in process...\n");
             milestone += 1;
+        }
+
+        // Do a full cycle
+        for (int j = 0; j < nbSets; ++j) {
+            SetNetworkInputs_Auto(network, setsOfInputs[j]);
+            RunNetwork(network);
+            BackPropagate_AUTO(network, nu, setsOfTargets[j]);
         }
     }
 
@@ -159,9 +159,13 @@ void ShowResults(T_Trainer* trainer){
             iSetOut[j] = outputNodes[j]->val;
 
         // Printing inputs
-        printf("Results of set %d : \n|", i);
-        for (int k = 0; k < lengthInput; ++k)
-            printf("%f|", iSetIn[k]);
+        printf("Results of set %d : \n", i+1);
+        if (lengthInput <= 10) {
+            printf("|");
+            for (int k = 0; k < lengthInput; ++k)
+                printf("%lf|", iSetIn[k]);
+        }
+
 
         // Printings target
         sumTargets = 0;
