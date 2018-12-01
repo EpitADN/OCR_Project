@@ -54,14 +54,16 @@ int main(int argc, char* argv[]){
 
     // Printing recap
     printf("================================\n\n");
-    printf("Hello, World!\n");
-    printf("Resource path = '%s',\nNetwork path =  '%s',\nTrainer path =  '%s'.\n\n", resourcePath, networkPath, trainerPath);
 
+    printf("Hello, World!\n");
+    printf("Resource path = '%s',\n"
+           "Network path =  '%s',\n"
+           "Trainer path =  '%s'.\n\n",
+           resourcePath, networkPath, trainerPath);
 
     // Separator
     printf("================================\n\n");
     // ------------------------------------------------------------ //
-
 
 
     // Creating resource
@@ -80,7 +82,7 @@ int main(int argc, char* argv[]){
         // Resource doesn't exist : transforming it
         printf("Training resource not found. Transforming one from '%s' ...\n\n", resourceFolder);
         trainingResource = TransformTrainingResource(resourceFolder);
-        printf("\nTranformation complete. Saving resource at '%s' ...\n", resourcePath);
+        printf("\nTransformation complete. Saving resource at '%s' ...\n", resourcePath);
         SaveTrainingResource(trainingResource, resourcePath);
         printf("Done !\n\n");
 

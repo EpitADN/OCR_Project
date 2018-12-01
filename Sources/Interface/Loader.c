@@ -53,7 +53,7 @@ char DryRun(T_Network* Network, char* Targets, char* imagePath) {
     init_sdl();
     SDL_Surface* image;
 
-    T_TrainingChar trainingChar = TransformTrainingChar(imagePath, *Network->sizeLayers[0], image);
+    T_TrainingChar trainingChar = TransformTrainingChar(imagePath, *Network->sizeLayers[0] - 1, image);
 
     SetNetworkInputs_Auto(Network, trainingChar.values);
     RunNetwork(Network);
@@ -72,7 +72,7 @@ char DryRun(T_Network* Network, char* Targets, char* imagePath) {
         }
     }
 
-    printf("Network is at %d sure that %s is a '%c' !", (int)(maxValue*100), imagePath, Targets[maxTarget]);
+    printf("Network is at %d%% sure that %s is a '%c' !\n", (int)(maxValue*100), imagePath, Targets[maxTarget]);
 
     return Targets[maxTarget];
 }

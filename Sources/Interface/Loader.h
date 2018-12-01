@@ -11,5 +11,6 @@
 
 T_Trainer* CreateTrainer_FromResource(T_Network* network, T_TrainingResource* trainingResource);
 
+char DryRun(T_Network* Network, char* Targets, char* imagePath);
 
 #endif //OCR_PROJECT_LOADER_H

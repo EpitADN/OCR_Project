@@ -27,12 +27,12 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
         exit(1);
     }
 
-    char buffer[60];
+    char buffer[70];
     int index;
 
     // Reading height
     int height = 0;
-    if (fgets(buffer, 60, fp) == NULL){
+    if (fgets(buffer, 70, fp) == NULL){
         printf("Error reading height\n");
         exit(1);
     }
@@ -40,7 +40,7 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
 
     // Reading width
     int width = 0;
-    if (fgets(buffer, 60, fp) == NULL){
+    if (fgets(buffer, 70, fp) == NULL){
         printf("Error reading width\n");
         exit(1);
     }
@@ -48,7 +48,7 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
 
     // Reading number of targets
     int nbTargets = 0;
-    if (fgets(buffer, 60, fp) == NULL){
+    if (fgets(buffer, 70, fp) == NULL){
         printf("Error reading number of targets\n");
         exit(1);
     }
@@ -56,7 +56,7 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
 
     // Reading targets
     index = 0; char* Targets = malloc(nbTargets * sizeof(char));
-    if (fgets(buffer, 60, fp) == NULL){
+    if (fgets(buffer, 70, fp) == NULL){
         printf("Error reading targets\n");
         exit(1);
     }
@@ -71,7 +71,7 @@ T_TrainingResource* TransformTrainingResource(char* folder) {
 
         // Reading number of duplicate for target i
         nbDuplicates[i] = 0;
-        if (fgets(buffer, 60, fp) == NULL){
+        if (fgets(buffer, 70, fp) == NULL){
             printf("Error reading number of duplicates for target %c\n", Targets[i]);
             exit(1);
         }
