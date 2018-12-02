@@ -1,14 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <gtk/gtk.h>
-#include "UI.h"
 
 
 /*
 
 Pour compiler sur les nucs :
 
-gcc main_UI.c -o UI `pkg-config --cflags --libs gtk+-2.0`
+gcc test_UI.c -o test_UI `pkg-config --cflags --libs gtk+-2.0`
 
 
 */
@@ -19,10 +18,9 @@ char *filename  = "OCR_Project/Images/Epitadn.png";
 void XOR(GtkWidget *widget,gpointer data )
 {
     GtkWidget *label = (GtkWidget *) data;
-    char *texte2 = malloc(500*sizeof(int));
-    Create_Xor(texte2);
+
+    char *texte2 = "Test";
     gtk_label_set_text(GTK_LABEL(label),texte2);
-    free(texte2);
 }
 
 void Open_file(GtkWidget *widget,gpointer data)
@@ -66,7 +64,16 @@ int main (int argc, char **argv)
     GtkWidget *button_Open_File;
     GtkWidget *label;
     GtkWidget *image;
+   
 
+
+    //test
+    GtkWidget* hbox_button_xor;
+    GtkWidget* hbox_button_open;
+    GtkWidget *icon_button_xor;
+    GtkWidget *icon_button_open;
+    GtkWidget* label_xor;
+    GtkWidget* label_open;
 
 
     //GTK+ initialising
@@ -77,18 +84,37 @@ int main (int argc, char **argv)
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window),1200,800);
+    gtk_window_set_title(GTK_WINDOW(window),"Epitadn OCR");
     hbox_Main = gtk_hbox_new(TRUE,10);
     vbox_button = gtk_vbox_new(TRUE,10);
-    button_Xor = gtk_button_new_with_label("Xor");
-    button_Open_File = gtk_button_new_with_label("Open File");
+    button_Xor = gtk_button_new();
+    button_Open_File = gtk_button_new();
     label = gtk_label_new("Resultat");
     image =  gtk_image_new_from_file(filename);
+    
+    //test
+    hbox_button_xor = gtk_hbox_new(FALSE,0);
+    hbox_button_open= gtk_hbox_new(FALSE,0);
+    label_xor = gtk_label_new("XOR");
+    label_open = gtk_label_new("Open File");
+    icon_button_open = gtk_image_new_from_stock(GTK_STOCK_FILE,GTK_ICON_SIZE_DIALOG);
+    icon_button_xor = gtk_image_new_from_stock(GTK_STOCK_FLOPPY,GTK_ICON_SIZE_DIALOG);
 
-
+    
 
     //Into the box
 
     gtk_container_add(GTK_CONTAINER(window), hbox_Main);
+    
+
+    //test
+    gtk_container_add(GTK_CONTAINER(button_Open_File),hbox_button_open);
+    gtk_container_add(GTK_CONTAINER(button_Xor),hbox_button_xor);
+    gtk_box_pack_start(GTK_BOX(hbox_button_xor),icon_button_xor,FALSE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(hbox_button_xor),label_xor,TRUE,TRUE,0);
+    gtk_box_pack_start(GTK_BOX(hbox_button_open),icon_button_open,FALSE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(hbox_button_open),label_open,TRUE,TRUE,0);
+
     gtk_box_pack_start(GTK_BOX(hbox_Main),vbox_button,TRUE,TRUE,0);
     gtk_box_pack_start(GTK_BOX(vbox_button),button_Xor,TRUE,TRUE,0);
     gtk_box_pack_start(GTK_BOX(vbox_button),button_Open_File,TRUE,TRUE,0);
