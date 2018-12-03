@@ -5,7 +5,9 @@
 #include <string.h>
 #include <stdio.h>
 #include "UI.h"
+#include "Trainer.h"
 
+/*
 void add_word(char s1[],char s2[])
 {
     int i =0;
@@ -139,5 +141,13 @@ char* resultat(T_Trainer* trainer)
     add_word(ret,"%\n\n'\0'");
 
     return ret;
+}*/
+
+void Create_Xor(char* ret)
+{   
+    T_Trainer* trainer = CreateTrainerXOR();
+    Train(trainer, NU, 100);
+
+    //Trouver avec tony comment bien affiche le network dans un char
 }
 
