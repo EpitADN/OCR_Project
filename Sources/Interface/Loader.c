@@ -8,7 +8,7 @@
 T_Trainer* CreateTrainer_FromResource(T_Network* Network, T_TrainingResource* Resource) {
 
     // Retrieving info
-    size_t nbTargets = Resource->nbTargets;
+    int nbTargets = Resource->nbTargets;
     int size = Resource->size;
     int lastlayer = *Network->nbLayers-1;
 
@@ -18,19 +18,77 @@ T_Trainer* CreateTrainer_FromResource(T_Network* Network, T_TrainingResource* Re
     if (nbTargets != *Network->sizeLayers[lastlayer])
         printf("Resource not compatible with network : Wrong targets ! (%d vs %d)", nbTargets, *Network->sizeLayers[lastlayer]);
 
-    // Calculating total number of images
+
+    double** SetsOfInputs = NULL;
+    double** SetsOfOutputs = NULL;
     int nbTotalChars = 0;
+
+
+    //FillTrainer_ByLetters(Resource, SetsOfInputs, SetsOfOutputs, &nbTotalChars);
+    FillTrainer_Balanced(Resource, SetsOfInputs, SetsOfOutputs, &nbTotalChars);
+
+    printf("A total of %d images have been added to the trainer.\n", nbTotalChars);
+
+    return CreateTrainer_Auto(Network, nbTotalChars, SetsOfInputs, SetsOfOutputs);
+}
+
+
+void FillTrainer_ByLetters(T_TrainingResource* Resource, double** SetsOfInputs, double** SetsOfOutputs, int* nbTotalChars) {
+
+    // Retrieving info
+    int nbTargets = Resource->nbTargets;
+    int size = Resource->size;
+
+    // Calculating total number of images
     for (int i = 0; i < nbTargets; ++i)
-        nbTotalChars += Resource->nbDuplicates[i];
+        *nbTotalChars += Resource->nbDuplicates[i];
 
     // Allocating memory for sets of inputs and outputs
-    double** SetsOfInputs = malloc(nbTotalChars * sizeof(double*));
-    double** SetsOfOutputs = malloc(nbTotalChars * sizeof(double*));
+    SetsOfInputs = malloc(*nbTotalChars * sizeof(double*));
+    SetsOfOutputs = malloc(*nbTotalChars * sizeof(double*));
 
 
     int iChar = 0;
     for (int iT = 0; iT < nbTargets; ++iT) {
         for (int jD = 0; jD < Resource->nbDuplicates[iT]; ++jD) {
+
+            SetsOfInputs[iChar] = malloc(size*sizeof(double));
+            SetsOfOutputs[iChar] = calloc((size_t)nbTargets, sizeof(double));
+
+            for (int i = 0; i < size; ++i)
+                SetsOfInputs[iChar][i] = Resource->TrainingChars[iT][jD].values[i];
+
+            SetsOfOutputs[iChar][iT] = 1;
+
+            iChar++;
+        }
+    }
+
+}
+
+
+void FillTrainer_Balanced(T_TrainingResource* Resource, double** SetsOfInputs, double** SetsOfOutputs, int* nbTotalChars) {
+
+    // Retrieving info
+    int nbTargets = Resource->nbTargets;
+    int size = Resource->size;
+
+    // Calculating total number of images
+    for (int i = 0; i < nbTargets; ++i){
+        if (*nbTotalChars == 0 || Resource->nbDuplicates[i] < *nbTotalChars)
+            *nbTotalChars = Resource->nbDuplicates[i];
+    }
+    *nbTotalChars *= Resource->nbTargets;
+
+
+    // Allocating memory for sets of inputs and outputs
+    SetsOfInputs = malloc(*nbTotalChars * sizeof(double*));
+    SetsOfOutputs = malloc(*nbTotalChars * sizeof(double*));
+
+
+    int iChar = 0;
+    for (int jD = 0; jD < Resource->nbDuplicates[0]; ++jD) {
+        for (int iT = 0; iT < nbTargets; ++iT) {
 
             SetsOfInputs[iChar] = malloc(size*sizeof(double));
             SetsOfOutputs[iChar] = calloc(nbTargets, sizeof(double));
@@ -43,19 +101,23 @@ T_Trainer* CreateTrainer_FromResource(T_Network* Network, T_TrainingResource* Re
             iChar++;
         }
     }
-
-    return CreateTrainer_Auto(Network, nbTotalChars, SetsOfInputs, SetsOfOutputs);
 }
 
 
-char DryRun(T_Network* Network, char* Targets, char* imagePath) {
+char DryRun_FromPath(T_Network* Network, char* Targets, char* imagePath) {
 
     init_sdl();
     SDL_Surface* image;
 
     T_TrainingChar trainingChar = TransformTrainingChar(imagePath, *Network->sizeLayers[0] - 1, image);
 
-    SetNetworkInputs_Auto(Network, trainingChar.values);
+    return DryRun(Network, Targets, &trainingChar);
+}
+
+
+char DryRun(T_Network* Network, char* Targets, T_TrainingChar* trainingChar){
+
+    SetNetworkInputs_Auto(Network, trainingChar->values);
     RunNetwork(Network);
 
     double maxValue = -1;
@@ -72,7 +134,7 @@ char DryRun(T_Network* Network, char* Targets, char* imagePath) {
         }
     }
 
-    printf("Network is at %d%% sure that %s is a '%c' !\n", (int)(maxValue*100), imagePath, Targets[maxTarget]);
+    printf("Network is at %d%% sure that this image is a '%c' !\n", (int)(maxValue*100), Targets[maxTarget]);
 
     return Targets[maxTarget];
 }
