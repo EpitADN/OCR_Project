@@ -12,26 +12,54 @@
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_video.h"
 
+typedef struct Listofmatrixs
+{
+	int** matrix;
+	int height;
+	int width;
+	void* next;
+} listofmatrix;
+
+typedef struct coor
+{
+    int up;
+    int left;
+    int rigth;
+    int down;
+}coordonate ;
+
+
+
 
 int** creationarrays(SDL_Surface* image_surface);
 
 void Histogrammification(int** arrays ,int width , int height , int* histogramme1, int* histogramme2);
 
-void listification (int** arrays , int* hiligne ,int width , int height ,int* sizeofline, int*** listoflignes);
+void listification (int** arrays , int* hiligne ,int width , int height , listofmatrix* list );
 
-void addtolist(int** arrays , int height, int start , int end , int*** listoflignes , int nbofligne);
+listofmatrix* addtolist(int** arrays , int width, int start , int end ) ;
 
-void test(int* sizeofline, int*** listoflignes);
 
 void printarray (int** arrays ,int width , int height);
 
 void free_matrice(int** arrays ,int width );
+
+listofmatrix* characterisation(listofmatrix* list );
+
+coordonate* propagation(int ** arrays , int heigth , int width , int x , int y );
+
+void* copying(listofmatrix arrays , coordonate* borne  );
+
+
+
 
 void free_listofmatrice(int*** arrays ,int* sizeofline ,int width );
 
 void printlist(int* list, int size );
 
 void choosefrom_histo(int* histogramme , int size , int* start, int* end);
+
+
 
 
 #endif //IMAGE_PROCESS_SEGMENTATION_H

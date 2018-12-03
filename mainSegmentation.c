@@ -12,7 +12,7 @@ int main() {
 
     init_sdl();
 
-    image_surface = load_image("image.bmp");
+    image_surface = load_image("../image.bmp");
 
     screen_surface = display_image(image_surface);
 
@@ -35,12 +35,10 @@ segmentation
     int width = image_surface->w; // number of pixel in a ligne
     int height = image_surface->h; // number of pixel in a collone 
     int** matrice = creationarrays(image_surface);
-    -----------------------------------------
-    printarray(matrice, 190 , 190);
+    //printarray(matrice, 190 , 190);
     SDL_FreeSurface(image_surface);
     SDL_FreeSurface(screen_surface);
     //we can free the sdl
-----------
     int* hicollone = calloc(height, sizeof(int));
     int* hiligne = calloc(width, sizeof(int));
 
@@ -49,18 +47,26 @@ segmentation
     
     printf("\n");
     printf("\n");
-    printlist(hicollone, height); // histo des collones 
+    //printlist(hicollone, height); // histo des collones
     //printf("\n");
     //printf("\n");
    
-    printlist(hiligne, width);//histo des lignes 
+    //printlist(hiligne, width);//histo des lignes
     printf("\n");
     printf("\n");
     
-    int*** listoflignes = calloc(1, sizeof(int **));
-    int* sizeofline = calloc(1, sizeof(int));
+    listofmatrix* list = malloc( sizeof(listofmatrix));
 
-    listification(matrice , hicollone ,width ,height ,sizeofline, listoflignes);
+    listification(matrice , hicollone ,width ,height ,list);
+
+
+
+    list = list->next;
+
+    listofmatrix* chara = malloc(sizeof(listofmatrix));
+
+    chara = characterisation(list);
+
     //test(sizeofline, listoflignes);
     //printarray(matrice, 190 , 190);
     //printarray(listoflignes[0] , 190 , 10);
@@ -72,6 +78,9 @@ segmentation
      //show_image("../image4.bmp");
 
     
+
+    /*
+    it is pour toi tONy 
     SDL_Surface* image_surface;
     SDL_Surface* screen_surface;
     init_sdl();
@@ -80,6 +89,10 @@ segmentation
     int width = image_surface->w; // number of pixel in a ligne
     int height = image_surface->h; // number of pixel in a collone 
     int** matrice = creationarrays(image_surface);
+    SDL_FreeSurface(image_surface);
+    SDL_FreeSurface(screen_surface);
+    free_matrice(matrice , height);
+    */
 
 
 

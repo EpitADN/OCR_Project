@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS= -Wall -Wextra -std=c99 -O2
 LDFLAGS= `pkg-config --libs sdl` -lSDL_image -lm
 EXEC = OCR_Image_Process
-SRC= mainSegmentation.c Load_Image.c Segmentation.c
+SRC=  Load_Image.c Segmentation.c mainSegmentation.c
 OBJ= $(SRC:.c=.o)
 
 all: ${EXEC}

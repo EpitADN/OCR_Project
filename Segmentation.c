@@ -13,9 +13,9 @@ int** creationarrays(SDL_Surface* image_surface)
     int width = image_surface->w;
     int height = image_surface->h;
 
-    int** matrix = (int **)malloc(sizeof(int *) * height);
+    int** matrix = malloc(sizeof(int *) * height);
     for (int l = 0; l < height; l++)
-        matrix[l] = (int *)malloc(sizeof(int) * width);
+        matrix[l] = malloc(sizeof(int) * width);
 
     for(int x =0; x < height;++x)
     {
@@ -27,7 +27,7 @@ int** creationarrays(SDL_Surface* image_surface)
             matrix[x][y] = r/255;
         }
     }
-    return  matrix;
+    return matrix;
 }
 
 void Histogrammification(int** arrays ,int width , int height , int* histogramme1, int* histogramme2){
@@ -39,11 +39,194 @@ void Histogrammification(int** arrays ,int width , int height , int* histogramme
                 histogramme1[i] += 1;
                 histogramme2[j] += 1;
             }
-
         }
     }
 }
 
+void listification (int** arrays , int* hiligne ,int width , int height , listofmatrix* list )
+{
+    printf("width = %d height = %d \n" , width , height);
+    double average = 0;
+    for (int k = 0; k < width; ++k) {
+        average += hiligne[k];
+    }
+    average /= width ;
+    average = 1 * average;
+
+
+    int start = 0;
+    listofmatrix* currentmatrix =list;
+    int colors = hiligne[0] <= average ;
+    for (int i = 0; i < height; ++i)
+    {
+        int current_colors = hiligne[i] <= average;
+
+        if ( colors != current_colors  )
+        {
+
+            if (current_colors == 0){//case black
+
+                printf("start  = %d end = %d\n",start, i );
+                currentmatrix->next =  addtolist(arrays, width, start ,  i - 1);
+                currentmatrix = currentmatrix->next;
+            }
+            start = i;
+            colors = current_colors;
+        }
+
+    }
+
+}
+
+listofmatrix* addtolist(int** arrays , int width, int start , int end )
+{
+    listofmatrix* new = malloc(sizeof(listofmatrix));
+
+    new->next = NULL;
+    new->height = end - start;
+    new->width = width;
+
+    new->matrix = calloc(end - start ,sizeof(int *) );
+    for (int l = 0; l < end - start; ++l)
+        new->matrix[l] =  calloc( width , sizeof(int));
+
+    for(int x =start ; x < end ;++x) {
+        for (int y = 0; y < width; ++y) {
+
+            new->matrix[x - start][y] = arrays[x][y];
+        }
+
+    }
+    //printarray(new->matrix, new->width , new ->height);
+    return new;
+}
+
+listofmatrix* characterisation(listofmatrix* list ) //pour les caractères heigth -1 space et width = -1 \n
+{
+    listofmatrix * chara= malloc(sizeof(listofmatrix));
+    while (list != NULL)
+    {
+
+        for (int j = 0; j < list ->width; ++j)
+        {
+             for (int i = 0; i < list->height; ++i)
+             {
+                if (list->matrix[i][j] == 0)
+                {
+
+                    coordonate* temp;
+                    temp = propagation(list->matrix , list->height , list->width , i,j );
+                    printf("temp = %d %d %d %d", temp->rigth,temp->left , temp->up, temp->down);
+                    //printarray(list->matrix,list->width, list->height);
+                    chara->next = copying(*list , temp);
+
+                    j = temp->rigth;
+                    i = 0;
+                    printf("wid = %d  hei = %d  \n" , chara->width , chara->height);
+                    printarray(chara->matrix , chara->width , chara->height);
+                    chara = chara->next;
+                }
+
+             }
+        }
+        printf("\n");
+        list = list->next;
+    }
+    return chara;
+}
+
+coordonate* propagation(int ** arrays , int heigth , int width , int x , int y )
+{
+    coordonate* bordure = malloc(sizeof(coordonate));
+    coordonate* temp = malloc(sizeof(coordonate));
+    bordure->down= x;
+    bordure->up = x;
+    bordure->left = y;
+    bordure->rigth = y;
+    arrays[x][y] = 2;
+    if (x + 1 < heigth && arrays[x + 1][y] == 0)
+    {
+        temp = propagation(arrays , heigth , width , x+1 , y);
+        if (temp->up < bordure ->up)
+            bordure ->up =temp->up ;
+        if (temp->rigth > bordure ->rigth)
+            bordure ->rigth =temp->rigth ;
+        if (temp->left < bordure ->left)
+            bordure ->left =temp->left ;
+        if (temp->down > bordure ->down)
+            bordure ->down =temp->down ;
+    }
+    if (y + 1 < width && arrays[x][y + 1] == 0)
+    {
+        temp = propagation(arrays , heigth , width , x , y + 1);
+        if (temp->up < bordure ->up)
+            bordure ->up =temp->up ;
+        if (temp->rigth > bordure ->rigth)
+            bordure ->rigth =temp->rigth ;
+        if (temp->left < bordure ->left)
+            bordure ->left =temp->left ;
+        if (temp->down > bordure ->down)
+            bordure ->down =temp->down ;
+    }
+    if (x - 1 > 0 && arrays[x - 1][y] == 0)
+    {
+        temp = propagation(arrays , heigth , width , x-1 , y);
+        if (temp->up < bordure ->up)
+            bordure ->up =temp->up ;
+        if (temp->rigth > bordure ->rigth)
+            bordure ->rigth =temp->rigth ;
+        if (temp->left < bordure ->left)
+            bordure ->left =temp->left ;
+        if (temp->down > bordure ->down)
+            bordure ->down =temp->down ;
+    }
+    if (y - 1 > 0 && arrays[x ][y - 1] == 0)
+    {
+        temp = propagation(arrays , heigth , width , x , y - 1);
+        if (temp->up < bordure ->up)
+            bordure ->up =temp->up ;
+        if (temp->rigth > bordure ->rigth)
+            bordure ->rigth =temp->rigth ;
+        if (temp->left < bordure ->left)
+            bordure ->left =temp->left ;
+        if (temp->down > bordure ->down)
+            bordure ->down =temp->down ;
+    }
+
+    free(temp);
+    return bordure;
+}
+
+void* copying(listofmatrix arrays , coordonate* borne )
+{
+
+    listofmatrix* new = malloc(sizeof(listofmatrix));
+
+    new->next = NULL;
+    new->height = borne->down - borne->up   ;
+    new->width = borne->rigth - borne->left  ;
+
+    new->matrix = calloc( (size_t)new->height ,sizeof(int *) );
+    for (int l = 0; l < new->height; ++l)
+        new->matrix[l] =  calloc( (size_t)new->width , sizeof(int));
+
+    for(int x =borne->up ; x < borne->down  ;++x) {
+        for (int y = borne->left; y < borne->rigth  ; ++y) {
+            if (arrays.matrix[x][y] != 2 )
+            {
+                //printf("x = %d y = %d " ,x - borne->up , y - borne->left );
+                new->matrix[x - borne->up][y - borne->left] = 1;
+            }
+            else
+                new->matrix[x - borne->up][y - borne->left] = 0;
+            //printf("\n");
+        }
+
+    }
+    return new;
+}
+
+/*
 void listification (int** arrays , int* hiligne ,int width , int height ,int* sizeofline, int*** listoflignes)
 {
     printf("width = %d height = %d \n" , width , height);
@@ -73,21 +256,21 @@ void listification (int** arrays , int* hiligne ,int width , int height ,int* si
             colors = current_colors;
             nbofligne += 1;
         }
-            
+
     }
     //sizeofline[0] = nbofligne;
     //printf("%d\n",nbofligne );
     //for (int i = 0; i < nbofligne - 1; ++i)
-    //{    
+    //{
     //printarray(listoflignes[1] , 190, 10);
     //}
-    
+
 }
 
 void addtolist(int** arrays , int width, int start , int end , int*** listoflignes , int nbofligne)
 {
     printf(" nbof ligne = %d   \n",nbofligne );
-    listoflignes = realloc(listoflignes , nbofligne * sizeof(int **));
+    *listoflignes = realloc(listoflignes , nbofligne * sizeof(int **));
     if (listoflignes == NULL)
     {
         printf("%s\n", " erreur realloc ");
@@ -95,24 +278,21 @@ void addtolist(int** arrays , int width, int start , int end , int*** listoflign
     }
     listoflignes[nbofligne - 1] = calloc(end - start ,sizeof(int *) );
     for (int l = 0; l < end - start; ++l)
-        listoflignes[nbofligne - 1][l] = /* malloc(sizeof(int) * end - start);*/ calloc( width , sizeof(int));
+        listoflignes[nbofligne - 1][l] = calloc( width , sizeof(int));
 
     for(int x =start ; x < end ;++x)
-    //for(int y=start; y < end ;++y)
     {
-        //printf("\\ %d \n", x );
-        
-        //for(int x =0 ; x < width ;++x)
+
         for(int y=0; y < width ;++y)
-        {            
+        {
             //printf("%d",arrays[x][y] );
             //listoflignes[nbofligne -1 ][x][y - start] = 0;
-            
+
             listoflignes[nbofligne -1 ][x - start][y] = arrays[x][y];
             //printf("%d",listoflignes[nbofligne -1 ][x][y - start] );
         }
     }
-    
+
     if (nbofligne != 0)
         {
             printarray(listoflignes[nbofligne- 1] , 190, end - start  );
@@ -124,13 +304,10 @@ void addtolist(int** arrays , int width, int start , int end , int*** listoflign
 
 
 
-void test(int* sizeofline, int*** listoflignes)
-{
-    printarray(listoflignes[0], 190, sizeofline[1]);
-}
 
 
-/*
+
+
 void choosefrom_histo(int* histogramme , int size , int* start, int* end) {
     int average = 0;
     for (int k = 0; k <size; ++k) {
