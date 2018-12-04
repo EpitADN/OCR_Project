@@ -7,11 +7,8 @@
 
 #include "../NeuralNetwork/Trainer.h"
 
-/*
-int** parser(int* nblayers, char* entres);
-char* resultat(T_Trainer* trainer);
-void add_word(char s1[],char s2[]);*/
-
+void add_word(char s1[],char s2[]);
+void Create_Xor_test(char* ret);
 void Create_Xor(char* ret);
 
 

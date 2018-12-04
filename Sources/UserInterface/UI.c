@@ -7,7 +7,7 @@
 #include "UI.h"
 #include "Trainer.h"
 
-/*
+
 void add_word(char s1[],char s2[])
 {
     int i =0;
@@ -29,40 +29,10 @@ void add_word(char s1[],char s2[])
 }
 
 
-int** parser(int* nblayers, char* entre)
+void Create_Xor_test(char* ret)
 {
-    int** sizeLayers = malloc(*nblayers * sizeof(int*));
-
-    int ichar = 0;
-    int tmp=0;
-
-
-    for(int isize=0; isize < *nblayers; isize++)
-    {
-        while(entre[ichar] == ' ')
-        {
-            ichar++;
-        }
-
-        tmp =0;
-        while(entre[ichar] != ' ')
-        {
-            tmp = 10 * tmp + (int)(entre[ichar]);
-            ichar++;
-        }
-
-        sizeLayers[isize] = malloc(sizeof(int));
-        //sizeLayers[isize] = tmp;
-
-    }
-    return sizeLayers;
-}
-
-char* resultat(T_Trainer* trainer)
-{
-    char *ret = malloc(50000000 * sizeof(char));
-    char tmp[10];
-    ret[0] = '\0';
+    T_Trainer* trainer = CreateTrainerXOR();
+    Train(trainer, 0.2, 100);
 
 
 
@@ -141,12 +111,12 @@ char* resultat(T_Trainer* trainer)
     add_word(ret,"%\n\n'\0'");
 
     return ret;
-}*/
+}
 
 void Create_Xor(char* ret)
 {   
     T_Trainer* trainer = CreateTrainerXOR();
-    Train(trainer, NU, 100);
+    Train(trainer, 0.2, 100);
 
     //Trouver avec tony comment bien affiche le network dans un char
 }

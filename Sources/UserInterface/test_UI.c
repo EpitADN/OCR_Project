@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <gtk/gtk.h>
+#include "UI.h"
 
 
 /*
@@ -18,9 +19,10 @@ char *filename  = "OCR_Project/Images/Epitadn.png";
 void XOR(GtkWidget *widget,gpointer data )
 {
     GtkWidget *label = (GtkWidget *) data;
-
-    char *texte2 = "Test";
+    char *texte2 = malloc(500*sizeof(char));
+    Create_Xor_test(texte2);
     gtk_label_set_text(GTK_LABEL(label),texte2);
+    free(texte2);
 }
 
 void Open_file(GtkWidget *widget,gpointer data)
