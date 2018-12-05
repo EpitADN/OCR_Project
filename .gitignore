@@ -51,8 +51,16 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-#Manual ignore
+
+# Manual ignore
+
+# Image Bank
+Resource/*/*.bmp
+
+# CLion generated
 cmake-build-debug/
 .idea/
 CMakeLists.txt
-SaveTransitions/*
+
+# Exec generated
+*bin
