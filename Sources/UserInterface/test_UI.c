@@ -14,15 +14,15 @@ gcc test_UI.c -o test_UI `pkg-config --cflags --libs gtk+-2.0`
 */
 
 
-char *filename  = "OCR_Project/Images/Epitadn.png";
+char *filename  = "/home/corentin.ourvoy/afs/OCR_Project/Images/Epitadn.png";
 
 void XOR(GtkWidget *widget,gpointer data )
 {
-    GtkWidget *label = (GtkWidget *) data;
-    char *texte2 = malloc(500*sizeof(char));
+    /*GtkWidget *label = (GtkWidget *) data;
+    char texte2[500];
     Create_Xor_test(texte2);
     gtk_label_set_text(GTK_LABEL(label),texte2);
-    free(texte2);
+    free(texte2);*/
 }
 
 void Open_file(GtkWidget *widget,gpointer data)
@@ -85,10 +85,10 @@ int main (int argc, char **argv)
     //widgets initialising
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_default_size(GTK_WINDOW(window),1200,800);
+    gtk_window_set_default_size(GTK_WINDOW(window),700,400);
     gtk_window_set_title(GTK_WINDOW(window),"Epitadn OCR");
     hbox_Main = gtk_hbox_new(TRUE,10);
-    vbox_button = gtk_vbox_new(TRUE,10);
+    vbox_button = gtk_vbox_new(FALSE,10);
     button_Xor = gtk_button_new();
     button_Open_File = gtk_button_new();
     label = gtk_label_new("Resultat");
@@ -118,8 +118,8 @@ int main (int argc, char **argv)
     gtk_box_pack_start(GTK_BOX(hbox_button_open),label_open,TRUE,TRUE,0);
 
     gtk_box_pack_start(GTK_BOX(hbox_Main),vbox_button,TRUE,TRUE,0);
-    gtk_box_pack_start(GTK_BOX(vbox_button),button_Xor,TRUE,TRUE,0);
-    gtk_box_pack_start(GTK_BOX(vbox_button),button_Open_File,TRUE,TRUE,0);
+    gtk_box_pack_start(GTK_BOX(vbox_button),button_Xor,FALSE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(vbox_button),button_Open_File,FALSE,FALSE,0);
     gtk_box_pack_start(GTK_BOX(hbox_Main),label,TRUE,FALSE,0);
     gtk_box_pack_start(GTK_BOX(hbox_Main),image,TRUE,FALSE,0);
 

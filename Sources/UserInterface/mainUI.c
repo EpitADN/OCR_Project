@@ -77,8 +77,8 @@ int main (int argc, char **argv)
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window),1200,800);
-    hbox_Main = gtk_hbox_new(TRUE,10);
-    vbox_button = gtk_vbox_new(TRUE,10);
+    hbox_Main = gtk_hbox_new(FALSE,10);
+    vbox_button = gtk_vbox_new(FALSE,10);
     button_Xor = gtk_button_new_with_label("Xor");
     button_Open_File = gtk_button_new_with_label("Open File");
     label = gtk_label_new("Resultat");
@@ -90,8 +90,8 @@ int main (int argc, char **argv)
 
     gtk_container_add(GTK_CONTAINER(window), hbox_Main);
     gtk_box_pack_start(GTK_BOX(hbox_Main),vbox_button,TRUE,TRUE,0);
-    gtk_box_pack_start(GTK_BOX(vbox_button),button_Xor,TRUE,TRUE,0);
-    gtk_box_pack_start(GTK_BOX(vbox_button),button_Open_File,TRUE,TRUE,0);
+    gtk_box_pack_start(GTK_BOX(vbox_button),button_Xor,FALSE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(vbox_button),button_Open_File,FALSE,FALSE,0);
     gtk_box_pack_start(GTK_BOX(hbox_Main),label,TRUE,FALSE,0);
     gtk_box_pack_start(GTK_BOX(hbox_Main),image,TRUE,FALSE,0);
 
