@@ -52,6 +52,9 @@ void* copying(listofmatrix arrays , coordonate* borne  );
 
 void* space();
 
+void* sautdeligne();
+
+
 
 
 

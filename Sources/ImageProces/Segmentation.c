@@ -107,18 +107,15 @@ void characterisation(listofmatrix* list , listofmatrix* chara) //pour les carac
     while (list)
     {
         //int spac = 0;
-        for (int j = 0; j < list ->width; ++j)
-        {
-             for (int i = 0; i < list->height; ++i)
-             {
-                if (list->matrix[i][j] == 0)
-                {
+        for (int j = 0; j < list ->width; ++j) {
+            for (int i = 0; i < list->height; ++i) {
+                if (list->matrix[i][j] == 0) {
 
-                    coordonate* temp;
-                    temp = propagation(list->matrix , list->height , list->width , i,j );
+                    coordonate *temp;
+                    temp = propagation(list->matrix, list->height, list->width, i, j);
 
                     //printarray(list->matrix,list->width, list->height);
-                    currentchara->next = copying(*list , temp);
+                    currentchara->next = copying(*list, temp);
 
                     j = temp->rigth;
                     i = 0;
@@ -133,9 +130,10 @@ void characterisation(listofmatrix* list , listofmatrix* chara) //pour les carac
                     currentchara = currentchara->next;
                     spac = 0;
                 }*/
-             }
+            }
+            currentchara->next = sautdeligne();
+            currentchara = currentchara->next;
         }
-        printf("\n");
         list = list->next;
     }
 }
@@ -263,6 +261,17 @@ void* space()
     return new;
 }
 
+void* sautdeligne()
+{
+
+    listofmatrix* new = malloc(sizeof(listofmatrix));
+
+    new->next = NULL;
+    new->height = -1  ;
+    new->width = -1  ;
+
+    return new;
+}
 
 void printarray (int** arrays ,int width , int height)
 {
