@@ -42,18 +42,21 @@ listofmatrix* addtolist(int** arrays , int width, int start , int end ) ;
 
 void printarray (int** arrays ,int width , int height);
 
-void free_matrice(int** arrays ,int width );
+void free_matrice(int** arrays ,int heigth );
 
-listofmatrix* characterisation(listofmatrix* list );
+void characterisation(listofmatrix* list , listofmatrix* chara);
 
 coordonate* propagation(int ** arrays , int heigth , int width , int x , int y );
 
 void* copying(listofmatrix arrays , coordonate* borne  );
 
+void* space();
 
 
 
-void free_listofmatrice(int*** arrays ,int* sizeofline ,int width );
+
+
+void free_listofmatrice(listofmatrix* list );
 
 void printlist(int* list, int size );
 

@@ -45,37 +45,50 @@ segmentation
     Histogrammification(matrice , width, height, hicollone, hiligne);
 
     
-    printf("\n");
-    printf("\n");
-    //printlist(hicollone, height); // histo des collones
-    //printf("\n");
-    //printf("\n");
-   
-    //printlist(hiligne, width);//histo des lignes
-    printf("\n");
-    printf("\n");
-    
-    listofmatrix* list = malloc( sizeof(listofmatrix));
 
+
+
+
+
+
+    listofmatrix* list = malloc( sizeof(listofmatrix));
     listification(matrice , hicollone ,width ,height ,list);
 
+    free(hicollone);
+    free(hiligne);
 
 
-    list = list->next;
 
+    //list = list->next;
     listofmatrix* chara = malloc(sizeof(listofmatrix));
+    characterisation(list , chara);
 
-    chara = characterisation(list);
+    /*
+    while (list)
+    {
+        printarray(list->matrix , list->width , list->height);
+        printf("\n");
 
-    //test(sizeofline, listoflignes);
-    //printarray(matrice, 190 , 190);
-    //printarray(listoflignes[0] , 190 , 10);
+        list = list->next;
+    }
+    */
+
+    /*
+    chara= chara->next;
+
+    while (chara->next)
+    {
+        printarray(chara->matrix , chara->width , chara->height);
+        printf("\n");
+        chara = chara->next;
+    }
+    */
 
 
-    //free_listofmatrice(listoflignes, sizeofline , width);
+
     free_matrice(matrice , height);
-
-     //show_image("../image4.bmp");
+    free_listofmatrice(list);
+    free_listofmatrice(chara);
 
     
 
