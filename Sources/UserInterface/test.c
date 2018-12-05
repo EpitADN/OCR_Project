@@ -14,7 +14,7 @@ gcc test.c -o test_UI `pkg-config --cflags --libs gtk+-2.0`
 */
 
 
-char *filename  = "/home/corentin.ourvoy/afs/OCR_Project/Images/Epitadn.png";
+char *filename  = "../../Images/Epitadn.png";
 
 
 
@@ -78,7 +78,7 @@ void Entry_use(GtkWidget *widget,gpointer data)
 void Set_result(GtkWidget *widget,gpointer data)
 {
     char ret[1024];
-    Result(ret,filename)
+    //Result(ret,filename);
     GtkWidget *label = (GtkWidget *) data;
     gtk_label_set_text(label,ret);
 
