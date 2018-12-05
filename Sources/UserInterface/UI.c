@@ -5,9 +5,9 @@
 #include <string.h>
 #include <stdio.h>
 #include "UI.h"
-#include "Trainer.h"
+#include "SaveAndLoad.h"
 
-
+/*
 void add_word(char s1[],char s2[])
 {
     int i =0;
@@ -120,4 +120,11 @@ void Create_Xor(char* ret)
 
     //Trouver avec tony comment bien affiche le network dans un char
 }
+*/
 
+void Result(char* ret,char* im_path)
+{
+	char* tmp = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	Trainer *trainer = LoadTrainer("path");
+	ret = DryRun_FromPath(trainer,tmp,im_path);
+}

@@ -75,6 +75,15 @@ void Entry_use(GtkWidget *widget,gpointer data)
     filename = gtk_entry_get_text((GtkWidget *) data);
 }
 
+void Set_result(GtkWidget *widget,gpointer data)
+{
+    char ret[1024];
+    Result(ret,filename)
+    GtkWidget *label = (GtkWidget *) data;
+    gtk_label_set_text(label,ret);
+
+}
+
 
 int main (int argc, char **argv)
 {
@@ -133,10 +142,12 @@ int main (int argc, char **argv)
     g_signal_connect(button_Open_File,"clicked",G_CALLBACK(Open_file),label);
     g_signal_connect_swapped (button_Open_File, "clicked", G_CALLBACK(ChangeImage),image);
     g_signal_connect_swapped (button_Open_File, "clicked", G_CALLBACK(Set_path),entry);
+    g_signal_connect_swapped (button_Open_File, "clicked", G_CALLBACK(Set_result),label);
 
     //Pasting Entry
     g_signal_connect(entry,"activate",G_CALLBACK(Entry_use),entry);
     g_signal_connect_swapped (entry, "activate", G_CALLBACK(ChangeImage),image);
+    g_signal_connect_swapped (entry, "activate", G_CALLBACK(Set_result),label);
 
     //Window destroy
 
