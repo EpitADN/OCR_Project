@@ -152,7 +152,7 @@ void InitializeNetworkTransitions(T_Network* network){
 
 /// Print all the network related variables, including all of its layers and nodes.
 /// \param network Pointer to the network to print.
-void PrintAllNetworkInfos(T_Network* network){
+void PrintAllNetworkInfos(T_Network* network, int showNodes){
 
     printf("Printing exhaustive network infos : \n\n");
 
@@ -164,7 +164,7 @@ void PrintAllNetworkInfos(T_Network* network){
     printf("\n");
 
     // Print Nodes info for each layer
-    if (*network->sizeLayers[0] <= 20) {
+    if (showNodes) {
         T_Node *jnode;
         for (int j = 0; j < *network->nbLayers; ++j) {
             printf("Value of nodes in layer %d : \n", j + 1);

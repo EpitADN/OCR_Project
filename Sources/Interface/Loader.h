@@ -11,9 +11,9 @@
 
 T_Trainer* CreateTrainer_FromResource(T_Network* network, T_TrainingResource* trainingResource);
 
-void FillTrainer_ByLetters(T_TrainingResource* Resource, double** SetsOfInputs, double** SetsOfOutputs, int* nbTotalChars);
+void FillTrainer_ByLetters(T_TrainingResource* Resource, double** SetsOfInputs, double** SetsOfOutputs, int nbTotalChars);
 
-void FillTrainer_Balanced(T_TrainingResource* Resource, double** SetsOfInputs, double** SetsOfOutputs, int* nbTotalChars);
+void FillTrainer_Balanced(T_TrainingResource* Resource, double** SetsOfInputs, double** SetsOfOutputs, int nbTotalChars);
 
 char DryRun(T_Network* Network, char* Targets, T_TrainingChar* trainingChar);
 

@@ -29,6 +29,12 @@ T_Transition* InitializeTransition(T_Layer* sourceLayer, T_Layer* targetLayer);
 void ActivateTransition(T_Transition* transition);
 
 
+/// Uses Softmax function to calculate value of nodes
+/// \param targetNodes Pointer to nodes array
+/// \param nbNodes Number of nodes on the array
+void SoftMax(T_Node** targetNodes, int nbNodes);
+
+
 /// Randomize all the weights of a transition between -1 and 1.
 /// \param transition Pointer to the transition to randomize
 void RandomizeWeights(T_Transition* transition);

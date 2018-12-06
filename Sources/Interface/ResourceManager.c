@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
 
     // Verifying numbers of parameters :
     if (argc != 4){
-        printf("Bad numbers of parameters : must be called with 'resourceName', 'networkName', and 'trainerName'.");
+        printf("Bad numbers of parameters : must be called with 'resourceName', 'networkName', and 'trainerName'\n.");
         exit(-1);
     }
 
@@ -118,7 +118,7 @@ int main(int argc, char* argv[]){
     }
 
     // Printing of network
-    PrintAllNetworkInfos(network);
+    PrintAllNetworkInfos(network, 0);
 
 
     // Separator

@@ -25,7 +25,7 @@ EXC_NR = 	NetworkManager
 DIR_NR = 	$(DIR)NeuralNetwork/
 SRC_NR = 	$(filter-out $(addprefix $(DIR_NR),$(addsuffix .c,$(EXC_NR))),$(wildcard $(DIR_NR)*.c))
 
-EXC_IT =	ResourceManager SingleCharOCR
+EXC_IT =	ResourceManager SingleCharOCR BetterManager mainTests
 DIR_IT = 	$(DIR)Interface/
 SRC_IT = 	$(filter-out $(addprefix $(DIR_IT),$(addsuffix .c,$(EXC_IT))),$(wildcard $(DIR_IT)*.c))
 
@@ -67,6 +67,11 @@ ResourceManager : $(OBJ_IT) $(OBJ_NR) $(DIR_IT)ResourceManager.o
 
 SingleCharOCR : $(OBJ_IT) $(OBJ_NR) $(DIR_IT)SingleCharOCR.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS)
+
+BetterManager : $(OBJ_IT) $(OBJ_NR) $(DIR_IT)BetterManager.o
+	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS)
+
+mainTests : #NADA
 
 # ImageProcess	----------------------------------------
 

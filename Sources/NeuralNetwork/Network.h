@@ -39,7 +39,7 @@ void InitializeNetworkTransitions(T_Network* network);
 
 /// Print all the network related variables, including all of its layers and nodes.
 /// \param network Pointer to the network to print from.
-void PrintAllNetworkInfos(T_Network* network);
+void PrintAllNetworkInfos(T_Network* network, int showNodes);
 
 
 /// Print all the transitions matrix in order

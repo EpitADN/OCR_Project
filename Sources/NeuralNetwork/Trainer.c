@@ -128,7 +128,7 @@ void Train(T_Trainer* trainer, double nu, int iteration){
 
 /// Print the results of all sets of inputs.
 /// \param trainer Pointer to the trainer
-void ShowResults(T_Trainer* trainer){
+void ShowResults(T_Trainer* trainer, int width){
 
     printf("Printing training results : \n\n");
 
@@ -144,7 +144,7 @@ void ShowResults(T_Trainer* trainer){
     double sumResults; double sumTargets; double globalError = 0; double ierror;
 
     // Iterating for each individual set
-    for (int i = 0; i < trainer->nbSets; ++i) {
+    for (int i = 0; i < trainer->nbSets && i < 62; ++i) {
 
         // Retrieving set
         iSetIn = trainer->SetsOfInputs[i];
@@ -158,14 +158,14 @@ void ShowResults(T_Trainer* trainer){
         for (int j = 0; j < lengthOutput; ++j)
             iSetOut[j] = outputNodes[j]->val;
 
-        // Printing inputs
-        printf("Results of set %d : \n", i+1);
-        if (lengthInput <= 10) {
-            printf("|");
-            for (int k = 0; k < lengthInput; ++k)
-                printf("%lf|", iSetIn[k]);
-        }
 
+        // Printing inputs
+        printf("Results of set %d :\n", i+1);
+        for (int k = 0; k < lengthInput; ++k) {
+            if (k % width == 0)
+                printf("\n");
+            printf("%d", (int)iSetIn[k]);
+        }
 
         // Printings target
         sumTargets = 0;
@@ -182,6 +182,7 @@ void ShowResults(T_Trainer* trainer){
             printf("%f|", iSetOut[k]);
             sumResults += iSetOut[k];
         }
+
 
         // Printing error
         if (sumTargets != 0)
@@ -212,7 +213,6 @@ void FreeTrainer(T_Trainer *trainer) {
     free(trainer->SetsOfTargets);
     free(trainer);
 }
-
 
 
 T_Trainer* CreateTrainerXOR(){

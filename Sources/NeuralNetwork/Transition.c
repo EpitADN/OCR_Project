@@ -70,6 +70,27 @@ void ActivateTransition(T_Transition* transition){
 
         UpdateVal(targetNodes[i]);
     }
+
+    /*
+    if (transition->targetLayer->position == LAST)
+        SoftMax(targetNodes, height);
+    */
+}
+
+
+/// Uses Softmax function to calculate value of nodes
+/// \param targetNodes Pointer to nodes array
+/// \param nbNodes Number of nodes on the array
+void SoftMax(T_Node** targetNodes, int nbNodes){
+
+    // Calculation total of net values
+    double sumVals = 0;
+    for (int i = 0; i < nbNodes; ++i)
+        sumVals += targetNodes[i]->val;
+
+    // Updating values
+    for (int i = 0; i < nbNodes; ++i)
+        targetNodes[i]->val = targetNodes[i]->val / sumVals;
 }
 
 

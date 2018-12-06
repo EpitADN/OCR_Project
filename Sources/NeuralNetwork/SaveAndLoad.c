@@ -230,7 +230,6 @@ T_Trainer* LoadTrainer_fp(T_Network* network, FILE* fp)
     double** SetsOfTargets = malloc(nbSets * sizeof(double *));
     int lastLayer = *network->nbLayers - 1;
     int Outputs = *network->sizeLayers[lastLayer];
-    printf("%d\n", Outputs);
     for (int i = 0; i < nbSets; ++i)
     {
         SetsOfTargets[i] = malloc(Outputs * sizeof(double));

@@ -88,6 +88,12 @@ T_TrainingChar TransformTrainingChar(char* charPath, int charSize, SDL_Surface* 
 void PrintTrainingResource(T_TrainingResource* trainingResource);
 
 
+/// Prints training chars associated with a target
+/// \param trainingResource Pointer to the training resource
+/// \param Target Number of said target
+void PrintTrainingChars(T_TrainingResource* trainingResource, int Target, int width);
+
+
 /// Saves the training resource in one unique binary file
 /// \param trainingResource Pointer to the training resource
 /// \param path Folder/name to save in

@@ -114,7 +114,7 @@ int main (int argc, char* argv[]){
     // Post-Training print
     //PrintNetworkTransitions(network);
     printf("\n");
-    ShowResults(trainer);
+    ShowResults(trainer, (int)sqrtf((float)*network->sizeLayers[0]));
 
     //Post-Training save
     SaveTrainer(trainer, path);

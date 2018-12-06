@@ -43,7 +43,7 @@ void Train(T_Trainer* trainer, double nu, int iteration);
 
 /// Print the results of all sets of inputs.
 /// \param trainer Pointer to the trainer
-void ShowResults(T_Trainer* trainer);
+void ShowResults(T_Trainer* trainer, int width);
 
 
 /// Free the memory occupied by a trainer.

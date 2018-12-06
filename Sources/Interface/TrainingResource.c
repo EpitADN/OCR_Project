@@ -190,7 +190,7 @@ T_TrainingChar TransformTrainingChar(char* charPath, int charSize, SDL_Surface* 
 
     for (unsigned int i = 0; i < height; ++i) {
         for (unsigned int j = 0; j < width; ++j) {
-            values[i*height + j] = get_pixel(image, j, i);
+            values[i*height + j] = get_pixel(image, j, i)/255;
             //printf("%d", (int)values[i*height + j]);
         }
         //printf("\n");
@@ -216,28 +216,30 @@ void PrintTrainingResource(T_TrainingResource* trainingResource) {
     for (int j = 0; j < trainingResource->nbTargets; ++j)
         printf("- '%c' : %d\n", trainingResource->Targets[j], trainingResource->nbDuplicates[j]);
 
+}
 
-    /*
+
+/// Prints training chars associated with a target
+/// \param trainingResource Pointer to the training resource
+/// \param Target Number of said target
+void PrintTrainingChars(T_TrainingResource* trainingResource, int Target, int width) {
+
     double* values;
-    printf("\n\nExamples of each target :\n\n");
-    for (int k = 0; k < trainingResource->nbTargets; ++k) {
 
-        printf("For %c : \n\n", trainingResource->Targets[k]);
+    printf("For %c : \n", trainingResource->Targets[Target]);
 
-        for (int l = 0; l < 3; ++l) {
+    for (int l = 0; l < 3; ++l) {
 
-            values = trainingResource->TrainingChars[k][l].values;
+        values = trainingResource->TrainingChars[Target][l].values;
+        for (int i = 0; i < trainingResource->size; ++i) {
 
-            for (int i = 0; i < trainingResource->size; ++i) {
-                printf("%d", (int)values[i]);
-                if (i % (int)sqrtf(trainingResource->size) == 0)
-                    printf("\n");
-            }
+            if (i % width == 0)
+                printf("\n");
+            printf("%d", (int)values[i]);
 
-            printf("\n");
         }
+        printf("\n\n");
     }
-    */
 }
 
 

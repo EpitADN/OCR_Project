@@ -46,7 +46,7 @@ SDL_Surface* display_image(SDL_Surface *img)
         warnx("BlitSurface error: %s\n", SDL_GetError());
 
     // Update the screen
-    SDL_UpdateRect(screen, 0, 0, img->w, img->h);
+    SDL_UpdateRect(screen, 0, 0, (Uint32)img->w, (Uint32)img->h);
 
     // return the screen for further uses
     return screen;
@@ -58,7 +58,7 @@ void update_surface(SDL_Surface* screen, SDL_Surface* image)
     if (SDL_BlitSurface(image, NULL, screen, NULL) < 0)
         warnx("BlitSurface error: %s\n", SDL_GetError());
 
-    SDL_UpdateRect(screen, 0, 0, image->w, image->h);
+    SDL_UpdateRect(screen, 0, 0, (Uint32)image->w, (Uint32)image->h);
 }
 
 
@@ -89,6 +89,9 @@ Uint32 get_pixel(SDL_Surface *surface, unsigned x, unsigned y)
 
         case 4:
             return *(Uint32 *)p;
+
+        default:
+            exit(1);
     }
 
     return 0;
