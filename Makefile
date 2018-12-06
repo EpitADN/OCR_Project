@@ -33,7 +33,7 @@ EXC_IP = 	mainSegmentation
 DIR_IP = 	$(DIR)ImageProcess/
 SRC_IP = 	$(filter-out $(addprefix $(DIR_IP),$(addsuffix .c,$(EXC_IP))),$(wildcard $(DIR_IP)*.c))
 
-EXC_UI =	mainUI
+EXC_UI =	GUI-SingleCharOCR
 DIR_UI = 	$(DIR)UserInterface/
 SRC_UI = 	$(filter-out $(addprefix $(DIR_UI),$(addsuffix .c,$(EXC_UI))),$(wildcard $(DIR_UI)*.c))
 
@@ -84,8 +84,8 @@ mainSegmentation : $(OBJ_IP) $(DIR_IP)mainSegmentation.o
 
 UserInterface : $(EXC_UI)
 
-mainUI : $(OBJ_NR) $(OBJ_UI) $(DIR_UI)mainUI.o
-	$(CC) -o $@ $^ $(LDFLAGS) $(GTK_LDFLAGS)
+GUI-SingleCharOCR : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(DIR_UI)GUI-SingleCharOCR.o
+	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS) $(GTK_LDFLAGS)
 
 
 #

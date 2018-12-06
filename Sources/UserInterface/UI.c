@@ -5,9 +5,10 @@
 #include <string.h>
 #include <stdio.h>
 #include "UI.h"
-#include "Trainer.h"
+#include "../NeuralNetwork/SaveAndLoad.h"
+#include "../Interface/Loader.h"
 
-
+/*
 void add_word(char s1[],char s2[])
 {
     int i =0;
@@ -120,4 +121,13 @@ void Create_Xor(char* ret)
 
     //Trouver avec tony comment bien affiche le network dans un char
 }
+*/
 
+void Result(char* ret,char* im_path)
+{
+	char* tmp = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	T_Network *network = LoadNetwork("path");
+	*ret = DryRun_FromPath(network,tmp,im_path);
+	FreeNetwork(network);
+
+}

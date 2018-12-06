@@ -6,10 +6,12 @@
 #define OCR_PROJECT_UI_H
 
 #include "../NeuralNetwork/Trainer.h"
+#include "../Interface/Loader.h"
 
-void add_word(char s1[],char s2[]);
+/*void add_word(char s1[],char s2[]);
 void Create_Xor_test(char* ret);
-void Create_Xor(char* ret);
+void Create_Xor(char* ret);*/
+void Result(char* ret,char* im_path);
 
 
 #endif //OCR_PROJECT_UI_H
