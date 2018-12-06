@@ -5,7 +5,8 @@
 #include <string.h>
 #include <stdio.h>
 #include "UI.h"
-#include "SaveAndLoad.h"
+#include "../NeuralNetwork/SaveAndLoad.h"
+#include "../Interface/Loader.h"
 
 /*
 void add_word(char s1[],char s2[])
@@ -126,5 +127,5 @@ void Result(char* ret,char* im_path)
 {
 	char* tmp = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
 	Trainer *trainer = LoadTrainer("path");
-	ret = DryRun_FromPath(trainer,tmp,im_path);
+	ret = DryRun_FromPath(trainer->network,tmp,im_path);
 }
