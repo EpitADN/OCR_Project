@@ -79,7 +79,7 @@ mainSegmentation : $(OBJ_IP) $(DIR_IP)mainSegmentation.o
 
 UserInterface : $(EXC_UI)
 
-mainUI : $(OBJ_NR) $(OBJ_UI) $(DIR_UI)mainUI.o
+mainUI : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(DIR_UI)mainUI.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(GTK_LDFLAGS)
 
 

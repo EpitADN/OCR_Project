@@ -126,7 +126,7 @@ void Create_Xor(char* ret)
 void Result(char* ret,char* im_path)
 {
 	char* tmp = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-	Network *network = LoadNetwork("path");
+	T_Network *network = LoadNetwork("path");
 	ret = DryRun_FromPath(network,tmp,im_path);
 	FreeNetwork(network);
 
