@@ -8,7 +8,7 @@
 
 Pour compiler sur les nucs :
 
-gcc test.c -o test_UI `pkg-config --cflags --libs gtk+-2.0`
+gcc mainUI.c -o test_UI `pkg-config --cflags --libs gtk+-2.0`
 
 
 */
