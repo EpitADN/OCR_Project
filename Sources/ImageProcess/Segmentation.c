@@ -5,7 +5,9 @@
 #include "Segmentation.h"
 #include "Load_Image.h"
 #include <stdlib.h>
-
+#include <stdint.h>
+#include "Toolbox_SDL.h"
+#include "TrainingResource.h"
 
 
 int** creationarrays(SDL_Surface* image_surface)
@@ -131,8 +133,8 @@ void characterisation(listofmatrix* list , listofmatrix* chara) //pour les carac
                     spac = 0;
                 }*/
             }
-            currentchara->next = sautdeligne();
-            currentchara = currentchara->next;
+            //currentchara->next = sautdeligne();
+            //currentchara = currentchara->next;
         }
         list = list->next;
     }
@@ -294,6 +296,18 @@ void printlist(int* list, int size )
     printf("%d \n ", sum / size);
 }
 
+void printlistdouble(double* list, int size, int width )
+{
+    double sum = 0;
+    for (int i = 0; i < size; ++i) {
+
+        sum += list[i];
+        if (i %width == 0)
+            printf("\n");
+        printf("%lf " , list[i]);
+    }
+    printf("%g \n ", sum / size);
+}
 
 
 void free_matrice(int** arrays ,int heigth )
@@ -313,25 +327,43 @@ void free_listofmatrice(listofmatrix* list )
         list = temp;
     }
 }
-/*
-double** resize (double** arrays , int width , int heigth)
-{
-    TupleHi* hitsos = histogrammification(arrays , width, heigth);
-    Tuple* wid = choosefrom_histo(hitsos->item1 , width);
-    int newwidth = (wid->item2- wid->item1);
-    Tuple *hei = choosefrom_histo(hitsos->item2 , heigth);
-    int newheigth = (hei->item2 - hei->item1);
-    double ** newarrays = (double**)malloc(sizeof(double*) * newwidth );
-    for (int i = 0; i <  newwidth; ++i)
-    {
-        newarrays[i] = (double*)malloc(sizeof(double) * newheigth );
-    }
 
-    for (int k = wid->item1; k < wid->item2; ++k) {
-        for (int l = hei->item1; l < hei->item2; ++l) {
-            newarrays[k - wid->item1 ][l - hei->item1] = arrays [k][l];
+float lerp(float s, float e, float t){
+    return s+(e-s)*t;
+}
+float blerp(float c00, float c10, float c01, float c11, float tx, float ty){
+    return lerp(lerp(c00, c10, tx), lerp(c01, c11, tx), ty);
+}
+
+
+#define getByte(value, n) (value >> (n*8) & 0xFF)
+
+void scale(listofmatrix *src, T_TrainingChar *dst, int newx, int newy){
+    int newWidth = newx;
+    int newHeight= newy;
+    int x, y;
+    for(x= 0; x < newWidth; x++) {
+        for (int y = 0; y < newHeight; ++y) {
+
+
+            float gx = x /( (float) (newWidth) * (src->width - 1));
+            float gy = y / (float) (newHeight) * (src->height - 1);
+            int gxi = (int) gx;
+            int gyi = (int) gy;
+            uint32_t result = 0;
+            uint32_t c00 = ((Uint32) src->matrix[gxi][gyi]) ? 1 :0 ;
+            uint32_t c10 = ((Uint32) src->matrix[gxi + 1][gyi]) ? 1 :0 ;
+            uint32_t c01 = ((Uint32) src->matrix[gxi][gyi + 1]) ? 1 :0 ;
+            uint32_t c11 = ((Uint32) src->matrix[gxi+1][gyi+1]) ? 1 :0 ;
+            uint8_t i;
+            for (i = 0; i < 3; i++) {
+                //result |=((uint8_t*)&result)[i] = blerp( ((uint8_t*)&c00)[i], ((uint8_t*)&c10)[i], ((uint8_t*)&c01)[i], ((uint8_t*)&c11)[i], gxi - gx, gyi - gy); // this is shady
+                result |= (uint8_t) blerp(getByte(c00, i), getByte(c10, i), getByte(c01, i), getByte(c11, i), gx - gxi, gy - gyi) << (8 * i);
+                //result |= (uint8_t) blerp(c00,c10,c01,c11, gx - gxi, gy - gyi) ;
+
+            }
+            //result = ((c00 + c10 + c01 + c11) == 1) ? 0 :1;
+            dst->values[x * newWidth + y] = result;
         }
     }
-    free(arrays);
-    return  newarrays;
-} */
+}

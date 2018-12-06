@@ -6,6 +6,7 @@
 #define IMAGE_PROCESS_SEGMENTATION_H
 
 #include <err.h>
+#include "TrainingResource.h"
 #include <stdlib.h>
 #include "SDL/SDL.h"
 
@@ -56,12 +57,17 @@ void* sautdeligne();
 
 
 
+void scale(listofmatrix *src, T_TrainingChar *dst, int newx, int newy);
+float blerp(float c00, float c10, float c01, float c11, float tx, float ty);
+float lerp(float s, float e, float t);
 
 
 
 void free_listofmatrice(listofmatrix* list );
 
 void printlist(int* list, int size );
+void printlistdouble(double* list, int size , int width);
+
 
 void choosefrom_histo(int* histogramme , int size , int* start, int* end);
 
