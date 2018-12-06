@@ -8,6 +8,9 @@
 #include "../NeuralNetwork/SaveAndLoad.h"
 #include "../Interface/Loader.h"
 
+char* Targets = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+char* NetworkPath = "Saves/OfficialOCR"
+
 /*
 void add_word(char s1[],char s2[])
 {
@@ -123,11 +126,10 @@ void Create_Xor(char* ret)
 }
 */
 
-void Result(char* ret,char* im_path)
+void Result(char* ret, char* im_path)
 {
-	char* tmp = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-	T_Network *network = LoadNetwork("path");
-	*ret = DryRun_FromPath(network,tmp,im_path);
+	T_Network *network = LoadNetwork(NetworkPath);
+	*ret = DryRun_FromPath(network, Targets, im_path);
 	FreeNetwork(network);
 
 }

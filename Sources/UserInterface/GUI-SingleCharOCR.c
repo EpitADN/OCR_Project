@@ -37,6 +37,7 @@ void Open_file(GtkWidget *widget,gpointer data)
         GtkFileChooser *chooser = GTK_FILE_CHOOSER(dialog);
         filename = gtk_file_chooser_get_filename(chooser);
 
+
         GtkWidget *label = (GtkWidget *) data;
         gtk_label_set_text(label,filename);
     }
