@@ -87,7 +87,7 @@ UserInterface : $(EXC_UI)
 OCR-SC : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(OBJ_IP) $(DIR_UI)OCR-SC.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS) $(GTK_LDFLAGS)
 
-OCR : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(DIR_UI)OCR.o
+OCR : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(OBJ_IP) $(DIR_UI)OCR.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS) $(GTK_LDFLAGS)
 
 #

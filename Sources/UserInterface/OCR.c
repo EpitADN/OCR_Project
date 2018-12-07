@@ -78,12 +78,10 @@ void Entry_use(GtkWidget *widget,gpointer data)
 
 void Set_result(GtkWidget *widget,gpointer data)
 {
-    char* ret;
-
-    Result(ret,filename);
+    char* ret = Result_withSeg(filename);
     GtkWidget *label = (GtkWidget *) data;
     gtk_label_set_text(label,ret);
-
+    free(ret);
 }
 
 

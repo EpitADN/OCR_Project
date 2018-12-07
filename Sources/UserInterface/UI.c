@@ -127,11 +127,21 @@ void Create_Xor(char* ret)
 }
 */
 
-void Result(char* ret, char* im_path)
+char* Result(char* im_path)
 {
+	printf("Loading network at %s ...\n", NetworkPath);
 	T_Network *network = LoadNetwork(NetworkPath);
-	*ret = DryRun_FromPath(network, Targets, im_path);
+	
+	printf("Done ! Running char through Network...\n");
+	char answer = DryRun_FromPath(network, Targets, im_path);
+	
+	printf("Got : '%c'\n" , answer);
 	FreeNetwork(network);
+
+	char* ret = malloc(sizeof(char));
+	ret[0] = answer;
+
+	return ret;
 }
 
 char* Result_withSeg(char* im_path)

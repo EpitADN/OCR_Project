@@ -11,7 +11,7 @@
 /*void add_word(char s1[],char s2[]);
 void Create_Xor_test(char* ret);
 void Create_Xor(char* ret);*/
-void Result(char* ret,char* im_path);
+char* Result(char* im_path);
 char* Result_withSeg(char* im_path);
 
 
