@@ -98,7 +98,7 @@ int main (int argc, char* argv[]){
     printf("================================\n\n\n");
 
     // Pre-Training print
-    PrintAllNetworkInfos(network);
+    PrintAllNetworkInfos(network, 0);
     //PrintNetworkTransitions(network);
 
     // Separator

@@ -7,9 +7,10 @@
 #include "UI.h"
 #include "../NeuralNetwork/SaveAndLoad.h"
 #include "../Interface/Loader.h"
+#include "../ImageProcess/mainSegmentation.h"
 
 char* Targets = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-char* NetworkPath = "Saves/OfficialOCR"
+char* NetworkPath = "Saves/OfficialOCR.bin";
 
 /*
 void add_word(char s1[],char s2[])
@@ -131,5 +132,12 @@ void Result(char* ret, char* im_path)
 	T_Network *network = LoadNetwork(NetworkPath);
 	*ret = DryRun_FromPath(network, Targets, im_path);
 	FreeNetwork(network);
+}
 
+char* Result_withSeg(char* im_path)
+{
+	T_Network *network = LoadNetwork(NetworkPath);
+	char* ret = mainsegmen(im_path, network, target);
+	FreeNetwork(network);
+	return ret;
 }

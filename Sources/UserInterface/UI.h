@@ -12,6 +12,7 @@
 void Create_Xor_test(char* ret);
 void Create_Xor(char* ret);*/
 void Result(char* ret,char* im_path);
+char* Result_withSeg(char* im_path)
 
 
 #endif //OCR_PROJECT_UI_H
