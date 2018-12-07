@@ -6,7 +6,7 @@
 #define IMAGE_PROCESS_SEGMENTATION_H
 
 #include <err.h>
-#include "TrainingResource.h"
+#include "../Interface/TrainingResource.h"
 #include <stdlib.h>
 #include "SDL/SDL.h"
 
@@ -34,9 +34,9 @@ typedef struct coor
 
 int** creationarrays(SDL_Surface* image_surface);
 
-void Histogrammification(int** arrays ,int width , int height , int* histogramme1, int* histogramme2);
+void Histogrammification(int** arrays ,int width , int height , int* histogramme1);
 
-void listification (int** arrays , int* hiligne ,int width , int height , listofmatrix* list );
+void Listification (int** arrays , int* hicolonne ,int width , int height , listofmatrix* list );
 
 listofmatrix* addtolist(int** arrays , int width, int start , int end ) ;
 
@@ -58,6 +58,8 @@ void* sautdeligne();
 
 
 void scale(listofmatrix *src, T_TrainingChar *dst, int newx, int newy);
+//void scale(listofmatrix *src, T_TrainingChar *dst, float scalex, float scaley);
+
 float blerp(float c00, float c10, float c01, float c11, float tx, float ty);
 float lerp(float s, float e, float t);
 

@@ -8,17 +8,10 @@
 #include <err.h>
 #include <stdlib.h>
 #include "SDL/SDL.h"
+#include "../Interface/Toolbox_SDL.h"
 
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_video.h"
-
-
-void init_sdl();
-
-
-Uint8* pixel_ref(SDL_Surface *surf, unsigned x, unsigned y);
-
-void put_pixel(SDL_Surface *surface, unsigned x, unsigned y, Uint32 pixel);
 
 void Grissification(SDL_Surface* image_surface);
 

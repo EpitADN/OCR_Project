@@ -2,98 +2,134 @@
 
 #include "Load_Image.h"
 #include "Segmentation.h"
-#include "Toolbox_SDL.h"
+#include "mainSegmentation.h"
 
 
-int main() {
+char* mainsegmen(char * path ,T_Network* Network,char* Targets ) {
 
 
-    SDL_Surface* image_surface;
-    SDL_Surface* screen_surface;
-
-
+    SDL_Surface* image_surface = NULL;
+    SDL_Surface* screen_surface = NULL;
 
     init_sdl();
 
-    image_surface = load_image("Images/Examples/image.bmp");
+    image_surface = load_image(path);
 
-    screen_surface = display_image(image_surface);
+    //screen_surface = display_image(image_surface);
 
 
-    wait_for_keypressed();
+    //wait_for_keypressed();
 
     Grissification(image_surface);
-    update_surface(screen_surface,image_surface);
-    wait_for_keypressed();
+    //update_surface(screen_surface,image_surface);
+    //wait_for_keypressed();
 
 
     Binarization(image_surface);
-    update_surface(screen_surface,image_surface);
-    wait_for_keypressed();
+    //update_surface(screen_surface,image_surface);
+    //wait_for_keypressed();
+
+
 /* 
 load image
 ==============================================================
 segmentation
 */
-    int width = image_surface->w; // number of pixel in a ligne
-    int height = image_surface->h; // number of pixel in a collone 
+
+    // Retrieving Infos
+    size_t width = (size_t)image_surface->w; // number of pixel in a ligne
+    size_t height = (size_t)image_surface->h; // number of pixel in a collone
     int** matrice = creationarrays(image_surface);
     //printarray(matrice, 190 , 190);
+
+
+    // Freeing SDL
     SDL_FreeSurface(image_surface);
     SDL_FreeSurface(screen_surface);
-    //we can free the sdl
-    int* hicollone = calloc(height, sizeof(int));
-    int* hiligne = calloc(width, sizeof(int));
-
-    Histogrammification(matrice , width, height, hicollone, hiligne);
-
-    listofmatrix* list = malloc( sizeof(listofmatrix));
-    listification(matrice , hicollone ,width ,height ,list);
-
-    free(hicollone);
-    free(hiligne);
-
-    //list = list->next;
-    listofmatrix* chara = malloc(sizeof(listofmatrix));
-    characterisation(list , chara);
-    chara = chara->next;
 
 
-    /*
-    while (list)
+    // Allocating memory
+
+    int* hicolonne = NULL;
+    hicolonne = calloc(height, sizeof(int));
+    if (hicolonne == NULL)
+        err(1,"Calloc hicolonne");
+
+
+    // Segmenting Image
+    Histogrammification(matrice , width, height, hicolonne);
+
+    // Allocating memory for lines list
+    listofmatrix* Lines = NULL;
+    Lines = malloc(sizeof(listofmatrix));
+    if (Lines == NULL)
+        err(1,"Calloc lines");
+
+    // Creating Lists
+    Listification(matrice , hicolonne ,width ,height , Lines);
+    free(hicolonne);
+
+    // Printing Lines
+    /*while (list)
     {
         printarray(list->matrix , list->width , list->height);
         printf("\n");
 
         list = list->next;
-    }
-    */
+    }*/
 
-    chara= chara->next;
-    chara= chara->next;
-    chara= chara->next;
-    chara= chara->next;
-    chara= chara->next;
-    chara= chara->next;
-    chara= chara->next;
-    listofmatrix* current = chara;
-    //while (current)
+
+    // Past guard notes
+    Lines = Lines->next;
+
+    // Allocating memory for Char array
+    listofmatrix* Chars = NULL;
+    Chars = malloc(sizeof(listofmatrix));
+    if (Chars == NULL)
+        err(1,"Calloc Chars");
+
+    // Processing
+    characterisation(Lines , Chars);
+
+
+
+
+    /*
+    listofmatrix* current = Chars->next;
+    while (current)
     {
         printarray(current->matrix , current->width , current->height);
         printf("\n");
         current = current->next;
     }
+    */
 
 
-    T_TrainingChar* temp = malloc(sizeof(T_TrainingChar));
-    temp->values =malloc(24 * 24 * sizeof(double));
-    scale(chara, temp, 24,24);
-    printlistdouble(temp->values , 24*24, 24);
+    //scale(Chars, temp,(float) newx / Chars->height, (float)newy / Chars->width);
+
+
 
     free_matrice(matrice , height);
-    free_listofmatrice(list);
-    free_listofmatrice(chara);
+    free_listofmatrice(Lines);
+    free_listofmatrice(Chars);
+
+    //
+    T_TrainingChar* temp = NULL;
+    listofmatrix* current = Chars->next;
+    size_t nbletter = 0;
+    char* texte ;
+    while (current)
+    {
+        temp = malloc(sizeof(T_TrainingChar));
+        scale(Chars, temp,24, 24);
+        nbletter+=1;
+        texte = realloc(texte , sizeof(char)*nbletter);
+        texte[nbletter-1] = DryRun(Network , Targets, temp);
+        current = current->next;
+
+    }
+    free(temp);
 
     
-    return 0;
+    return texte;
 }
