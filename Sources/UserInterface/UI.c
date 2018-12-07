@@ -138,8 +138,9 @@ char* Result(char* im_path)
 	printf("Got : '%c'\n" , answer);
 	FreeNetwork(network);
 
-	char* ret = malloc(sizeof(char));
+	char* ret = malloc(2*sizeof(char));
 	ret[0] = answer;
+	ret[1] = '\0';
 
 	return ret;
 }

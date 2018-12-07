@@ -38,8 +38,8 @@ void Open_file(GtkWidget *widget,gpointer data)
         filename = gtk_file_chooser_get_filename(chooser);
 
 
-        GtkWidget *label = (GtkWidget *) data;
-        gtk_label_set_text(label,filename);
+        //GtkWidget *label = (GtkWidget *) data;
+        //gtk_label_set_text(label,filename);
     }
 
     gtk_widget_destroy (dialog);
@@ -67,8 +67,8 @@ void ChangeImage(GtkWidget *widget,gpointer data)
 
 void Set_path(GtkWidget *widget,gpointer data)
 {
-    GtkEntry *tmp = (GtkWidget *) data;
-    gtk_entry_set_text(GTK_ENTRY(tmp),filename);
+    
+    gtk_entry_set_text(GTK_ENTRY(widget),filename);
 }
 
 void Entry_use(GtkWidget *widget,gpointer data)
@@ -78,9 +78,13 @@ void Entry_use(GtkWidget *widget,gpointer data)
 
 void Set_result(GtkWidget *widget,gpointer data)
 {
-    char* ret = Result(filename);
-    GtkWidget *label = (GtkWidget *) data;
-    gtk_label_set_text(label,ret);
+   char* ret = Result(filename);
+    
+    //GtkWidget *label = (GtkWidget *) data;
+
+    gtk_label_set_text(GTK_LABEL(widget),ret);
+    
+    //filename = ret;
     free(ret);
 }
 
