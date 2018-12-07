@@ -117,18 +117,34 @@ segmentation
     T_TrainingChar* temp = NULL;
     listofmatrix* current = Chars->next;
     size_t nbletter = 0;
-    char* texte ;
     while (current)
     {
-        temp = malloc(sizeof(T_TrainingChar));
-        scale(Chars, temp,24, 24);
         nbletter+=1;
-        texte = realloc(texte , sizeof(char)*nbletter);
-        texte[nbletter-1] = DryRun(Network , Targets, temp);
         current = current->next;
-
     }
-    free(temp);
+    current = Chars->next;
+
+    char* texte = NULL;
+    texte = malloc((nbletter+1) * sizeof(char));
+    int i= 0;
+    while (current)
+    {
+        //allocationg
+        temp = malloc(sizeof(T_TrainingChar));
+
+        //fonction call
+        scale(Chars, temp,28, 28);
+        texte[i] = DryRun(Network , Targets, temp);
+
+        //incrementation
+        current = current->next;
+        i+=1;
+
+        //needed free
+        free(temp->values);
+        free(temp);
+    }
+
 
     
     return texte;
