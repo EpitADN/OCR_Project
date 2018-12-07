@@ -10,7 +10,7 @@
 #include "../ImageProcess/mainSegmentation.h"
 
 char* Targets = "0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-char* NetworkPath = "Saves/OfficialOCR.bin";
+char* NetworkPath = "OfficialOCR.bin";
 
 /*
 void add_word(char s1[],char s2[])

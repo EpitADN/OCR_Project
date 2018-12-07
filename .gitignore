@@ -63,4 +63,5 @@ cmake-build-debug/
 CMakeLists.txt
 
 # Exec generated
-*bin
+Saves/*.bin
+Resource/*.bin
