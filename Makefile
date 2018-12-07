@@ -77,7 +77,7 @@ mainTests : #NADA
 
 ImageProcess : $(EXC_IP)
 
-mainSegmentation : $(OBJ_IP) $(DIR_IP)mainSegmentation.o
+mainSegmentation : $(OBJ_NR) $(OBJ_IT) $(OBJ_IP) $(DIR_IP)mainSegmentation.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS)
 
 # UserInterface	----------------------------------------
