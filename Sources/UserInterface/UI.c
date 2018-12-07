@@ -137,7 +137,7 @@ void Result(char* ret, char* im_path)
 char* Result_withSeg(char* im_path)
 {
 	T_Network *network = LoadNetwork(NetworkPath);
-	char* ret = mainsegmen(im_path, network, target);
+	char* ret = mainsegmen(im_path, network, Targets);
 	FreeNetwork(network);
 	return ret;
 }

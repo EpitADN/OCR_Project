@@ -29,7 +29,7 @@ EXC_IT =	ResourceManager SingleCharOCR BetterManager mainTests
 DIR_IT = 	$(DIR)Interface/
 SRC_IT = 	$(filter-out $(addprefix $(DIR_IT),$(addsuffix .c,$(EXC_IT))),$(wildcard $(DIR_IT)*.c))
 
-EXC_IP = 	mainSegmentation
+EXC_IP = 	
 DIR_IP = 	$(DIR)ImageProcess/
 SRC_IP = 	$(filter-out $(addprefix $(DIR_IP),$(addsuffix .c,$(EXC_IP))),$(wildcard $(DIR_IP)*.c))
 
@@ -84,7 +84,7 @@ mainSegmentation : $(OBJ_IP) $(DIR_IP)mainSegmentation.o
 
 UserInterface : $(EXC_UI)
 
-OCR-SC : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(DIR_UI)OCR-SC.o
+OCR-SC : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(OBJ_IP) $(DIR_UI)OCR-SC.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(SDL_LDFLAGS) $(GTK_LDFLAGS)
 
 OCR : $(OBJ_NR) $(OBJ_IT) $(OBJ_UI) $(DIR_UI)OCR.o
